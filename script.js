@@ -618,7 +618,7 @@ function createProductCard(product) {
    CATEGORY FILTER
    ========================================================= */
 
-function filterCategory(category) {
+window.filterCategory = function(category) {
 
     activeCategory = category;
 
@@ -638,7 +638,7 @@ function filterCategory(category) {
    GENDER FILTER
    ========================================================= */
 
-function filterGender(gender) {
+window.filterGender = function(gender) {
 
     activeGender = gender;
 
