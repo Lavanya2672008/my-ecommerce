@@ -1,7 +1,5 @@
-"use strict";
-
 /* =========================================================
-   LAVKART - COMPLETE JAVASCRIPT
+   LAVKART - ECOMMERCE WEBSITE
 ========================================================= */
 
 
@@ -439,39 +437,95 @@ let orders =
 
 let activeCategory = "all";
 let activeGender = "all";
-
 let couponDiscount = 0;
-
 let registerMode = false;
 
 let toastTimer;
 
 
 /* =========================================================
-   INITIALIZATION
+   PAGE LOAD
 ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
-    initializeLavKart
+    function () {
+
+        renderProducts();
+
+        updateCartCount();
+
+        updateWishlistCount();
+
+        setupMobileMenu();
+
+        setupSearch();
+
+        setupDarkMode();
+
+        updateLoginButton();
+
+    }
 );
 
 
-function initializeLavKart() {
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-    restoreDarkMode();
+function setupMobileMenu() {
 
-    restoreLogin();
+    const button =
+        document.getElementById("menuToggle");
 
-    setupSearch();
+    const navbar =
+        document.getElementById("navbar");
 
-    setupSorting();
+    if (!button || !navbar) {
+        return;
+    }
 
-    renderProducts();
 
-    updateCartCount();
+    button.addEventListener(
+        "click",
+        function () {
 
-    updateWishlistCount();
+            const open =
+                navbar.classList.toggle("open");
+
+            button.setAttribute(
+                "aria-expanded",
+                open ? "true" : "false"
+            );
+
+            button.textContent =
+                open ? "✕" : "☰";
+
+        }
+    );
+
+
+    navbar
+        .querySelectorAll("a")
+        .forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    navbar.classList.remove("open");
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    button.textContent = "☰";
+
+                }
+            );
+
+        });
 
 }
 
@@ -485,30 +539,29 @@ function setupSearch() {
     const input =
         document.getElementById("searchInput");
 
-    if (!input) return;
-
-    input.addEventListener(
-        "input",
-        renderProducts
-    );
-}
-
-
-/* =========================================================
-   SORT
-========================================================= */
-
-function setupSorting() {
-
     const select =
         document.getElementById("sortSelect");
 
-    if (!select) return;
 
-    select.addEventListener(
-        "change",
-        renderProducts
-    );
+    if (input) {
+
+        input.addEventListener(
+            "input",
+            renderProducts
+        );
+
+    }
+
+
+    if (select) {
+
+        select.addEventListener(
+            "change",
+            renderProducts
+        );
+
+    }
+
 }
 
 
@@ -523,47 +576,37 @@ function renderProducts() {
             "productContainer"
         );
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
-
-    const input =
-        document.getElementById(
-            "searchInput"
-        );
 
     const search =
-        input
-            ? input.value
-                .toLowerCase()
-                .trim()
-            : "";
+        document
+            .getElementById("searchInput")
+            ?.value
+            .toLowerCase()
+            .trim() || "";
 
-
-    const sortElement =
-        document.getElementById(
-            "sortSelect"
-        );
 
     const sort =
-        sortElement
-            ? sortElement.value
-            : "default";
+        document
+            .getElementById("sortSelect")
+            ?.value || "default";
 
 
     let filtered =
         products.filter(
-            product => {
+            function (product) {
 
                 const categoryMatch =
                     activeCategory === "all" ||
-                    product.category ===
-                        activeCategory;
+                    product.category === activeCategory;
 
 
                 const genderMatch =
                     activeGender === "all" ||
-                    product.gender ===
-                        activeGender;
+                    product.gender === activeGender;
 
 
                 const searchMatch =
@@ -624,18 +667,16 @@ function renderProducts() {
 
         filtered.sort(
             (a, b) =>
-                a.name.localeCompare(
-                    b.name
-                )
+                a.name.localeCompare(b.name)
         );
 
     }
 
 
-    updateActiveFilter();
+    updateFilterText();
 
 
-    if (!filtered.length) {
+    if (filtered.length === 0) {
 
         container.innerHTML = `
 
@@ -643,9 +684,7 @@ function renderProducts() {
 
                 <div>🔎</div>
 
-                <h3>
-                    No products found
-                </h3>
+                <h3>No products found</h3>
 
                 <p>
                     Try another search or category.
@@ -656,6 +695,7 @@ function renderProducts() {
         `;
 
         return;
+
     }
 
 
@@ -668,39 +708,48 @@ function renderProducts() {
 
 
 /* =========================================================
-   ACTIVE FILTER
+   FILTER TEXT
 ========================================================= */
 
-function updateActiveFilter() {
+function updateFilterText() {
 
     const element =
         document.getElementById(
             "activeFilter"
         );
 
-    if (!element) return;
+    if (!element) {
+        return;
+    }
 
 
-    let text =
-        "Showing All Products";
-
-
-    if (activeGender !== "all") {
-
-        text =
-            `Showing ${activeGender}'s Products`;
-
-    } else if (
-        activeCategory !== "all"
+    if (
+        activeGender !== "all"
     ) {
 
-        text =
-            `Showing ${activeCategory}`;
+        element.textContent =
+            `Showing ${activeGender} products`;
+
+        return;
 
     }
 
 
-    element.textContent = text;
+    if (
+        activeCategory !== "all"
+    ) {
+
+        element.textContent =
+            `Showing ${activeCategory} products`;
+
+        return;
+
+    }
+
+
+    element.textContent =
+        "Showing all products";
+
 }
 
 
@@ -713,19 +762,14 @@ function createProductCard(product) {
     const discount =
         Math.round(
             (
-                (
-                    product.oldPrice -
-                    product.price
-                ) /
+                (product.oldPrice - product.price) /
                 product.oldPrice
             ) * 100
         );
 
 
     const wished =
-        wishlist.includes(
-            product.id
-        );
+        wishlist.includes(product.id);
 
 
     return `
@@ -736,20 +780,24 @@ function createProductCard(product) {
 
                 <img
                     src="${product.image}"
-                    alt="${escapeHTML(product.name)}"
+                    alt="${product.name}"
                     loading="lazy"
-                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/f5f5f5/ff7200?text=LavKart'"
+                    onerror="
+                        this.src='https://placehold.co/800x800/f5f5f5/ff6b00?text=LavKart'
+                    "
                 >
 
                 <span class="product-badge">
                     ${product.badge}
                 </span>
 
+
                 <button
-                    type="button"
-                    class="wishlist-button ${wished ? "active" : ""}"
+                    class="wishlist-button ${
+                        wished ? "active" : ""
+                    }"
                     onclick="toggleWishlist(${product.id})"
-                    aria-label="Add to wishlist"
+                    aria-label="Wishlist"
                 >
                     ${wished ? "❤️" : "♡"}
                 </button>
@@ -760,14 +808,16 @@ function createProductCard(product) {
             <div class="product-info">
 
                 <div class="product-category">
+
                     ${product.gender}
                     ·
                     ${product.category}
+
                 </div>
 
 
                 <h3>
-                    ${escapeHTML(product.name)}
+                    ${product.name}
                 </h3>
 
 
@@ -802,7 +852,6 @@ function createProductCard(product) {
                 <div class="product-actions">
 
                     <button
-                        type="button"
                         class="view-button"
                         onclick="openProduct(${product.id})"
                     >
@@ -811,7 +860,6 @@ function createProductCard(product) {
 
 
                     <button
-                        type="button"
                         class="add-button"
                         onclick="addToCart(${product.id})"
                     >
@@ -825,11 +873,12 @@ function createProductCard(product) {
         </article>
 
     `;
+
 }
 
 
 /* =========================================================
-   CATEGORY FILTER
+   CATEGORY
 ========================================================= */
 
 function filterCategory(category) {
@@ -846,21 +895,12 @@ function filterCategory(category) {
 
 
 /* =========================================================
-   GENDER FILTER
+   GENDER
 ========================================================= */
 
 function filterGender(gender) {
 
     activeGender = gender;
-
-    /*
-       Important:
-       Do NOT force category = Fashion.
-
-       This allows future Men/Women/Kids
-       products from other categories
-       to also appear.
-    */
 
     activeCategory = "all";
 
@@ -882,7 +922,10 @@ function scrollToProducts() {
             "products"
         );
 
-    if (!section) return;
+    if (!section) {
+        return;
+    }
+
 
     section.scrollIntoView({
         behavior: "smooth",
@@ -903,7 +946,9 @@ function addToCart(id) {
             p => p.id === id
         );
 
-    if (!product) return;
+    if (!product) {
+        return;
+    }
 
 
     const existing =
@@ -914,7 +959,7 @@ function addToCart(id) {
 
     if (existing) {
 
-        existing.quantity += 1;
+        existing.quantity++;
 
     } else {
 
@@ -954,26 +999,32 @@ function updateCartCount() {
             "cartCount"
         );
 
-    if (!element) return;
+    if (!element) {
+        return;
+    }
 
 
     const count =
         cart.reduce(
-            (total, item) =>
-                total +
-                Number(item.quantity || 0),
+            function (total, item) {
+
+                return (
+                    total +
+                    item.quantity
+                );
+
+            },
             0
         );
 
 
-    element.textContent =
-        count;
+    element.textContent = count;
 
 }
 
 
 /* =========================================================
-   CART OPEN / CLOSE
+   OPEN CART
 ========================================================= */
 
 function openCart() {
@@ -981,15 +1032,11 @@ function openCart() {
     renderCart();
 
     document
-        .getElementById(
-            "cartSidebar"
-        )
+        .getElementById("cartSidebar")
         ?.classList.add("open");
 
     document
-        .getElementById(
-            "overlay"
-        )
+        .getElementById("overlay")
         ?.classList.add("show");
 
 }
@@ -998,15 +1045,11 @@ function openCart() {
 function closeCart() {
 
     document
-        .getElementById(
-            "cartSidebar"
-        )
+        .getElementById("cartSidebar")
         ?.classList.remove("open");
 
     document
-        .getElementById(
-            "overlay"
-        )
+        .getElementById("overlay")
         ?.classList.remove("show");
 
 }
@@ -1023,10 +1066,12 @@ function renderCart() {
             "cartItems"
         );
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
 
-    if (!cart.length) {
+    if (cart.length === 0) {
 
         container.innerHTML = `
 
@@ -1034,9 +1079,7 @@ function renderCart() {
 
                 <div>🛒</div>
 
-                <h3>
-                    Your cart is empty
-                </h3>
+                <h3>Your cart is empty</h3>
 
                 <p>
                     Add some products to get started.
@@ -1049,104 +1092,115 @@ function renderCart() {
         updateSummary(0);
 
         return;
+
     }
 
 
     container.innerHTML =
-        cart.map(
-            item => {
+        cart
+            .map(
+                function (item) {
 
-                const product =
-                    products.find(
-                        p =>
-                            p.id === item.id
-                    );
+                    const product =
+                        products.find(
+                            p =>
+                                p.id === item.id
+                        );
 
-                if (!product) {
-                    return "";
-                }
-
-
-                return `
-
-                    <div class="cart-item">
-
-                        <img
-                            src="${product.image}"
-                            alt="${escapeHTML(product.name)}"
-                        >
+                    if (!product) {
+                        return "";
+                    }
 
 
-                        <div class="cart-item-info">
+                    return `
 
-                            <h4>
-                                ${escapeHTML(product.name)}
-                            </h4>
+                        <div class="cart-item">
 
-                            <strong>
-                                ₹${product.price.toLocaleString("en-IN")}
-                            </strong>
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                            >
 
 
-                            <div class="quantity-controls">
+                            <div class="cart-item-info">
 
-                                <button
-                                    type="button"
-                                    onclick="changeQuantity(${product.id}, -1)"
-                                >
-                                    −
-                                </button>
+                                <h4>
+                                    ${product.name}
+                                </h4>
 
-                                <span>
-                                    ${item.quantity}
-                                </span>
+                                <strong>
+                                    ₹${product.price.toLocaleString("en-IN")}
+                                </strong>
 
-                                <button
-                                    type="button"
-                                    onclick="changeQuantity(${product.id}, 1)"
-                                >
-                                    +
-                                </button>
+
+                                <div class="quantity-controls">
+
+                                    <button
+                                        onclick="
+                                            changeQuantity(
+                                                ${product.id},
+                                                -1
+                                            )
+                                        "
+                                    >
+                                        −
+                                    </button>
+
+                                    <span>
+                                        ${item.quantity}
+                                    </span>
+
+                                    <button
+                                        onclick="
+                                            changeQuantity(
+                                                ${product.id},
+                                                1
+                                            )
+                                        "
+                                    >
+                                        +
+                                    </button>
+
+                                </div>
 
                             </div>
 
+
+                            <button
+                                class="remove-item"
+                                onclick="
+                                    removeFromCart(
+                                        ${product.id}
+                                    )
+                                "
+                            >
+                                ✕
+                            </button>
+
                         </div>
 
+                    `;
 
-                        <button
-                            type="button"
-                            class="remove-item"
-                            onclick="removeFromCart(${product.id})"
-                        >
-                            ✕
-                        </button>
-
-                    </div>
-
-                `;
-
-            }
-        ).join("");
+                }
+            )
+            .join("");
 
 
     const subtotal =
         cart.reduce(
-            (total, item) => {
+            function (total, item) {
 
                 const product =
                     products.find(
-                        p =>
-                            p.id === item.id
+                        p => p.id === item.id
                     );
-
-                if (!product) {
-                    return total;
-                }
 
                 return (
                     total +
-                    product.price *
-                    item.quantity
+                    (
+                        product.price *
+                        item.quantity
+                    )
                 );
 
             },
@@ -1159,22 +1213,16 @@ function renderCart() {
 }
 
 
-/* =========================================================
-   QUANTITY
-========================================================= */
-
-function changeQuantity(
-    id,
-    change
-) {
+function changeQuantity(id, change) {
 
     const item =
         cart.find(
-            item =>
-                item.id === id
+            item => item.id === id
         );
 
-    if (!item) return;
+    if (!item) {
+        return;
+    }
 
 
     item.quantity += change;
@@ -1202,10 +1250,8 @@ function removeFromCart(id) {
 
     cart =
         cart.filter(
-            item =>
-                item.id !== id
+            item => item.id !== id
         );
-
 
     saveCart();
 
@@ -1228,10 +1274,6 @@ function clearCart() {
 
     updateCartCount();
 
-    showToast(
-        "Cart cleared"
-    );
-
 }
 
 
@@ -1239,9 +1281,7 @@ function clearCart() {
    CART SUMMARY
 ========================================================= */
 
-function updateSummary(
-    subtotal
-) {
+function updateSummary(subtotal) {
 
     const shipping =
         subtotal === 0
@@ -1259,12 +1299,9 @@ function updateSummary(
 
 
     const total =
-        Math.max(
-            0,
-            subtotal +
-            shipping -
-            discount
-        );
+        subtotal +
+        shipping -
+        discount;
 
 
     const subtotalElement =
@@ -1317,20 +1354,23 @@ function updateSummary(
     if (totalElement) {
 
         totalElement.textContent =
-            `₹${total.toLocaleString("en-IN")}`;
+            `₹${Math.max(
+                0,
+                total
+            ).toLocaleString("en-IN")}`;
 
     }
 
 
-    const discountRow =
+    const row =
         document.getElementById(
             "discountRow"
         );
 
 
-    if (discountRow) {
+    if (row) {
 
-        discountRow.hidden =
+        row.hidden =
             discount === 0;
 
     }
@@ -1349,7 +1389,9 @@ function applyCoupon() {
             "couponInput"
         );
 
-    if (!input) return;
+    if (!input) {
+        return;
+    }
 
 
     const code =
@@ -1388,16 +1430,14 @@ function applyCoupon() {
 
 function toggleWishlist(id) {
 
-    const index =
-        wishlist.indexOf(id);
+    if (
+        wishlist.includes(id)
+    ) {
 
-
-    if (index >= 0) {
-
-        wishlist.splice(
-            index,
-            1
-        );
+        wishlist =
+            wishlist.filter(
+                item => item !== id
+            );
 
         showToast(
             "Removed from wishlist"
@@ -1434,7 +1474,10 @@ function updateWishlistCount() {
             "wishlistCount"
         );
 
-    if (!element) return;
+    if (!element) {
+        return;
+    }
+
 
     element.textContent =
         wishlist.length;
@@ -1454,6 +1497,7 @@ function openWishlist() {
             "wishlistItems"
         );
 
+
     if (!modal || !container) {
         return;
     }
@@ -1468,7 +1512,7 @@ function openWishlist() {
         );
 
 
-    if (!items.length) {
+    if (items.length === 0) {
 
         container.innerHTML = `
 
@@ -1498,9 +1542,7 @@ function openWishlist() {
     }
 
 
-    modal.classList.add(
-        "show"
-    );
+    modal.classList.add("show");
 
 }
 
@@ -1511,15 +1553,13 @@ function closeWishlist() {
         .getElementById(
             "wishlistModal"
         )
-        ?.classList.remove(
-            "show"
-        );
+        ?.classList.remove("show");
 
 }
 
 
 /* =========================================================
-   PRODUCT DETAILS
+   PRODUCT MODAL
 ========================================================= */
 
 function openProduct(id) {
@@ -1529,7 +1569,9 @@ function openProduct(id) {
             p => p.id === id
         );
 
-    if (!product) return;
+    if (!product) {
+        return;
+    }
 
 
     const modal =
@@ -1541,6 +1583,7 @@ function openProduct(id) {
         document.getElementById(
             "productDetails"
         );
+
 
     if (!modal || !details) {
         return;
@@ -1556,7 +1599,7 @@ function openProduct(id) {
                 <img
                     class="product-detail-image"
                     src="${product.image}"
-                    alt="${escapeHTML(product.name)}"
+                    alt="${product.name}"
                 >
 
             </div>
@@ -1577,13 +1620,16 @@ function openProduct(id) {
 
 
                 <h2>
-                    ${escapeHTML(product.name)}
+                    ${product.name}
                 </h2>
 
 
                 <div class="rating">
+
                     ⭐ ${product.rating}
+
                     (${product.reviews} reviews)
+
                 </div>
 
 
@@ -1599,27 +1645,36 @@ function openProduct(id) {
 
 
                 <p>
-                    Premium quality product from LavKart.
-                    Carefully selected for comfort,
-                    style, quality and everyday use.
+
+                    Premium quality product
+                    from LavKart.
+
+                    Carefully selected for
+                    comfort, style and
+                    everyday use.
+
                 </p>
 
 
                 <div class="detail-features">
 
                     ✓ Quality checked<br>
+
                     ✓ Fast delivery<br>
+
                     ✓ Easy 7-day returns<br>
-                    ✓ Secure checkout<br>
-                    ✓ Multiple payment options
+
+                    ✓ Secure checkout
 
                 </div>
 
 
                 <button
-                    type="button"
                     class="add-button large"
-                    onclick="addToCart(${product.id}); closeProductModal();"
+                    onclick="
+                        addToCart(${product.id});
+                        closeProductModal();
+                    "
                 >
                     🛒 Add to Cart
                 </button>
@@ -1631,9 +1686,7 @@ function openProduct(id) {
     `;
 
 
-    modal.classList.add(
-        "show"
-    );
+    modal.classList.add("show");
 
 }
 
@@ -1644,9 +1697,7 @@ function closeProductModal() {
         .getElementById(
             "productModal"
         )
-        ?.classList.remove(
-            "show"
-        );
+        ?.classList.remove("show");
 
 }
 
@@ -1657,7 +1708,7 @@ function closeProductModal() {
 
 function openCheckout() {
 
-    if (!cart.length) {
+    if (cart.length === 0) {
 
         showToast(
             "Your cart is empty"
@@ -1671,19 +1722,11 @@ function openCheckout() {
     closeCart();
 
 
-    const modal =
-        document.getElementById(
+    document
+        .getElementById(
             "checkoutModal"
-        );
-
-
-    if (modal) {
-
-        modal.classList.add(
-            "show"
-        );
-
-    }
+        )
+        ?.classList.add("show");
 
 }
 
@@ -1694,9 +1737,7 @@ function closeCheckout() {
         .getElementById(
             "checkoutModal"
         )
-        ?.classList.remove(
-            "show"
-        );
+        ?.classList.remove("show");
 
 }
 
@@ -1706,7 +1747,7 @@ function placeOrder(event) {
     event.preventDefault();
 
 
-    if (!cart.length) {
+    if (cart.length === 0) {
 
         showToast(
             "Your cart is empty"
@@ -1715,12 +1756,6 @@ function placeOrder(event) {
         return;
 
     }
-
-
-    const payment =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        );
 
 
     const order = {
@@ -1733,58 +1768,10 @@ function placeOrder(event) {
 
         date:
             new Date()
-                .toLocaleString(
-                    "en-IN"
-                ),
-
-        customer: {
-
-            firstName:
-                document.getElementById(
-                    "firstName"
-                ).value,
-
-            lastName:
-                document.getElementById(
-                    "lastName"
-                ).value,
-
-            email:
-                document.getElementById(
-                    "checkoutEmail"
-                ).value,
-
-            phone:
-                document.getElementById(
-                    "phone"
-                ).value,
-
-            address:
-                document.getElementById(
-                    "address"
-                ).value,
-
-            city:
-                document.getElementById(
-                    "city"
-                ).value,
-
-            pincode:
-                document.getElementById(
-                    "pincode"
-                ).value
-
-        },
-
-        payment:
-            payment
-                ? payment.value
-                : "cod",
+                .toLocaleString("en-IN"),
 
         items:
-            JSON.parse(
-                JSON.stringify(cart)
-            ),
+            [...cart],
 
         status:
             "Order Confirmed"
@@ -1805,10 +1792,11 @@ function placeOrder(event) {
 
     couponDiscount = 0;
 
-
     saveCart();
 
     updateCartCount();
+
+    closeCheckout();
 
 
     document
@@ -1816,9 +1804,6 @@ function placeOrder(event) {
             "checkoutForm"
         )
         ?.reset();
-
-
-    closeCheckout();
 
 
     showToast(
@@ -1844,12 +1829,13 @@ function openOrders() {
             "ordersList"
         );
 
+
     if (!modal || !container) {
         return;
     }
 
 
-    if (!orders.length) {
+    if (orders.length === 0) {
 
         container.innerHTML = `
 
@@ -1857,9 +1843,7 @@ function openOrders() {
 
                 <div>📦</div>
 
-                <h3>
-                    No orders yet
-                </h3>
+                <h3>No orders yet</h3>
 
                 <p>
                     Your orders will appear here.
@@ -1872,77 +1856,82 @@ function openOrders() {
     } else {
 
         container.innerHTML =
-            orders.map(
-                order => {
+            orders
+                .map(
+                    function (order) {
 
-                    const total =
-                        order.items.reduce(
-                            (sum, item) => {
+                        const total =
+                            order.items.reduce(
+                                function (
+                                    sum,
+                                    item
+                                ) {
 
-                                const product =
-                                    products.find(
-                                        p =>
-                                            p.id ===
-                                            item.id
+                                    const product =
+                                        products.find(
+                                            p =>
+                                                p.id ===
+                                                item.id
+                                        );
+
+                                    if (!product) {
+                                        return sum;
+                                    }
+
+                                    return (
+                                        sum +
+                                        (
+                                            product.price *
+                                            item.quantity
+                                        )
                                     );
 
-                                if (!product) {
-                                    return sum;
-                                }
-
-                                return (
-                                    sum +
-                                    product.price *
-                                    item.quantity
-                                );
-
-                            },
-                            0
-                        );
+                                },
+                                0
+                            );
 
 
-                    return `
+                        return `
 
-                        <div class="order-card">
+                            <div class="order-card">
 
-                            <div>
+                                <div>
 
-                                <strong>
-                                    ${order.id}
-                                </strong>
+                                    <strong>
+                                        ${order.id}
+                                    </strong>
 
-                                <span>
-                                    ${order.date}
-                                </span>
+                                    <span>
+                                        ${order.date}
+                                    </span>
 
-                            </div>
+                                </div>
 
 
-                            <div>
+                                <div>
 
-                                <strong>
-                                    ₹${total.toLocaleString("en-IN")}
-                                </strong>
+                                    <strong>
+                                        ₹${total.toLocaleString("en-IN")}
+                                    </strong>
 
-                                <span class="order-status">
-                                    ${order.status}
-                                </span>
+                                    <span class="order-status">
+                                        ${order.status}
+                                    </span>
+
+                                </div>
 
                             </div>
 
-                        </div>
+                        `;
 
-                    `;
-
-                }
-            ).join("");
+                    }
+                )
+                .join("");
 
     }
 
 
-    modal.classList.add(
-        "show"
-    );
+    modal.classList.add("show");
 
 }
 
@@ -1953,9 +1942,7 @@ function closeOrders() {
         .getElementById(
             "ordersModal"
         )
-        ?.classList.remove(
-            "show"
-        );
+        ?.classList.remove("show");
 
 }
 
@@ -1970,9 +1957,7 @@ function openLogin() {
         .getElementById(
             "authModal"
         )
-        ?.classList.add(
-            "show"
-        );
+        ?.classList.add("show");
 
 }
 
@@ -1983,9 +1968,7 @@ function closeLogin() {
         .getElementById(
             "authModal"
         )
-        ?.classList.remove(
-            "show"
-        );
+        ?.classList.remove("show");
 
 }
 
@@ -2001,7 +1984,7 @@ function toggleAuthMode() {
             "authTitle"
         );
 
-    const nameGroup =
+    const name =
         document.getElementById(
             "nameGroup"
         );
@@ -2017,23 +2000,12 @@ function toggleAuthMode() {
         );
 
 
-    if (
-        !title ||
-        !nameGroup ||
-        !submit ||
-        !switchButton
-    ) {
-        return;
-    }
-
-
     if (registerMode) {
 
         title.textContent =
             "Create Your Account";
 
-        nameGroup.hidden =
-            false;
+        name.hidden = false;
 
         submit.textContent =
             "Create Account";
@@ -2046,8 +2018,7 @@ function toggleAuthMode() {
         title.textContent =
             "Welcome Back";
 
-        nameGroup.hidden =
-            true;
+        name.hidden = true;
 
         submit.textContent =
             "Login";
@@ -2065,22 +2036,13 @@ function handleAuth(event) {
     event.preventDefault();
 
 
-    const emailElement =
-        document.getElementById(
-            "authEmail"
-        );
-
-    if (!emailElement) {
-        return;
-    }
-
-
     const email =
-        emailElement.value
+        document
+            .getElementById(
+                "authEmail"
+            )
+            .value
             .trim();
-
-
-    if (!email) return;
 
 
     localStorage.setItem(
@@ -2091,7 +2053,7 @@ function handleAuth(event) {
 
     closeLogin();
 
-    restoreLogin();
+    updateLoginButton();
 
 
     showToast(
@@ -2103,7 +2065,17 @@ function handleAuth(event) {
 }
 
 
-function restoreLogin() {
+function updateLoginButton() {
+
+    const button =
+        document.getElementById(
+            "loginButton"
+        );
+
+    if (!button) {
+        return;
+    }
+
 
     const user =
         localStorage.getItem(
@@ -2111,21 +2083,10 @@ function restoreLogin() {
         );
 
 
-    const button =
-        document.getElementById(
-            "loginButton"
-        );
-
-
-    if (
-        button &&
+    button.textContent =
         user
-    ) {
-
-        button.textContent =
-            "✓ Logged In";
-
-    }
+            ? "✓ Logged In"
+            : "Login";
 
 }
 
@@ -2134,23 +2095,7 @@ function restoreLogin() {
    DARK MODE
 ========================================================= */
 
-function toggleDarkMode() {
-
-    const enabled =
-        document.body.classList.toggle(
-            "dark"
-        );
-
-
-    localStorage.setItem(
-        "lavkart_dark",
-        enabled
-    );
-
-}
-
-
-function restoreDarkMode() {
+function setupDarkMode() {
 
     if (
         localStorage.getItem(
@@ -2167,56 +2112,20 @@ function restoreDarkMode() {
 }
 
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+function toggleDarkMode() {
 
-function toggleMobileMenu() {
-
-    const navbar =
-        document.getElementById(
-            "navbar"
+    const enabled =
+        document.body.classList.toggle(
+            "dark"
         );
 
 
-    if (!navbar) return;
-
-
-    navbar.classList.toggle(
-        "mobile-open"
+    localStorage.setItem(
+        "lavkart_dark",
+        enabled
     );
 
 }
-
-
-/* Close mobile menu after clicking a nav link */
-
-document.addEventListener(
-    "click",
-    function(event) {
-
-        const target =
-            event.target;
-
-
-        if (
-            target.matches(
-                ".navbar a"
-            )
-        ) {
-
-            document
-                .getElementById(
-                    "navbar"
-                )
-                ?.classList.remove(
-                    "mobile-open"
-                );
-
-        }
-
-    }
-);
 
 
 /* =========================================================
@@ -2237,6 +2146,38 @@ function closeAll() {
 
     closeOrders();
 
+
+    const navbar =
+        document.getElementById(
+            "navbar"
+        );
+
+    const button =
+        document.getElementById(
+            "menuToggle"
+        );
+
+
+    if (navbar) {
+
+        navbar.classList.remove(
+            "open"
+        );
+
+    }
+
+
+    if (button) {
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        button.textContent = "☰";
+
+    }
+
 }
 
 
@@ -2251,8 +2192,9 @@ function showToast(message) {
             "toast"
         );
 
-
-    if (!toast) return;
+    if (!toast) {
+        return;
+    }
 
 
     toast.textContent =
@@ -2271,7 +2213,7 @@ function showToast(message) {
 
     toastTimer =
         setTimeout(
-            function() {
+            function () {
 
                 toast.classList.remove(
                     "show"
@@ -2279,37 +2221,6 @@ function showToast(message) {
 
             },
             2500
-        );
-
-}
-
-
-/* =========================================================
-   HTML ESCAPE
-========================================================= */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
         );
 
 }
