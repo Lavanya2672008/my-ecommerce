@@ -4,214 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>OrangeCart | Shop Smart. Live Better.</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>LavKart - Online Shopping</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- TOP SALE BAR -->
-<div class="sale-bar">
-    🔥 Big Sale is Live — Up to 70% OFF
+<!-- ================= HEADER ================= -->
 
-    <div class="top-links">
-        Track Order &nbsp;&nbsp; Help &nbsp;&nbsp; Contact
-    </div>
-</div>
-
-
-<!-- HEADER -->
 <header class="header">
 
-    <div class="header-main">
-
-        <a href="#" class="logo" onclick="goHome()">
-            🛒 Orange<span>Cart</span>
-            <small>Shop Smart. Live Better.</small>
-        </a>
-
-
-        <div class="search-box">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search for products, brands and more..."
-                oninput="searchProducts()"
-            >
-
-            <button onclick="searchProducts()">🔍</button>
-
-        </div>
-
-
-        <div class="header-actions">
-
-            <button onclick="showAccount()">
-                👤 <span>Account</span>
-            </button>
-
-            <button onclick="openWishlist()">
-                ❤️ <span>Wishlist</span>
-            </button>
-
-            <button onclick="openCart()" class="cart-button">
-                🛒 <span>Cart</span>
-                <b id="cartCount">0</b>
-            </button>
-
-        </div>
-
+    <div class="logo">
+        Lav<span>Kart</span>
     </div>
 
-
-    <!-- NAVIGATION -->
-
-    <nav class="navigation">
-
-        <button onclick="filterCategory('All')">
-            🏠 All
-        </button>
-
-        <button onclick="filterCategory('Electronics')">
-            📱 Electronics
-        </button>
-
-        <button onclick="filterCategory('Fashion')">
-            👕 Fashion
-        </button>
-
-        <button onclick="filterCategory('Shoes')">
-            👟 Shoes
-        </button>
-
-        <button onclick="filterCategory('Home')">
-            🏠 Home
-        </button>
-
-        <button onclick="filterCategory('Beauty')">
-            💄 Beauty
-        </button>
-
-        <button onclick="filterCategory('Gaming')">
-            🎮 Gaming
-        </button>
-
-        <button onclick="filterCategory('Accessories')">
-            🎒 Accessories
-        </button>
-
-        <button class="deal-link" onclick="filterCategory('Deals')">
-            🔥 Today's Deals
-        </button>
-
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
     </nav>
+
+    <div class="header-actions">
+
+        <button onclick="toggleDarkMode()" class="header-btn">
+            🌙
+        </button>
+
+        <button onclick="openWishlist()" class="header-btn">
+            ❤️ <span id="wishlistCount">0</span>
+        </button>
+
+        <button onclick="openCart()" class="header-btn">
+            🛒 <span id="cartCount">0</span>
+        </button>
+
+        <button onclick="openLogin()" class="login-button" id="loginButton">
+            Login
+        </button>
+
+    </div>
 
 </header>
 
 
+<!-- ================= HERO ================= -->
 
-<!-- MAIN -->
-
-<main>
-
-
-<!-- HERO -->
-
-<section class="hero">
+<section class="hero" id="home">
 
     <div class="hero-content">
 
-        <div class="hero-label">
-            🔥 MEGA SHOPPING FESTIVAL
-        </div>
-
-        <h1>
-            Everything You Love.
-            <br>
-            <span>All in One Place.</span>
-        </h1>
-
-        <p>
-            Discover amazing products, unbeatable prices and
-            exclusive deals delivered right to your doorstep.
+        <p class="small-title">
+            WELCOME TO LAVKART
         </p>
 
+        <h1>
+            Everything You Need.
+            <span>All In One Place.</span>
+        </h1>
+
+        <p class="hero-description">
+            Discover fashion, electronics, shoes, accessories
+            and more at amazing prices.
+        </p>
 
         <div class="hero-buttons">
 
-            <button
-                class="primary-button"
-                onclick="scrollToProducts()"
-            >
-                Shop Now →
-            </button>
+            <a href="#products" class="primary-button">
+                Shop Now
+            </a>
 
-            <button
-                class="secondary-button"
-                onclick="filterCategory('Deals')"
-            >
-                🔥 View Deals
-            </button>
+            <a href="#categories" class="secondary-button">
+                Explore Categories
+            </a>
 
         </div>
 
-
-        <div class="benefits">
+        <div class="hero-features">
 
             <div>
                 🚚
-                <strong>Free Delivery</strong>
-                <small>On orders over ₹499</small>
-            </div>
-
-            <div>
-                🔄
-                <strong>Easy Returns</strong>
-                <small>7-day return policy</small>
+                <strong>Free Shipping</strong>
             </div>
 
             <div>
                 🔒
-                <strong>Secure Payment</strong>
-                <small>100% secure checkout</small>
+                <strong>Secure Shopping</strong>
+            </div>
+
+            <div>
+                ↩️
+                <strong>Easy Returns</strong>
             </div>
 
         </div>
 
     </div>
 
-
     <div class="hero-image">
 
-        <img
-            src="https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1000&q=85"
-            alt="Shopping"
-        >
-
-        <div class="sale-circle">
-
-            UP TO
-
-            <strong>70%</strong>
-
-            OFF
-
+        <div class="hero-circle">
+            🛍️
         </div>
 
-        <div class="floating-card">
+        <div class="floating-card floating-one">
+            🔥 Best Deals
+        </div>
 
-            ✨ <strong>Trending Now</strong>
-
-            <br>
-
-            Fresh deals added daily
-
+        <div class="floating-card floating-two">
+            ⭐ Top Rated
         </div>
 
     </div>
@@ -219,89 +122,69 @@
 </section>
 
 
+<!-- ================= CATEGORIES ================= -->
 
-<!-- CATEGORIES -->
-
-<section class="section">
+<section class="section" id="categories">
 
     <div class="section-heading">
 
-        <div>
+        <p>SHOP BY CATEGORY</p>
 
-            <span>EXPLORE COLLECTIONS</span>
+        <h2>
+            Popular Categories
+        </h2>
 
-            <h2>Shop by Category</h2>
-
-        </div>
+        <span>
+            Find exactly what you're looking for.
+        </span>
 
     </div>
-
 
     <div class="category-grid">
 
-        <button onclick="filterCategory('Electronics')">
-
-            <div>📱</div>
-
-            <strong>Electronics</strong>
-
-            <small>120+ items</small>
-
+        <button
+            class="category-card"
+            onclick="filterCategory('all')"
+        >
+            <div class="category-icon">🛍️</div>
+            <h3>All Products</h3>
+            <p>View everything</p>
         </button>
 
-
-        <button onclick="filterCategory('Fashion')">
-
-            <div>👕</div>
-
-            <strong>Fashion</strong>
-
-            <small>250+ items</small>
-
+        <button
+            class="category-card"
+            onclick="filterCategory('Fashion')"
+        >
+            <div class="category-icon">👕</div>
+            <h3>Fashion</h3>
+            <p>Clothing & style</p>
         </button>
 
-
-        <button onclick="filterCategory('Shoes')">
-
-            <div>👟</div>
-
-            <strong>Shoes</strong>
-
-            <small>90+ items</small>
-
+        <button
+            class="category-card"
+            onclick="filterCategory('Electronics')"
+        >
+            <div class="category-icon">📱</div>
+            <h3>Electronics</h3>
+            <p>Latest gadgets</p>
         </button>
 
-
-        <button onclick="filterCategory('Home')">
-
-            <div>🏠</div>
-
-            <strong>Home</strong>
-
-            <small>180+ items</small>
-
+        <button
+            class="category-card"
+            onclick="filterCategory('Shoes')"
+        >
+            <div class="category-icon">👟</div>
+            <h3>Shoes</h3>
+            <p>Walk in style</p>
         </button>
 
-
-        <button onclick="filterCategory('Beauty')">
-
-            <div>💄</div>
-
-            <strong>Beauty</strong>
-
-            <small>140+ items</small>
-
-        </button>
-
-
-        <button onclick="filterCategory('Gaming')">
-
-            <div>🎮</div>
-
-            <strong>Gaming</strong>
-
-            <small>75+ items</small>
-
+        <button
+            class="category-card"
+            onclick="filterCategory('Accessories')"
+        >
+            <div class="category-icon">⌚</div>
+            <h3>Accessories</h3>
+            <p>Complete your look</p>
         </button>
 
     </div>
@@ -309,28 +192,41 @@
 </section>
 
 
+<!-- ================= PRODUCTS ================= -->
 
-<!-- PRODUCTS -->
-
-<section class="section" id="productsSection">
+<section class="section products-section" id="products">
 
     <div class="section-heading">
 
-        <div>
+        <p>OUR STORE</p>
 
-            <span>HANDPICKED FOR YOU</span>
+        <h2>
+            Featured Products
+        </h2>
 
-            <h2 id="productTitle">
-                Trending Products
-            </h2>
+        <span>
+            Quality products at great prices.
+        </span>
 
-        </div>
+    </div>
 
 
-        <select id="sortProducts" onchange="renderProducts()">
+    <div class="product-tools">
 
-            <option value="featured">
-                Sort: Featured
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search products..."
+            oninput="renderProducts()"
+        >
+
+        <select
+            id="sortSelect"
+            onchange="renderProducts()"
+        >
+
+            <option value="default">
+                Sort Products
             </option>
 
             <option value="low">
@@ -342,7 +238,11 @@
             </option>
 
             <option value="rating">
-                Top Rated
+                Highest Rated
+            </option>
+
+            <option value="name">
+                Name A-Z
             </option>
 
         </select>
@@ -351,213 +251,172 @@
 
 
     <div
-        id="productGrid"
         class="product-grid"
-    ></div>
+        id="productContainer"
+    >
+    </div>
 
 </section>
 
 
+<!-- ================= ABOUT ================= -->
 
-<!-- OFFER -->
+<section class="about-section" id="about">
 
-<section class="offer-banner">
+    <div class="about-content">
 
-    <div>
-
-        <span>⚡ LIMITED TIME OFFER</span>
+        <p class="small-title">
+            WHY LAVKART?
+        </p>
 
         <h2>
-            Extra 10% OFF on your first order
+            Shopping Made
+            <span>Simple.</span>
         </h2>
 
         <p>
-            Use code
-            <strong>ORANGE10</strong>
-            at checkout
+            LavKart is designed to make online shopping
+            simple, convenient and enjoyable.
         </p>
 
-    </div>
-
-
-    <button
-        class="white-button"
-        onclick="scrollToProducts()"
-    >
-        Start Shopping →
-    </button>
-
-</section>
-
-
-
-<!-- REVIEWS -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <span>CUSTOMER LOVE</span>
-
-            <h2>
-                What shoppers say
-            </h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="reviews">
-
-        <article>
-
-            ⭐⭐⭐⭐⭐
-
-            <p>
-                "The website is beautiful and shopping
-                is extremely easy."
-            </p>
-
-            <strong>
-                — Priya S.
-            </strong>
-
-        </article>
-
-
-        <article>
-
-            ⭐⭐⭐⭐⭐
-
-            <p>
-                "Lots of products and really good deals.
-                Love the design."
-            </p>
-
-            <strong>
-                — Rahul K.
-            </strong>
-
-        </article>
-
-
-        <article>
-
-            ⭐⭐⭐⭐⭐
-
-            <p>
-                "The orange theme looks fantastic.
-                Everything works smoothly."
-            </p>
-
-            <strong>
-                — Ananya M.
-            </strong>
-
-        </article>
-
-    </div>
-
-</section>
-
-</main>
-
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="footer-container">
-
-        <div>
-
-            <h2>
-                🛒 OrangeCart
-            </h2>
-
-            <p>
-                Shop smart. Live better.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                Shop
-            </h4>
-
-            <a onclick="filterCategory('Electronics')">
-                Electronics
-            </a>
-
-            <a onclick="filterCategory('Fashion')">
-                Fashion
-            </a>
-
-            <a onclick="filterCategory('Shoes')">
-                Shoes
-            </a>
-
-            <a onclick="filterCategory('Home')">
-                Home
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                Help
-            </h4>
-
-            <a>
-                Customer Service
-            </a>
-
-            <a>
-                Shipping & Returns
-            </a>
-
-            <a>
-                Privacy Policy
-            </a>
-
-            <a>
-                Terms & Conditions
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                Newsletter
-            </h4>
-
-            <p>
-                Get fresh deals in your inbox.
-            </p>
-
-            <div class="newsletter">
-
-                <input
-                    id="emailInput"
-                    placeholder="Your email"
-                >
-
-                <button onclick="subscribe()">
-                    →
-                </button>
-
+        <div class="about-points">
+
+            <div>
+                <b>01</b>
+                Carefully selected products
             </div>
+
+            <div>
+                <b>02</b>
+                Competitive prices
+            </div>
+
+            <div>
+                <b>03</b>
+                Fast and reliable delivery
+            </div>
+
+            <div>
+                <b>04</b>
+                Customer-first experience
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="about-image">
+        🛒
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <div>
+
+        <p>
+            SPECIAL OFFERS
+        </p>
+
+        <h2>
+            Get 10% Off Your First Order
+        </h2>
+
+        <span>
+            Use coupon
+            <strong>WELCOME10</strong>
+            during checkout.
+        </span>
+
+    </div>
+
+    <a
+        href="#products"
+        class="primary-button"
+    >
+        Start Shopping
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <div class="footer-logo">
+                Lav<span>Kart</span>
+            </div>
+
+            <p>
+                Your trusted destination
+                for online shopping.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Shop</h3>
+
+            <a href="#products">
+                Products
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#products">
+                Deals
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Customer Care</h3>
+
+            <a href="#contact">
+                Contact Us
+            </a>
+
+            <a href="#about">
+                Shipping
+            </a>
+
+            <a href="#about">
+                Returns
+            </a>
+
+            <a href="#about">
+                FAQ
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Account</h3>
+
+            <button onclick="openLogin()">
+                Login / Register
+            </button>
+
+            <button onclick="openOrders()">
+                My Orders
+            </button>
 
         </div>
 
@@ -566,38 +425,519 @@
 
     <div class="copyright">
 
-        © 2026 OrangeCart.
-        Demo ecommerce website.
+        © 2026 LavKart.
+        All rights reserved.
 
     </div>
 
 </footer>
 
 
-
-<!-- MODAL -->
+<!-- ================= OVERLAY ================= -->
 
 <div
-    id="modal"
-    class="modal"
-    onclick="closeModalOutside(event)"
+    id="overlay"
+    class="overlay"
+    onclick="closeAll()"
+>
+</div>
+
+
+<!-- ================= CART ================= -->
+
+<aside
+    id="cartSidebar"
+    class="cart-sidebar"
 >
 
-    <div class="modal-box">
+    <div class="drawer-header">
 
-        <button
-            class="close-button"
-            onclick="closeModal()"
-        >
-            ×
+        <h2>
+            Shopping Cart
+        </h2>
+
+        <button onclick="closeCart()">
+            ✕
         </button>
 
-        <div id="modalContent"></div>
+    </div>
+
+
+    <div
+        id="cartItems"
+        class="cart-items"
+    >
+    </div>
+
+
+    <div class="cart-bottom">
+
+        <div class="coupon-box">
+
+            <input
+                id="couponInput"
+                placeholder="Coupon code"
+            >
+
+            <button onclick="applyCoupon()">
+                Apply
+            </button>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="subtotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Shipping
+            </span>
+
+            <strong id="shipping">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div
+            class="summary-row"
+            id="discountRow"
+            hidden
+        >
+
+            <span>
+                Discount
+            </span>
+
+            <strong id="discount">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="total-row">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="checkout-button"
+            onclick="openCheckout()"
+        >
+            Proceed to Checkout
+        </button>
+
+
+        <button
+            class="clear-button"
+            onclick="clearCart()"
+        >
+            Clear Cart
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div
+    id="productModal"
+    class="modal"
+>
+
+    <div class="modal-box product-modal">
+
+        <button
+            class="modal-close"
+            onclick="closeProductModal()"
+        >
+            ✕
+        </button>
+
+        <div id="productDetails">
+        </div>
 
     </div>
 
 </div>
 
+
+<!-- ================= CHECKOUT MODAL ================= -->
+
+<div
+    id="checkoutModal"
+    class="modal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="modal-close"
+            onclick="closeCheckout()"
+        >
+            ✕
+        </button>
+
+        <h2>
+            Checkout
+        </h2>
+
+        <p class="muted">
+            Enter your delivery details.
+        </p>
+
+
+        <form
+            id="checkoutForm"
+            onsubmit="placeOrder(event)"
+        >
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        First Name
+                    </label>
+
+                    <input
+                        id="firstName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Last Name
+                    </label>
+
+                    <input
+                        id="lastName"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    id="checkoutEmail"
+                    type="email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone
+                </label>
+
+                <input
+                    id="phone"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Address
+                </label>
+
+                <textarea
+                    id="address"
+                    rows="3"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        City
+                    </label>
+
+                    <input
+                        id="city"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        PIN Code
+                    </label>
+
+                    <input
+                        id="pincode"
+                        pattern="[0-9]{6}"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                Payment Method
+            </h3>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="cod"
+                    checked
+                >
+
+                💵 Cash on Delivery
+
+            </label>
+
+
+            <label class="payment-option">
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="online"
+                >
+
+                💳 Online Payment
+
+            </label>
+
+
+            <button
+                class="place-order-button"
+                type="submit"
+            >
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= LOGIN ================= -->
+
+<div
+    id="authModal"
+    class="modal"
+>
+
+    <div class="modal-box auth-box">
+
+        <button
+            class="modal-close"
+            onclick="closeLogin()"
+        >
+            ✕
+        </button>
+
+        <div class="auth-logo">
+            Lav<span>Kart</span>
+        </div>
+
+        <h2 id="authTitle">
+            Welcome Back
+        </h2>
+
+        <p class="muted">
+            Login or create your account.
+        </p>
+
+
+        <form
+            onsubmit="handleAuth(event)"
+        >
+
+            <div
+                id="nameGroup"
+                class="form-group"
+                hidden
+            >
+
+                <label>
+                    Name
+                </label>
+
+                <input id="authName">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    id="authEmail"
+                    type="email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    id="authPassword"
+                    type="password"
+                    minlength="6"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                class="place-order-button"
+                id="authSubmit"
+                type="submit"
+            >
+                Login
+            </button>
+
+        </form>
+
+
+        <button
+            class="switch-auth"
+            onclick="toggleAuthMode()"
+            id="switchAuth"
+        >
+            Create an account
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= WISHLIST ================= -->
+
+<div
+    id="wishlistModal"
+    class="modal"
+>
+
+    <div class="modal-box wide">
+
+        <button
+            class="modal-close"
+            onclick="closeWishlist()"
+        >
+            ✕
+        </button>
+
+        <h2>
+            My Wishlist ❤️
+        </h2>
+
+        <div
+            id="wishlistItems"
+            class="product-grid"
+        >
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ORDERS ================= -->
+
+<div
+    id="ordersModal"
+    class="modal"
+>
+
+    <div class="modal-box wide">
+
+        <button
+            class="modal-close"
+            onclick="closeOrders()"
+        >
+            ✕
+        </button>
+
+        <h2>
+            My Orders
+        </h2>
+
+        <div id="ordersList">
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast"
+>
+</div>
 
 
 <script src="script.js"></script>
