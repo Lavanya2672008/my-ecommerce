@@ -1,7 +1,6 @@
-"use strict";
-
 /* =========================================================
-   LAVKART - COMPLETE JAVASCRIPT
+   LAVKART - COMPLETE ECOMMERCE WEBSITE
+   GitHub Pages + Mobile Compatible
 ========================================================= */
 
 
@@ -22,7 +21,7 @@ const products = [
         oldPrice: 1499,
         rating: 4.5,
         reviews: 128,
-        image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=85",
         badge: "BEST SELLER"
     },
 
@@ -35,7 +34,7 @@ const products = [
         oldPrice: 999,
         rating: 4.4,
         reviews: 245,
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=85",
         badge: "POPULAR"
     },
 
@@ -48,7 +47,7 @@ const products = [
         oldPrice: 2199,
         rating: 4.6,
         reviews: 189,
-        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85",
         badge: "TRENDING"
     },
 
@@ -61,7 +60,7 @@ const products = [
         oldPrice: 1799,
         rating: 4.7,
         reviews: 96,
-        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=85",
         badge: "HOT"
     },
 
@@ -74,7 +73,7 @@ const products = [
         oldPrice: 3999,
         rating: 4.8,
         reviews: 74,
-        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=85",
         badge: "PREMIUM"
     },
 
@@ -87,7 +86,7 @@ const products = [
         oldPrice: 2999,
         rating: 4.7,
         reviews: 321,
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85",
         badge: "BEST SELLER"
     },
 
@@ -100,7 +99,7 @@ const products = [
         oldPrice: 3499,
         rating: 4.5,
         reviews: 67,
-        image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=85",
         badge: "NEW"
     },
 
@@ -113,7 +112,7 @@ const products = [
         oldPrice: 2499,
         rating: 4.6,
         reviews: 154,
-        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=85",
         badge: "DEAL"
     },
 
@@ -129,7 +128,7 @@ const products = [
         oldPrice: 1999,
         rating: 4.8,
         reviews: 287,
-        image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=800&q=85",
         badge: "BEST SELLER"
     },
 
@@ -142,7 +141,7 @@ const products = [
         oldPrice: 1199,
         rating: 4.5,
         reviews: 193,
-        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85",
         badge: "POPULAR"
     },
 
@@ -155,7 +154,7 @@ const products = [
         oldPrice: 2299,
         rating: 4.7,
         reviews: 211,
-        image: "https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?auto=format&fit=crop&w=800&q=85",
         badge: "TRENDING"
     },
 
@@ -168,7 +167,7 @@ const products = [
         oldPrice: 1799,
         rating: 4.6,
         reviews: 348,
-        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85",
         badge: "HOT"
     },
 
@@ -181,7 +180,7 @@ const products = [
         oldPrice: 2699,
         rating: 4.7,
         reviews: 174,
-        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=85",
         badge: "NEW"
     },
 
@@ -194,7 +193,7 @@ const products = [
         oldPrice: 2199,
         rating: 4.5,
         reviews: 86,
-        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=85",
         badge: "DEAL"
     },
 
@@ -207,7 +206,7 @@ const products = [
         oldPrice: 2099,
         rating: 4.6,
         reviews: 109,
-        image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=85",
         badge: "POPULAR"
     },
 
@@ -220,7 +219,7 @@ const products = [
         oldPrice: 1299,
         rating: 4.4,
         reviews: 221,
-        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=85",
         badge: "SALE"
     },
 
@@ -236,7 +235,7 @@ const products = [
         oldPrice: 699,
         rating: 4.7,
         reviews: 143,
-        image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=85",
         badge: "POPULAR"
     },
 
@@ -249,7 +248,7 @@ const products = [
         oldPrice: 999,
         rating: 4.8,
         reviews: 174,
-        image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=800&q=85",
         badge: "BEST SELLER"
     },
 
@@ -262,7 +261,7 @@ const products = [
         oldPrice: 1399,
         rating: 4.6,
         reviews: 112,
-        image: "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=800&q=85",
         badge: "HOT"
     },
 
@@ -275,7 +274,7 @@ const products = [
         oldPrice: 1099,
         rating: 4.7,
         reviews: 92,
-        image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=800&q=85",
         badge: "NEW"
     },
 
@@ -288,7 +287,7 @@ const products = [
         oldPrice: 1099,
         rating: 4.5,
         reviews: 204,
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85",
         badge: "SALE"
     },
 
@@ -301,7 +300,7 @@ const products = [
         oldPrice: 1499,
         rating: 4.6,
         reviews: 77,
-        image: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=800&q=85",
         badge: "TRENDING"
     },
 
@@ -317,7 +316,7 @@ const products = [
         oldPrice: 2999,
         rating: 4.5,
         reviews: 642,
-        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=800&q=85",
         badge: "BEST SELLER"
     },
 
@@ -330,7 +329,7 @@ const products = [
         oldPrice: 3499,
         rating: 4.6,
         reviews: 481,
-        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85",
         badge: "TRENDING"
     },
 
@@ -343,7 +342,7 @@ const products = [
         oldPrice: 3999,
         rating: 4.7,
         reviews: 357,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=85",
         badge: "PREMIUM"
     },
 
@@ -356,7 +355,7 @@ const products = [
         oldPrice: 1799,
         rating: 4.5,
         reviews: 285,
-        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=85",
         badge: "DEAL"
     },
 
@@ -369,7 +368,7 @@ const products = [
         oldPrice: 1599,
         rating: 4.4,
         reviews: 316,
-        image: "https://images.unsplash.com/photo-1609592424729-7e8f5e8f2a1e?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1609592424729-7e8f5e8f2a1e?auto=format&fit=crop&w=800&q=85",
         badge: "SALE"
     },
 
@@ -385,7 +384,7 @@ const products = [
         oldPrice: 1399,
         rating: 4.5,
         reviews: 94,
-        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=85",
         badge: "NEW"
     },
 
@@ -398,7 +397,7 @@ const products = [
         oldPrice: 1199,
         rating: 4.4,
         reviews: 122,
-        image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=85",
         badge: "POPULAR"
     },
 
@@ -411,7 +410,7 @@ const products = [
         oldPrice: 999,
         rating: 4.5,
         reviews: 88,
-        image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=800&q=80",
+        image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=800&q=85",
         badge: "DEAL"
     }
 
@@ -427,17 +426,21 @@ let cart =
         localStorage.getItem("lavkart_cart")
     ) || [];
 
+
 let wishlist =
     JSON.parse(
         localStorage.getItem("lavkart_wishlist")
     ) || [];
+
 
 let orders =
     JSON.parse(
         localStorage.getItem("lavkart_orders")
     ) || [];
 
+
 let activeCategory = "all";
+
 let activeGender = "all";
 
 let couponDiscount = 0;
@@ -448,72 +451,27 @@ let toastTimer;
 
 
 /* =========================================================
-   INITIALIZATION
+   INITIAL LOAD
 ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
-    initializeLavKart
+    function() {
+
+        renderProducts();
+
+        updateCartCount();
+
+        updateWishlistCount();
+
+        loadLoginState();
+
+    }
 );
 
 
-function initializeLavKart() {
-
-    restoreDarkMode();
-
-    restoreLogin();
-
-    setupSearch();
-
-    setupSorting();
-
-    renderProducts();
-
-    updateCartCount();
-
-    updateWishlistCount();
-
-}
-
-
 /* =========================================================
-   SEARCH
-========================================================= */
-
-function setupSearch() {
-
-    const input =
-        document.getElementById("searchInput");
-
-    if (!input) return;
-
-    input.addEventListener(
-        "input",
-        renderProducts
-    );
-}
-
-
-/* =========================================================
-   SORT
-========================================================= */
-
-function setupSorting() {
-
-    const select =
-        document.getElementById("sortSelect");
-
-    if (!select) return;
-
-    select.addEventListener(
-        "change",
-        renderProducts
-    );
-}
-
-
-/* =========================================================
-   RENDER PRODUCTS
+   PRODUCT RENDER
 ========================================================= */
 
 function renderProducts() {
@@ -523,36 +481,27 @@ function renderProducts() {
             "productContainer"
         );
 
+
     if (!container) return;
 
 
-    const input =
-        document.getElementById(
-            "searchInput"
-        );
-
     const search =
-        input
-            ? input.value
-                .toLowerCase()
-                .trim()
-            : "";
+        document
+            .getElementById("searchInput")
+            ?.value
+            .toLowerCase()
+            .trim() || "";
 
-
-    const sortElement =
-        document.getElementById(
-            "sortSelect"
-        );
 
     const sort =
-        sortElement
-            ? sortElement.value
-            : "default";
+        document
+            .getElementById("sortSelect")
+            ?.value || "default";
 
 
     let filtered =
         products.filter(
-            product => {
+            function(product) {
 
                 const categoryMatch =
                     activeCategory === "all" ||
@@ -632,10 +581,12 @@ function renderProducts() {
     }
 
 
-    updateActiveFilter();
+    updateFilterText(
+        filtered.length
+    );
 
 
-    if (!filtered.length) {
+    if (filtered.length === 0) {
 
         container.innerHTML = `
 
@@ -656,51 +607,63 @@ function renderProducts() {
         `;
 
         return;
+
     }
 
 
     container.innerHTML =
         filtered
-            .map(createProductCard)
+            .map(
+                product =>
+                    createProductCard(product)
+            )
             .join("");
 
 }
 
 
 /* =========================================================
-   ACTIVE FILTER
+   FILTER TEXT
 ========================================================= */
 
-function updateActiveFilter() {
+function updateFilterText(count) {
 
     const element =
         document.getElementById(
             "activeFilter"
         );
 
+
     if (!element) return;
 
 
-    let text =
-        "Showing All Products";
-
-
-    if (activeGender !== "all") {
-
-        text =
-            `Showing ${activeGender}'s Products`;
-
-    } else if (
-        activeCategory !== "all"
+    if (
+        activeGender !== "all"
     ) {
 
-        text =
-            `Showing ${activeCategory}`;
+        element.textContent =
+            `${activeGender} • ${count} products`;
+
+        return;
 
     }
 
 
-    element.textContent = text;
+    if (
+        activeCategory !== "all"
+    ) {
+
+        element.textContent =
+            `${activeCategory} • ${count} products`;
+
+        return;
+
+    }
+
+
+    element.textContent =
+        `Showing ${count} products`;
+
 }
 
 
@@ -713,10 +676,8 @@ function createProductCard(product) {
     const discount =
         Math.round(
             (
-                (
-                    product.oldPrice -
-                    product.price
-                ) /
+                (product.oldPrice -
+                    product.price) /
                 product.oldPrice
             ) * 100
         );
@@ -736,22 +697,35 @@ function createProductCard(product) {
 
                 <img
                     src="${product.image}"
-                    alt="${escapeHTML(product.name)}"
+                    alt="${product.name}"
                     loading="lazy"
-                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/f5f5f5/ff7200?text=LavKart'"
+                    onerror="this.src='https://placehold.co/800x800/f97316/ffffff?text=LavKart'"
                 >
+
 
                 <span class="product-badge">
                     ${product.badge}
                 </span>
 
+
                 <button
                     type="button"
-                    class="wishlist-button ${wished ? "active" : ""}"
-                    onclick="toggleWishlist(${product.id})"
-                    aria-label="Add to wishlist"
+                    class="wishlist-button ${
+                        wished
+                            ? "active"
+                            : ""
+                    }"
+                    onclick="
+                        event.stopPropagation();
+                        window.toggleWishlist(${product.id})
+                    "
+                    aria-label="Wishlist"
                 >
-                    ${wished ? "❤️" : "♡"}
+                    ${
+                        wished
+                            ? "❤️"
+                            : "♡"
+                    }
                 </button>
 
             </div>
@@ -760,14 +734,16 @@ function createProductCard(product) {
             <div class="product-info">
 
                 <div class="product-category">
+
                     ${product.gender}
                     ·
                     ${product.category}
+
                 </div>
 
 
                 <h3>
-                    ${escapeHTML(product.name)}
+                    ${product.name}
                 </h3>
 
 
@@ -788,9 +764,11 @@ function createProductCard(product) {
                         ₹${product.price.toLocaleString("en-IN")}
                     </strong>
 
+
                     <del>
                         ₹${product.oldPrice.toLocaleString("en-IN")}
                     </del>
+
 
                     <span class="discount">
                         ${discount}% OFF
@@ -804,7 +782,9 @@ function createProductCard(product) {
                     <button
                         type="button"
                         class="view-button"
-                        onclick="openProduct(${product.id})"
+                        onclick="
+                            window.openProduct(${product.id})
+                        "
                     >
                         View
                     </button>
@@ -813,7 +793,9 @@ function createProductCard(product) {
                     <button
                         type="button"
                         class="add-button"
-                        onclick="addToCart(${product.id})"
+                        onclick="
+                            window.addToCart(${product.id})
+                        "
                     >
                         🛒 Add to Cart
                     </button>
@@ -825,6 +807,7 @@ function createProductCard(product) {
         </article>
 
     `;
+
 }
 
 
@@ -832,43 +815,63 @@ function createProductCard(product) {
    CATEGORY FILTER
 ========================================================= */
 
-function filterCategory(category) {
+window.filterCategory =
+    function(category) {
 
-    activeCategory = category;
+        activeCategory =
+            category;
 
-    activeGender = "all";
+        activeGender =
+            "all";
 
-    renderProducts();
 
-    scrollToProducts();
+        renderProducts();
 
-}
+
+        scrollToProducts();
+
+    };
 
 
 /* =========================================================
    GENDER FILTER
 ========================================================= */
 
-function filterGender(gender) {
+window.filterGender =
+    function(gender) {
 
-    activeGender = gender;
+        console.log(
+            "LavKart gender:",
+            gender
+        );
 
-    /*
-       Important:
-       Do NOT force category = Fashion.
 
-       This allows future Men/Women/Kids
-       products from other categories
-       to also appear.
-    */
+        activeGender =
+            gender;
 
-    activeCategory = "all";
+        activeCategory =
+            "Fashion";
 
-    renderProducts();
 
-    scrollToProducts();
+        const search =
+            document.getElementById(
+                "searchInput"
+            );
 
-}
+
+        if (search) {
+
+            search.value = "";
+
+        }
+
+
+        renderProducts();
+
+
+        scrollToProducts();
+
+    };
 
 
 /* =========================================================
@@ -882,12 +885,21 @@ function scrollToProducts() {
             "products"
         );
 
+
     if (!section) return;
 
-    section.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+
+    setTimeout(
+        function() {
+
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        },
+        100
+    );
 
 }
 
@@ -896,45 +908,119 @@ function scrollToProducts() {
    CART
 ========================================================= */
 
-function addToCart(id) {
+window.addToCart =
+    function(id) {
 
-    const product =
-        products.find(
-            p => p.id === id
+        const product =
+            products.find(
+                p => p.id === id
+            );
+
+
+        if (!product) return;
+
+
+        const existing =
+            cart.find(
+                item =>
+                    item.id === id
+            );
+
+
+        if (existing) {
+
+            existing.quantity++;
+
+        } else {
+
+            cart.push({
+                id: id,
+                quantity: 1
+            });
+
+        }
+
+
+        saveCart();
+
+        updateCartCount();
+
+        showToast(
+            `${product.name} added to cart 🛒`
         );
 
-    if (!product) return;
+    };
 
 
-    const existing =
-        cart.find(
-            item => item.id === id
-        );
+window.removeFromCart =
+    function(id) {
+
+        cart =
+            cart.filter(
+                item =>
+                    item.id !== id
+            );
 
 
-    if (existing) {
+        saveCart();
 
-        existing.quantity += 1;
+        renderCart();
 
-    } else {
+        updateCartCount();
 
-        cart.push({
-            id: id,
-            quantity: 1
-        });
-
-    }
+    };
 
 
-    saveCart();
+window.changeQuantity =
+    function(id, change) {
 
-    updateCartCount();
+        const item =
+            cart.find(
+                item =>
+                    item.id === id
+            );
 
-    showToast(
-        `${product.name} added to cart 🛒`
-    );
 
-}
+        if (!item) return;
+
+
+        item.quantity += change;
+
+
+        if (
+            item.quantity <= 0
+        ) {
+
+            window.removeFromCart(id);
+
+            return;
+
+        }
+
+
+        saveCart();
+
+        renderCart();
+
+        updateCartCount();
+
+    };
+
+
+window.clearCart =
+    function() {
+
+        cart = [];
+
+        couponDiscount = 0;
+
+        saveCart();
+
+        renderCart();
+
+        updateCartCount();
+
+    };
 
 
 function saveCart() {
@@ -949,72 +1035,86 @@ function saveCart() {
 
 function updateCartCount() {
 
+    const count =
+        cart.reduce(
+            (
+                total,
+                item
+            ) =>
+                total +
+                item.quantity,
+            0
+        );
+
+
     const element =
         document.getElementById(
             "cartCount"
         );
 
-    if (!element) return;
 
+    if (element) {
 
-    const count =
-        cart.reduce(
-            (total, item) =>
-                total +
-                Number(item.quantity || 0),
-            0
-        );
+        element.textContent =
+            count;
 
-
-    element.textContent =
-        count;
+    }
 
 }
 
 
 /* =========================================================
-   CART OPEN / CLOSE
+   CART SIDEBAR
 ========================================================= */
 
-function openCart() {
+window.openCart =
+    function() {
 
-    renderCart();
-
-    document
-        .getElementById(
-            "cartSidebar"
-        )
-        ?.classList.add("open");
-
-    document
-        .getElementById(
-            "overlay"
-        )
-        ?.classList.add("show");
-
-}
+        renderCart();
 
 
-function closeCart() {
-
-    document
-        .getElementById(
-            "cartSidebar"
-        )
-        ?.classList.remove("open");
-
-    document
-        .getElementById(
-            "overlay"
-        )
-        ?.classList.remove("show");
-
-}
+        document
+            .getElementById(
+                "cartSidebar"
+            )
+            ?.classList.add(
+                "open"
+            );
 
 
-/* =========================================================
-   RENDER CART
-========================================================= */
+        document
+            .getElementById(
+                "overlay"
+            )
+            ?.classList.add(
+                "show"
+            );
+
+    };
+
+
+window.closeCart =
+    function() {
+
+        document
+            .getElementById(
+                "cartSidebar"
+            )
+            ?.classList.remove(
+                "open"
+            );
+
+
+        document
+            .getElementById(
+                "overlay"
+            )
+            ?.classList.remove(
+                "show"
+            );
+
+    };
+
 
 function renderCart() {
 
@@ -1023,10 +1123,11 @@ function renderCart() {
             "cartItems"
         );
 
+
     if (!container) return;
 
 
-    if (!cart.length) {
+    if (cart.length === 0) {
 
         container.innerHTML = `
 
@@ -1046,198 +1147,143 @@ function renderCart() {
 
         `;
 
+
         updateSummary(0);
 
         return;
+
     }
 
 
     container.innerHTML =
-        cart.map(
-            item => {
+        cart
+            .map(
+                function(item) {
 
-                const product =
-                    products.find(
-                        p =>
-                            p.id === item.id
-                    );
-
-                if (!product) {
-                    return "";
-                }
+                    const product =
+                        products.find(
+                            p =>
+                                p.id ===
+                                item.id
+                        );
 
 
-                return `
-
-                    <div class="cart-item">
-
-                        <img
-                            src="${product.image}"
-                            alt="${escapeHTML(product.name)}"
-                        >
+                    if (!product)
+                        return "";
 
 
-                        <div class="cart-item-info">
+                    return `
 
-                            <h4>
-                                ${escapeHTML(product.name)}
-                            </h4>
+                        <div class="cart-item">
 
-                            <strong>
-                                ₹${product.price.toLocaleString("en-IN")}
-                            </strong>
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                            >
 
 
-                            <div class="quantity-controls">
+                            <div class="cart-item-info">
 
-                                <button
-                                    type="button"
-                                    onclick="changeQuantity(${product.id}, -1)"
-                                >
-                                    −
-                                </button>
+                                <h4>
+                                    ${product.name}
+                                </h4>
 
-                                <span>
-                                    ${item.quantity}
-                                </span>
 
-                                <button
-                                    type="button"
-                                    onclick="changeQuantity(${product.id}, 1)"
-                                >
-                                    +
-                                </button>
+                                <strong>
+                                    ₹${product.price.toLocaleString("en-IN")}
+                                </strong>
+
+
+                                <div class="quantity-controls">
+
+                                    <button
+                                        type="button"
+                                        onclick="
+                                            window.changeQuantity(
+                                                ${product.id},
+                                                -1
+                                            )
+                                        "
+                                    >
+                                        −
+                                    </button>
+
+
+                                    <span>
+                                        ${item.quantity}
+                                    </span>
+
+
+                                    <button
+                                        type="button"
+                                        onclick="
+                                            window.changeQuantity(
+                                                ${product.id},
+                                                1
+                                            )
+                                        "
+                                    >
+                                        +
+                                    </button>
+
+                                </div>
 
                             </div>
 
+
+                            <button
+                                type="button"
+                                class="remove-item"
+                                onclick="
+                                    window.removeFromCart(
+                                        ${product.id}
+                                    )
+                                "
+                            >
+                                ✕
+                            </button>
+
                         </div>
 
+                    `;
 
-                        <button
-                            type="button"
-                            class="remove-item"
-                            onclick="removeFromCart(${product.id})"
-                        >
-                            ✕
-                        </button>
-
-                    </div>
-
-                `;
-
-            }
-        ).join("");
+                }
+            )
+            .join("");
 
 
     const subtotal =
         cart.reduce(
-            (total, item) => {
+            function(
+                total,
+                item
+            ) {
 
                 const product =
                     products.find(
                         p =>
-                            p.id === item.id
+                            p.id ===
+                            item.id
                     );
 
-                if (!product) {
-                    return total;
-                }
 
-                return (
-                    total +
-                    product.price *
-                    item.quantity
-                );
+                return total +
+                    (
+                        product.price *
+                        item.quantity
+                    );
 
             },
             0
         );
 
 
-    updateSummary(subtotal);
-
-}
-
-
-/* =========================================================
-   QUANTITY
-========================================================= */
-
-function changeQuantity(
-    id,
-    change
-) {
-
-    const item =
-        cart.find(
-            item =>
-                item.id === id
-        );
-
-    if (!item) return;
-
-
-    item.quantity += change;
-
-
-    if (item.quantity <= 0) {
-
-        removeFromCart(id);
-
-        return;
-
-    }
-
-
-    saveCart();
-
-    renderCart();
-
-    updateCartCount();
-
-}
-
-
-function removeFromCart(id) {
-
-    cart =
-        cart.filter(
-            item =>
-                item.id !== id
-        );
-
-
-    saveCart();
-
-    renderCart();
-
-    updateCartCount();
-
-}
-
-
-function clearCart() {
-
-    cart = [];
-
-    couponDiscount = 0;
-
-    saveCart();
-
-    renderCart();
-
-    updateCartCount();
-
-    showToast(
-        "Cart cleared"
+    updateSummary(
+        subtotal
     );
 
 }
 
-
-/* =========================================================
-   CART SUMMARY
-========================================================= */
 
 function updateSummary(
     subtotal
@@ -1259,12 +1305,9 @@ function updateSummary(
 
 
     const total =
-        Math.max(
-            0,
-            subtotal +
-            shipping -
-            discount
-        );
+        subtotal +
+        shipping -
+        discount;
 
 
     const subtotalElement =
@@ -1272,15 +1315,18 @@ function updateSummary(
             "subtotal"
         );
 
+
     const shippingElement =
         document.getElementById(
             "shipping"
         );
 
+
     const discountElement =
         document.getElementById(
             "discount"
         );
+
 
     const totalElement =
         document.getElementById(
@@ -1288,49 +1334,40 @@ function updateSummary(
         );
 
 
-    if (subtotalElement) {
-
+    if (subtotalElement)
         subtotalElement.textContent =
             `₹${subtotal.toLocaleString("en-IN")}`;
 
-    }
 
-
-    if (shippingElement) {
-
+    if (shippingElement)
         shippingElement.textContent =
             shipping === 0
                 ? "FREE"
                 : `₹${shipping}`;
 
-    }
 
-
-    if (discountElement) {
-
+    if (discountElement)
         discountElement.textContent =
             `-₹${discount.toLocaleString("en-IN")}`;
 
-    }
 
-
-    if (totalElement) {
-
+    if (totalElement)
         totalElement.textContent =
-            `₹${total.toLocaleString("en-IN")}`;
+            `₹${Math.max(
+                0,
+                total
+            ).toLocaleString("en-IN")}`;
 
-    }
 
-
-    const discountRow =
+    const row =
         document.getElementById(
             "discountRow"
         );
 
 
-    if (discountRow) {
+    if (row) {
 
-        discountRow.hidden =
+        row.hidden =
             discount === 0;
 
     }
@@ -1342,89 +1379,101 @@ function updateSummary(
    COUPON
 ========================================================= */
 
-function applyCoupon() {
+window.applyCoupon =
+    function() {
 
-    const input =
-        document.getElementById(
-            "couponInput"
-        );
-
-    if (!input) return;
-
-
-    const code =
-        input.value
-            .trim()
-            .toUpperCase();
+        const input =
+            document.getElementById(
+                "couponInput"
+            );
 
 
-    if (code === "WELCOME10") {
-
-        couponDiscount = 0.10;
-
-        showToast(
-            "10% discount applied 🎉"
-        );
-
-    } else {
-
-        couponDiscount = 0;
-
-        showToast(
-            "Invalid coupon code ❌"
-        );
-
-    }
+        if (!input) return;
 
 
-    renderCart();
+        const code =
+            input.value
+                .trim()
+                .toUpperCase();
 
-}
+
+        if (
+            code === "WELCOME10"
+        ) {
+
+            couponDiscount =
+                0.10;
+
+
+            showToast(
+                "10% discount applied 🎉"
+            );
+
+        } else {
+
+            couponDiscount =
+                0;
+
+
+            showToast(
+                "Invalid coupon code ❌"
+            );
+
+        }
+
+
+        renderCart();
+
+    };
 
 
 /* =========================================================
    WISHLIST
 ========================================================= */
 
-function toggleWishlist(id) {
+window.toggleWishlist =
+    function(id) {
 
-    const index =
-        wishlist.indexOf(id);
+        if (
+            wishlist.includes(id)
+        ) {
+
+            wishlist =
+                wishlist.filter(
+                    item =>
+                        item !== id
+                );
 
 
-    if (index >= 0) {
+            showToast(
+                "Removed from wishlist"
+            );
 
-        wishlist.splice(
-            index,
-            1
+        } else {
+
+            wishlist.push(id);
+
+
+            showToast(
+                "Added to wishlist ❤️"
+            );
+
+        }
+
+
+        localStorage.setItem(
+            "lavkart_wishlist",
+            JSON.stringify(
+                wishlist
+            )
         );
 
-        showToast(
-            "Removed from wishlist"
-        );
 
-    } else {
+        updateWishlistCount();
 
-        wishlist.push(id);
+        renderProducts();
 
-        showToast(
-            "Added to wishlist ❤️"
-        );
-
-    }
-
-
-    localStorage.setItem(
-        "lavkart_wishlist",
-        JSON.stringify(wishlist)
-    );
-
-
-    updateWishlistCount();
-
-    renderProducts();
-
-}
+    };
 
 
 function updateWishlistCount() {
@@ -1434,686 +1483,682 @@ function updateWishlistCount() {
             "wishlistCount"
         );
 
-    if (!element) return;
 
-    element.textContent =
-        wishlist.length;
+    if (element) {
+
+        element.textContent =
+            wishlist.length;
+
+    }
 
 }
 
 
-function openWishlist() {
+window.openWishlist =
+    function() {
 
-    const modal =
-        document.getElementById(
-            "wishlistModal"
+        const modal =
+            document.getElementById(
+                "wishlistModal"
+            );
+
+
+        const container =
+            document.getElementById(
+                "wishlistItems"
+            );
+
+
+        if (
+            !modal ||
+            !container
+        )
+            return;
+
+
+        const items =
+            products.filter(
+                product =>
+                    wishlist.includes(
+                        product.id
+                    )
+            );
+
+
+        if (
+            items.length === 0
+        ) {
+
+            container.innerHTML = `
+
+                <div class="empty-products">
+
+                    <div>❤️</div>
+
+                    <h3>
+                        Your wishlist is empty
+                    </h3>
+
+                    <p>
+                        Save products you love here.
+                    </p>
+
+                </div>
+
+            `;
+
+        } else {
+
+            container.innerHTML =
+                items
+                    .map(
+                        createProductCard
+                    )
+                    .join("");
+
+        }
+
+
+        modal.classList.add(
+            "show"
         );
 
-    const container =
-        document.getElementById(
-            "wishlistItems"
-        );
-
-    if (!modal || !container) {
-        return;
-    }
+    };
 
 
-    const items =
-        products.filter(
-            product =>
-                wishlist.includes(
-                    product.id
-                )
-        );
+window.closeWishlist =
+    function() {
+
+        document
+            .getElementById(
+                "wishlistModal"
+            )
+            ?.classList.remove(
+                "show"
+            );
+
+    };
 
 
-    if (!items.length) {
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
 
-        container.innerHTML = `
+window.openProduct =
+    function(id) {
 
-            <div class="empty-products">
+        const product =
+            products.find(
+                p => p.id === id
+            );
 
-                <div>❤️</div>
 
-                <h3>
-                    Your wishlist is empty
-                </h3>
+        if (!product)
+            return;
 
-                <p>
-                    Save products you love here.
-                </p>
+
+        const modal =
+            document.getElementById(
+                "productModal"
+            );
+
+
+        const details =
+            document.getElementById(
+                "productDetails"
+            );
+
+
+        if (
+            !modal ||
+            !details
+        )
+            return;
+
+
+        details.innerHTML = `
+
+            <div class="product-detail-grid">
+
+                <div>
+
+                    <img
+                        class="product-detail-image"
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+
+                </div>
+
+
+                <div class="product-detail-content">
+
+                    <span class="product-badge">
+                        ${product.badge}
+                    </span>
+
+
+                    <p class="product-category">
+
+                        ${product.gender}
+                        ·
+                        ${product.category}
+
+                    </p>
+
+
+                    <h2>
+                        ${product.name}
+                    </h2>
+
+
+                    <div class="rating">
+
+                        ⭐ ${product.rating}
+
+                        (${product.reviews} reviews)
+
+                    </div>
+
+
+                    <div class="detail-price">
+
+                        ₹${product.price.toLocaleString("en-IN")}
+
+                        <del>
+                            ₹${product.oldPrice.toLocaleString("en-IN")}
+                        </del>
+
+                    </div>
+
+
+                    <p>
+
+                        Premium quality product from
+                        LavKart. Carefully selected for
+                        comfort, style, quality and
+                        everyday use.
+
+                    </p>
+
+
+                    <div class="detail-features">
+
+                        ✓ Quality checked<br>
+                        ✓ Fast delivery<br>
+                        ✓ Easy 7-day returns<br>
+                        ✓ Secure checkout
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="add-button large"
+                        onclick="
+                            window.addToCart(${product.id});
+                            window.closeProductModal();
+                        "
+                    >
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
 
             </div>
 
         `;
 
-    } else {
 
-        container.innerHTML =
-            items
-                .map(createProductCard)
-                .join("");
-
-    }
-
-
-    modal.classList.add(
-        "show"
-    );
-
-}
-
-
-function closeWishlist() {
-
-    document
-        .getElementById(
-            "wishlistModal"
-        )
-        ?.classList.remove(
+        modal.classList.add(
             "show"
         );
 
-}
+    };
 
 
-/* =========================================================
-   PRODUCT DETAILS
-========================================================= */
+window.closeProductModal =
+    function() {
 
-function openProduct(id) {
+        document
+            .getElementById(
+                "productModal"
+            )
+            ?.classList.remove(
+                "show"
+            );
 
-    const product =
-        products.find(
-            p => p.id === id
-        );
-
-    if (!product) return;
-
-
-    const modal =
-        document.getElementById(
-            "productModal"
-        );
-
-    const details =
-        document.getElementById(
-            "productDetails"
-        );
-
-    if (!modal || !details) {
-        return;
-    }
-
-
-    details.innerHTML = `
-
-        <div class="product-detail-grid">
-
-            <div>
-
-                <img
-                    class="product-detail-image"
-                    src="${product.image}"
-                    alt="${escapeHTML(product.name)}"
-                >
-
-            </div>
-
-
-            <div class="product-detail-content">
-
-                <span class="product-badge">
-                    ${product.badge}
-                </span>
-
-
-                <p class="product-category">
-                    ${product.gender}
-                    ·
-                    ${product.category}
-                </p>
-
-
-                <h2>
-                    ${escapeHTML(product.name)}
-                </h2>
-
-
-                <div class="rating">
-                    ⭐ ${product.rating}
-                    (${product.reviews} reviews)
-                </div>
-
-
-                <div class="detail-price">
-
-                    ₹${product.price.toLocaleString("en-IN")}
-
-                    <del>
-                        ₹${product.oldPrice.toLocaleString("en-IN")}
-                    </del>
-
-                </div>
-
-
-                <p>
-                    Premium quality product from LavKart.
-                    Carefully selected for comfort,
-                    style, quality and everyday use.
-                </p>
-
-
-                <div class="detail-features">
-
-                    ✓ Quality checked<br>
-                    ✓ Fast delivery<br>
-                    ✓ Easy 7-day returns<br>
-                    ✓ Secure checkout<br>
-                    ✓ Multiple payment options
-
-                </div>
-
-
-                <button
-                    type="button"
-                    class="add-button large"
-                    onclick="addToCart(${product.id}); closeProductModal();"
-                >
-                    🛒 Add to Cart
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    modal.classList.add(
-        "show"
-    );
-
-}
-
-
-function closeProductModal() {
-
-    document
-        .getElementById(
-            "productModal"
-        )
-        ?.classList.remove(
-            "show"
-        );
-
-}
+    };
 
 
 /* =========================================================
    CHECKOUT
 ========================================================= */
 
-function openCheckout() {
+window.openCheckout =
+    function() {
 
-    if (!cart.length) {
+        if (
+            cart.length === 0
+        ) {
 
-        showToast(
-            "Your cart is empty"
-        );
+            showToast(
+                "Your cart is empty"
+            );
 
-        return;
+            return;
 
-    }
-
-
-    closeCart();
-
-
-    const modal =
-        document.getElementById(
-            "checkoutModal"
-        );
+        }
 
 
-    if (modal) {
-
-        modal.classList.add(
-            "show"
-        );
-
-    }
-
-}
+        window.closeCart();
 
 
-function closeCheckout() {
-
-    document
-        .getElementById(
-            "checkoutModal"
-        )
-        ?.classList.remove(
-            "show"
-        );
-
-}
-
-
-function placeOrder(event) {
-
-    event.preventDefault();
-
-
-    if (!cart.length) {
-
-        showToast(
-            "Your cart is empty"
-        );
-
-        return;
-
-    }
-
-
-    const payment =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        );
-
-
-    const order = {
-
-        id:
-            "LK" +
-            Date.now()
-                .toString()
-                .slice(-8),
-
-        date:
-            new Date()
-                .toLocaleString(
-                    "en-IN"
-                ),
-
-        customer: {
-
-            firstName:
-                document.getElementById(
-                    "firstName"
-                ).value,
-
-            lastName:
-                document.getElementById(
-                    "lastName"
-                ).value,
-
-            email:
-                document.getElementById(
-                    "checkoutEmail"
-                ).value,
-
-            phone:
-                document.getElementById(
-                    "phone"
-                ).value,
-
-            address:
-                document.getElementById(
-                    "address"
-                ).value,
-
-            city:
-                document.getElementById(
-                    "city"
-                ).value,
-
-            pincode:
-                document.getElementById(
-                    "pincode"
-                ).value
-
-        },
-
-        payment:
-            payment
-                ? payment.value
-                : "cod",
-
-        items:
-            JSON.parse(
-                JSON.stringify(cart)
-            ),
-
-        status:
-            "Order Confirmed"
+        document
+            .getElementById(
+                "checkoutModal"
+            )
+            ?.classList.add(
+                "show"
+            );
 
     };
 
 
-    orders.unshift(order);
+window.closeCheckout =
+    function() {
+
+        document
+            .getElementById(
+                "checkoutModal"
+            )
+            ?.classList.remove(
+                "show"
+            );
+
+    };
 
 
-    localStorage.setItem(
-        "lavkart_orders",
-        JSON.stringify(orders)
-    );
+window.placeOrder =
+    function(event) {
+
+        event.preventDefault();
 
 
-    cart = [];
+        if (
+            cart.length === 0
+        ) {
 
-    couponDiscount = 0;
+            showToast(
+                "Your cart is empty"
+            );
 
+            return;
 
-    saveCart();
-
-    updateCartCount();
-
-
-    document
-        .getElementById(
-            "checkoutForm"
-        )
-        ?.reset();
+        }
 
 
-    closeCheckout();
+        const order = {
+
+            id:
+                "LK" +
+                Date.now()
+                    .toString()
+                    .slice(-8),
+
+            date:
+                new Date()
+                    .toLocaleString(
+                        "en-IN"
+                    ),
+
+            items:
+                [...cart],
+
+            status:
+                "Order Confirmed"
+
+        };
 
 
-    showToast(
-        `Order ${order.id} placed successfully 🎉`
-    );
+        orders.unshift(
+            order
+        );
 
-}
+
+        localStorage.setItem(
+            "lavkart_orders",
+            JSON.stringify(
+                orders
+            )
+        );
+
+
+        cart = [];
+
+        couponDiscount = 0;
+
+
+        saveCart();
+
+        updateCartCount();
+
+        window.closeCheckout();
+
+
+        document
+            .getElementById(
+                "checkoutForm"
+            )
+            ?.reset();
+
+
+        showToast(
+            `Order ${order.id} placed successfully 🎉`
+        );
+
+    };
 
 
 /* =========================================================
    ORDERS
 ========================================================= */
 
-function openOrders() {
+window.openOrders =
+    function() {
 
-    const modal =
-        document.getElementById(
-            "ordersModal"
-        );
-
-    const container =
-        document.getElementById(
-            "ordersList"
-        );
-
-    if (!modal || !container) {
-        return;
-    }
+        const modal =
+            document.getElementById(
+                "ordersModal"
+            );
 
 
-    if (!orders.length) {
+        const container =
+            document.getElementById(
+                "ordersList"
+            );
 
-        container.innerHTML = `
 
-            <div class="empty-products">
+        if (
+            !modal ||
+            !container
+        )
+            return;
 
-                <div>📦</div>
 
-                <h3>
-                    No orders yet
-                </h3>
+        if (
+            orders.length === 0
+        ) {
 
-                <p>
-                    Your orders will appear here.
-                </p>
+            container.innerHTML = `
 
-            </div>
+                <div class="empty-products">
 
-        `;
+                    <div>📦</div>
 
-    } else {
+                    <h3>
+                        No orders yet
+                    </h3>
 
-        container.innerHTML =
-            orders.map(
-                order => {
+                    <p>
+                        Your orders will appear here.
+                    </p>
 
-                    const total =
-                        order.items.reduce(
-                            (sum, item) => {
+                </div>
 
-                                const product =
-                                    products.find(
-                                        p =>
-                                            p.id ===
-                                            item.id
-                                    );
+            `;
 
-                                if (!product) {
-                                    return sum;
-                                }
+        } else {
 
-                                return (
-                                    sum +
-                                    product.price *
-                                    item.quantity
+            container.innerHTML =
+                orders
+                    .map(
+                        function(order) {
+
+                            const total =
+                                order.items.reduce(
+                                    function(
+                                        sum,
+                                        item
+                                    ) {
+
+                                        const product =
+                                            products.find(
+                                                p =>
+                                                    p.id ===
+                                                    item.id
+                                            );
+
+
+                                        if (!product)
+                                            return sum;
+
+
+                                        return sum +
+                                            (
+                                                product.price *
+                                                item.quantity
+                                            );
+
+                                    },
+                                    0
                                 );
 
-                            },
-                            0
-                        );
+
+                            return `
+
+                                <div class="order-card">
+
+                                    <div>
+
+                                        <strong>
+                                            ${order.id}
+                                        </strong>
+
+                                        <span>
+                                            ${order.date}
+                                        </span>
+
+                                    </div>
 
 
-                    return `
+                                    <div>
 
-                        <div class="order-card">
+                                        <strong>
+                                            ₹${total.toLocaleString("en-IN")}
+                                        </strong>
 
-                            <div>
+                                        <span class="order-status">
+                                            ${order.status}
+                                        </span>
 
-                                <strong>
-                                    ${order.id}
-                                </strong>
+                                    </div>
 
-                                <span>
-                                    ${order.date}
-                                </span>
+                                </div>
 
-                            </div>
+                            `;
 
+                        }
+                    )
+                    .join("");
 
-                            <div>
-
-                                <strong>
-                                    ₹${total.toLocaleString("en-IN")}
-                                </strong>
-
-                                <span class="order-status">
-                                    ${order.status}
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    `;
-
-                }
-            ).join("");
-
-    }
+        }
 
 
-    modal.classList.add(
-        "show"
-    );
-
-}
-
-
-function closeOrders() {
-
-    document
-        .getElementById(
-            "ordersModal"
-        )
-        ?.classList.remove(
+        modal.classList.add(
             "show"
         );
 
-}
+    };
+
+
+window.closeOrders =
+    function() {
+
+        document
+            .getElementById(
+                "ordersModal"
+            )
+            ?.classList.remove(
+                "show"
+            );
+
+    };
 
 
 /* =========================================================
    LOGIN
 ========================================================= */
 
-function openLogin() {
+window.openLogin =
+    function() {
 
-    document
-        .getElementById(
-            "authModal"
-        )
-        ?.classList.add(
-            "show"
+        document
+            .getElementById(
+                "authModal"
+            )
+            ?.classList.add(
+                "show"
+            );
+
+    };
+
+
+window.closeLogin =
+    function() {
+
+        document
+            .getElementById(
+                "authModal"
+            )
+            ?.classList.remove(
+                "show"
+            );
+
+    };
+
+
+window.toggleAuthMode =
+    function() {
+
+        registerMode =
+            !registerMode;
+
+
+        const title =
+            document.getElementById(
+                "authTitle"
+            );
+
+
+        const name =
+            document.getElementById(
+                "nameGroup"
+            );
+
+
+        const submit =
+            document.getElementById(
+                "authSubmit"
+            );
+
+
+        const switchButton =
+            document.getElementById(
+                "switchAuth"
+            );
+
+
+        if (registerMode) {
+
+            title.textContent =
+                "Create Your Account";
+
+
+            name.hidden =
+                false;
+
+
+            submit.textContent =
+                "Create Account";
+
+
+            switchButton.textContent =
+                "Already have an account? Login";
+
+        } else {
+
+            title.textContent =
+                "Welcome Back";
+
+
+            name.hidden =
+                true;
+
+
+            submit.textContent =
+                "Login";
+
+
+            switchButton.textContent =
+                "Create an account";
+
+        }
+
+    };
+
+
+window.handleAuth =
+    function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById(
+                "authEmail"
+            ).value;
+
+
+        localStorage.setItem(
+            "lavkart_user",
+            email
         );
+
+
+        window.closeLogin();
+
+
+        updateLoginButton();
+
+
+        showToast(
+            registerMode
+                ? "Account created successfully 🎉"
+                : "Welcome back 👋"
+        );
+
+    };
+
+
+function loadLoginState() {
+
+    updateLoginButton();
 
 }
 
 
-function closeLogin() {
-
-    document
-        .getElementById(
-            "authModal"
-        )
-        ?.classList.remove(
-            "show"
-        );
-
-}
-
-
-function toggleAuthMode() {
-
-    registerMode =
-        !registerMode;
-
-
-    const title =
-        document.getElementById(
-            "authTitle"
-        );
-
-    const nameGroup =
-        document.getElementById(
-            "nameGroup"
-        );
-
-    const submit =
-        document.getElementById(
-            "authSubmit"
-        );
-
-    const switchButton =
-        document.getElementById(
-            "switchAuth"
-        );
-
-
-    if (
-        !title ||
-        !nameGroup ||
-        !submit ||
-        !switchButton
-    ) {
-        return;
-    }
-
-
-    if (registerMode) {
-
-        title.textContent =
-            "Create Your Account";
-
-        nameGroup.hidden =
-            false;
-
-        submit.textContent =
-            "Create Account";
-
-        switchButton.textContent =
-            "Already have an account? Login";
-
-    } else {
-
-        title.textContent =
-            "Welcome Back";
-
-        nameGroup.hidden =
-            true;
-
-        submit.textContent =
-            "Login";
-
-        switchButton.textContent =
-            "Create an account";
-
-    }
-
-}
-
-
-function handleAuth(event) {
-
-    event.preventDefault();
-
-
-    const emailElement =
-        document.getElementById(
-            "authEmail"
-        );
-
-    if (!emailElement) {
-        return;
-    }
-
-
-    const email =
-        emailElement.value
-            .trim();
-
-
-    if (!email) return;
-
-
-    localStorage.setItem(
-        "lavkart_user",
-        email
-    );
-
-
-    closeLogin();
-
-    restoreLogin();
-
-
-    showToast(
-        registerMode
-            ? "Account created successfully 🎉"
-            : "Welcome back 👋"
-    );
-
-}
-
-
-function restoreLogin() {
-
-    const user =
-        localStorage.getItem(
-            "lavkart_user"
-        );
-
+function updateLoginButton() {
 
     const button =
         document.getElementById(
             "loginButton"
+        );
+
+
+    const user =
+        localStorage.getItem(
+            "lavkart_user"
         );
 
 
@@ -2134,110 +2179,58 @@ function restoreLogin() {
    DARK MODE
 ========================================================= */
 
-function toggleDarkMode() {
+window.toggleDarkMode =
+    function() {
 
-    const enabled =
-        document.body.classList.toggle(
-            "dark"
-        );
-
-
-    localStorage.setItem(
-        "lavkart_dark",
-        enabled
-    );
-
-}
+        document.body
+            .classList.toggle(
+                "dark"
+            );
 
 
-function restoreDarkMode() {
-
-    if (
-        localStorage.getItem(
-            "lavkart_dark"
-        ) === "true"
-    ) {
-
-        document.body.classList.add(
-            "dark"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-function toggleMobileMenu() {
-
-    const navbar =
-        document.getElementById(
-            "navbar"
-        );
-
-
-    if (!navbar) return;
-
-
-    navbar.classList.toggle(
-        "mobile-open"
-    );
-
-}
-
-
-/* Close mobile menu after clicking a nav link */
-
-document.addEventListener(
-    "click",
-    function(event) {
-
-        const target =
-            event.target;
-
-
-        if (
-            target.matches(
-                ".navbar a"
+        localStorage.setItem(
+            "lavkart_dark",
+            document.body.classList.contains(
+                "dark"
             )
-        ) {
+        );
 
-            document
-                .getElementById(
-                    "navbar"
-                )
-                ?.classList.remove(
-                    "mobile-open"
-                );
+    };
 
-        }
 
-    }
-);
+if (
+    localStorage.getItem(
+        "lavkart_dark"
+    ) === "true"
+) {
+
+    document.body.classList.add(
+        "dark"
+    );
+
+}
 
 
 /* =========================================================
    CLOSE EVERYTHING
 ========================================================= */
 
-function closeAll() {
+window.closeAll =
+    function() {
 
-    closeCart();
+        window.closeCart();
 
-    closeProductModal();
+        window.closeProductModal();
 
-    closeCheckout();
+        window.closeCheckout();
 
-    closeLogin();
+        window.closeLogin();
 
-    closeWishlist();
+        window.closeWishlist();
 
-    closeOrders();
+        window.closeOrders();
 
-}
+    };
 
 
 /* =========================================================
@@ -2252,7 +2245,8 @@ function showToast(message) {
         );
 
 
-    if (!toast) return;
+    if (!toast)
+        return;
 
 
     toast.textContent =
@@ -2279,37 +2273,6 @@ function showToast(message) {
 
             },
             2500
-        );
-
-}
-
-
-/* =========================================================
-   HTML ESCAPE
-========================================================= */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
         );
 
 }
