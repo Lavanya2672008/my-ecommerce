@@ -1,216 +1,340 @@
-/* =====================================================
-   LAVKART E-COMMERCE WEBSITE
-   Frontend-only JavaScript
-   ===================================================== */
+/* =========================================================
+   LAVKART - ECOMMERCE JAVASCRIPT
+   GitHub Pages compatible
+========================================================= */
 
 
-/* ================= PRODUCTS ================= */
+/* =========================================================
+   PRODUCT DATA
+========================================================= */
 
 const products = [
 
     {
         id: 1,
-        name: "Classic Cotton T-Shirt",
-        category: "Fashion",
-        price: 799,
-        oldPrice: 999,
-        rating: 4.6,
-        stock: 50,
-        image:
-            "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Soft premium cotton t-shirt for everyday comfort."
+        name: "Premium Wireless Headphones",
+        category: "Electronics",
+        price: 2499,
+        oldPrice: 4999,
+        rating: 4.8,
+        reviews: 342,
+        badge: "BESTSELLER",
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85",
+        description: "Premium wireless headphones with deep bass, comfortable ear cushions and long battery life."
     },
 
     {
         id: 2,
-        name: "Premium Hoodie",
-        category: "Fashion",
-        price: 1499,
-        oldPrice: 1999,
+        name: "Smart Watch Series X",
+        category: "Electronics",
+        price: 3299,
+        oldPrice: 6999,
         rating: 4.7,
-        stock: 30,
-        image:
-            "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Warm and comfortable hoodie with a modern fit."
+        reviews: 218,
+        badge: "TRENDING",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85",
+        description: "Modern smart watch with fitness tracking, notifications and premium design."
     },
 
     {
         id: 3,
-        name: "Wireless Headphones",
+        name: "Premium Smartphone",
         category: "Electronics",
-        price: 2499,
-        oldPrice: 3499,
-        rating: 4.5,
-        stock: 25,
-        image:
-            "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Bluetooth over-ear headphones with deep bass."
+        price: 24999,
+        oldPrice: 29999,
+        rating: 4.9,
+        reviews: 821,
+        badge: "TOP RATED",
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85",
+        description: "Powerful smartphone with a stunning display, excellent camera and all-day battery."
     },
 
     {
         id: 4,
-        name: "Smart Watch Pro",
+        name: "Wireless Earbuds Pro",
         category: "Electronics",
-        price: 3299,
-        oldPrice: 4999,
-        rating: 4.4,
-        stock: 18,
-        image:
-            "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Fitness tracking, notifications and long battery life."
+        price: 1799,
+        oldPrice: 3499,
+        rating: 4.6,
+        reviews: 521,
+        badge: "HOT",
+        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=85",
+        description: "Compact wireless earbuds with clear sound and comfortable fit."
     },
 
     {
         id: 5,
-        name: "Running Shoes",
-        category: "Shoes",
-        price: 2199,
-        oldPrice: 2999,
-        rating: 4.8,
-        stock: 40,
-        image:
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Lightweight running shoes for daily training."
+        name: "Classic Cotton T-Shirt",
+        category: "Fashion",
+        price: 699,
+        oldPrice: 1299,
+        rating: 4.5,
+        reviews: 143,
+        badge: "SALE",
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+        description: "Soft premium cotton t-shirt designed for everyday comfort."
     },
 
     {
         id: 6,
-        name: "Casual Sneakers",
-        category: "Shoes",
-        price: 1899,
-        oldPrice: 2499,
-        rating: 4.5,
-        stock: 35,
-        image:
-            "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Minimal sneakers for everyday outfits."
+        name: "Premium Casual Shirt",
+        category: "Fashion",
+        price: 1199,
+        oldPrice: 2199,
+        rating: 4.7,
+        reviews: 194,
+        badge: "POPULAR",
+        image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=900&q=85",
+        description: "Stylish casual shirt made from comfortable premium fabric."
     },
 
     {
         id: 7,
-        name: "Classic Wrist Watch",
-        category: "Accessories",
-        price: 1799,
-        oldPrice: 2299,
-        rating: 4.3,
-        stock: 20,
-        image:
-            "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Elegant analog watch for office and occasions."
+        name: "Women's Summer Dress",
+        category: "Fashion",
+        price: 1499,
+        oldPrice: 2999,
+        rating: 4.8,
+        reviews: 328,
+        badge: "NEW",
+        image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=900&q=85",
+        description: "Elegant summer dress with a modern design perfect for casual occasions."
     },
 
     {
         id: 8,
-        name: "Leather Backpack",
-        category: "Accessories",
-        price: 1599,
-        oldPrice: 2199,
-        rating: 4.7,
-        stock: 22,
-        image:
-            "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Durable backpack with laptop compartment."
+        name: "Classic Denim Jacket",
+        category: "Fashion",
+        price: 1899,
+        oldPrice: 3499,
+        rating: 4.6,
+        reviews: 167,
+        badge: "SALE",
+        image: "https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=900&q=85",
+        description: "Classic denim jacket that works perfectly with casual outfits."
     },
 
     {
         id: 9,
-        name: "Sunglasses",
-        category: "Accessories",
-        price: 699,
-        oldPrice: 999,
-        rating: 4.4,
-        stock: 60,
-        image:
-            "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80",
-        description:
-            "UV-protection sunglasses with a classic frame."
+        name: "Running Shoes Pro",
+        category: "Shoes",
+        price: 2299,
+        oldPrice: 4499,
+        rating: 4.8,
+        reviews: 413,
+        badge: "BESTSELLER",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85",
+        description: "Lightweight running shoes with excellent comfort and cushioning."
     },
 
     {
         id: 10,
-        name: "Portable Speaker",
-        category: "Electronics",
-        price: 1299,
-        oldPrice: 1799,
-        rating: 4.6,
-        stock: 28,
-        image:
-            "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Compact wireless speaker with powerful sound."
+        name: "Urban Sneakers",
+        category: "Shoes",
+        price: 1999,
+        oldPrice: 3999,
+        rating: 4.7,
+        reviews: 288,
+        badge: "HOT",
+        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=900&q=85",
+        description: "Modern sneakers designed for everyday urban style."
     },
 
     {
         id: 11,
-        name: "Denim Jacket",
-        category: "Fashion",
-        price: 2299,
-        oldPrice: 2999,
+        name: "Sport Training Shoes",
+        category: "Shoes",
+        price: 2699,
+        oldPrice: 4999,
         rating: 4.6,
-        stock: 17,
-        image:
-            "https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Classic denim jacket with a comfortable fit."
+        reviews: 201,
+        badge: "SALE",
+        image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=85",
+        description: "Durable sports shoes designed for training and workouts."
     },
 
     {
         id: 12,
-        name: "Sports Cap",
-        category: "Fashion",
-        price: 499,
-        oldPrice: 699,
-        rating: 4.2,
-        stock: 80,
-        image:
-            "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=80",
-        description:
-            "Breathable adjustable sports cap."
+        name: "Luxury Leather Watch",
+        category: "Accessories",
+        price: 2199,
+        oldPrice: 3999,
+        rating: 4.9,
+        reviews: 376,
+        badge: "PREMIUM",
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=85",
+        description: "Elegant leather watch with a premium classic design."
+    },
+
+    {
+        id: 13,
+        name: "Classic Sunglasses",
+        category: "Accessories",
+        price: 899,
+        oldPrice: 1799,
+        rating: 4.5,
+        reviews: 119,
+        badge: "SALE",
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=85",
+        description: "Stylish sunglasses for everyday fashion and outdoor use."
+    },
+
+    {
+        id: 14,
+        name: "Premium Backpack",
+        category: "Accessories",
+        price: 1299,
+        oldPrice: 2499,
+        rating: 4.7,
+        reviews: 242,
+        badge: "POPULAR",
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=85",
+        description: "Spacious and stylish backpack for travel, college and work."
+    },
+
+    {
+        id: 15,
+        name: "Minimalist Handbag",
+        category: "Accessories",
+        price: 1599,
+        oldPrice: 2999,
+        rating: 4.8,
+        reviews: 213,
+        badge: "NEW",
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85",
+        description: "Elegant handbag with a clean minimalist design."
+    },
+
+    {
+        id: 16,
+        name: "Skincare Essentials Set",
+        category: "Beauty",
+        price: 999,
+        oldPrice: 1999,
+        rating: 4.6,
+        reviews: 185,
+        badge: "SALE",
+        image: "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85",
+        description: "Daily skincare essentials designed for a simple beauty routine."
+    },
+
+    {
+        id: 17,
+        name: "Perfume Collection",
+        category: "Beauty",
+        price: 1499,
+        oldPrice: 2799,
+        rating: 4.8,
+        reviews: 306,
+        badge: "POPULAR",
+        image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85",
+        description: "Elegant fragrance collection with long-lasting scents."
+    },
+
+    {
+        id: 18,
+        name: "Premium Coffee Maker",
+        category: "Home",
+        price: 3499,
+        oldPrice: 5999,
+        rating: 4.7,
+        reviews: 141,
+        badge: "DEAL",
+        image: "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?auto=format&fit=crop&w=900&q=85",
+        description: "Premium coffee maker for delicious coffee at home."
+    },
+
+    {
+        id: 19,
+        name: "Modern Table Lamp",
+        category: "Home",
+        price: 899,
+        oldPrice: 1599,
+        rating: 4.5,
+        reviews: 91,
+        badge: "SALE",
+        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85",
+        description: "Modern decorative lamp perfect for bedrooms and workspaces."
+    },
+
+    {
+        id: 20,
+        name: "Gaming Controller",
+        category: "Gaming",
+        price: 1799,
+        oldPrice: 2999,
+        rating: 4.8,
+        reviews: 354,
+        badge: "HOT",
+        image: "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=900&q=85",
+        description: "Responsive gaming controller for an immersive gaming experience."
     }
 
 ];
 
 
-/* ================= APPLICATION STATE ================= */
+/* =========================================================
+   STATE
+========================================================= */
 
-let cart =
-    JSON.parse(
-        localStorage.getItem("lavkart_cart")
-    ) || [];
+let cart = JSON.parse(localStorage.getItem("lavkart_cart")) || [];
 
 let wishlist =
-    JSON.parse(
-        localStorage.getItem("lavkart_wishlist")
-    ) || [];
+    JSON.parse(localStorage.getItem("lavkart_wishlist")) || [];
 
 let orders =
-    JSON.parse(
-        localStorage.getItem("lavkart_orders")
-    ) || [];
+    JSON.parse(localStorage.getItem("lavkart_orders")) || [];
 
-let user =
-    JSON.parse(
-        localStorage.getItem("lavkart_user")
-    ) || null;
+let currentCategory = "all";
 
-let activeCategory = "all";
-
-let couponDiscount = 0;
-
-let couponCode = "";
+let couponApplied = false;
 
 let authMode = "login";
 
+let currentUser =
+    JSON.parse(localStorage.getItem("lavkart_user")) || null;
 
-/* ================= SAVE ================= */
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    renderProducts();
+
+    updateCart();
+
+    updateWishlist();
+
+    updateAuthButton();
+
+    renderOrders();
+
+    startCountdown();
+
+});
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function formatPrice(value) {
+
+    return "₹" + Number(value).toLocaleString("en-IN");
+
+}
+
+
+function discountPercent(product) {
+
+    return Math.round(
+        ((product.oldPrice - product.price) / product.oldPrice) * 100
+    );
+
+}
+
 
 function saveData() {
 
@@ -229,169 +353,99 @@ function saveData() {
         JSON.stringify(orders)
     );
 
-    localStorage.setItem(
-        "lavkart_user",
-        JSON.stringify(user)
-    );
-
-    updateCounts();
 }
 
 
-/* ================= MONEY ================= */
-
-function money(value) {
-
-    return (
-        "₹" +
-        Number(value || 0)
-            .toLocaleString("en-IN")
-    );
-
-}
-
-
-/* ================= TOAST ================= */
-
-function toast(message) {
-
-    const element =
-        document.getElementById("toast");
-
-    element.textContent = message;
-
-    element.classList.add("show");
-
-    setTimeout(() => {
-
-        element.classList.remove("show");
-
-    }, 2500);
-
-}
-
-
-/* ================= DARK MODE ================= */
-
-function toggleDarkMode() {
-
-    document.body.classList.toggle("dark");
-
-    localStorage.setItem(
-        "lavkart_dark",
-        document.body.classList.contains("dark")
-            ? "1"
-            : "0"
-    );
-
-}
-
-
-/* ================= CATEGORY ================= */
-
-function filterCategory(category) {
-
-    activeCategory = category;
-
-    renderProducts();
-
-    document
-        .getElementById("products")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
-
-}
-
-
-/* ================= RENDER PRODUCTS ================= */
+/* =========================================================
+   PRODUCT RENDER
+========================================================= */
 
 function renderProducts() {
 
+    const container =
+        document.getElementById("productContainer");
+
+    if (!container) return;
+
     const search =
-        document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
+        (
+            document.getElementById("searchInput")?.value || ""
+        ).toLowerCase().trim();
 
     const sort =
-        document
-            .getElementById("sortSelect")
-            .value;
+        document.getElementById("sortSelect")?.value || "default";
 
 
-    let list =
-        products.filter(product => {
+    let filtered = products.filter(product => {
 
-            const categoryMatch =
-                activeCategory === "all" ||
-                product.category === activeCategory;
+        const categoryMatch =
+            currentCategory === "all" ||
+            product.category === currentCategory;
 
-            const searchMatch =
-                product.name
-                    .toLowerCase()
-                    .includes(search) ||
+        const searchMatch =
+            product.name.toLowerCase().includes(search) ||
+            product.category.toLowerCase().includes(search);
 
-                product.description
-                    .toLowerCase()
-                    .includes(search);
+        return categoryMatch && searchMatch;
 
-            return categoryMatch && searchMatch;
+    });
 
-        });
-
-
-    /* SORT */
 
     if (sort === "low") {
 
-        list.sort(
-            (a,b) =>
-                a.price - b.price
+        filtered.sort(
+            (a, b) => a.price - b.price
         );
 
     }
 
     if (sort === "high") {
 
-        list.sort(
-            (a,b) =>
-                b.price - a.price
+        filtered.sort(
+            (a, b) => b.price - a.price
         );
 
     }
 
     if (sort === "rating") {
 
-        list.sort(
-            (a,b) =>
-                b.rating - a.rating
+        filtered.sort(
+            (a, b) => b.rating - a.rating
+        );
+
+    }
+
+    if (sort === "discount") {
+
+        filtered.sort(
+            (a, b) =>
+                discountPercent(b) -
+                discountPercent(a)
         );
 
     }
 
     if (sort === "name") {
 
-        list.sort(
-            (a,b) =>
+        filtered.sort(
+            (a, b) =>
                 a.name.localeCompare(b.name)
         );
 
     }
 
 
-    const container =
-        document.getElementById(
-            "productContainer"
-        );
+    document.getElementById("productCount").textContent =
+        filtered.length;
 
 
-    if (!list.length) {
+    if (filtered.length === 0) {
 
         container.innerHTML = `
-            <div class="empty">
-                No products found.
+            <div class="empty-state" style="grid-column:1/-1">
+                <div style="font-size:50px">🔍</div>
+                <h3>No products found</h3>
+                <p>Try another search or category.</p>
             </div>
         `;
 
@@ -401,51 +455,44 @@ function renderProducts() {
 
 
     container.innerHTML =
-        list.map(productCard).join("");
+        filtered.map(createProductCard).join("");
 
 }
 
 
-/* ================= PRODUCT CARD ================= */
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
 
-function productCard(product) {
+function createProductCard(product) {
 
-    const liked =
+    const isWishlisted =
         wishlist.includes(product.id);
-
 
     return `
 
         <article class="product-card">
 
-            <div class="product-image">
+            <div class="product-image-wrap">
 
                 <img
+                    class="product-image"
                     src="${product.image}"
                     alt="${product.name}"
+                    loading="lazy"
+                    onerror="this.src='https://placehold.co/900x700/fff2e8/ff6b00?text=LavKart'"
                 >
 
-                ${
-                    product.oldPrice
-                    ?
-                    `<span class="sale">
-                        SALE
-                    </span>`
-                    :
-                    ""
-                }
+                <span class="product-badge">
+                    ${product.badge}
+                </span>
 
                 <button
-                    class="heart ${
-                        liked ? "liked" : ""
-                    }"
-                    onclick="
-                        toggleWishlist(
-                            ${product.id}
-                        )
-                    "
+                    class="wishlist-button ${isWishlisted ? "active" : ""}"
+                    onclick="toggleWishlist(${product.id})"
+                    title="Wishlist"
                 >
-                    ♥
+                    ${isWishlisted ? "❤️" : "♡"}
                 </button>
 
             </div>
@@ -453,73 +500,53 @@ function productCard(product) {
 
             <div class="product-info">
 
-                <small>
+                <div class="product-category">
                     ${product.category}
-                </small>
+                </div>
 
-                <h3>
+                <h3 class="product-name">
                     ${product.name}
                 </h3>
 
                 <div class="rating">
-                    ★ ${product.rating}
+                    ⭐ ${product.rating}
+                    <span>
+                        (${product.reviews})
+                    </span>
                 </div>
 
-                <div class="price">
+                <div class="price-row">
 
-                    ${money(product.price)}
+                    <strong class="price">
+                        ${formatPrice(product.price)}
+                    </strong>
 
-                    ${
-                        product.oldPrice
-                        ?
-                        `<del>
-                            ${money(product.oldPrice)}
-                        </del>`
-                        :
-                        ""
-                    }
+                    <span class="old-price">
+                        ${formatPrice(product.oldPrice)}
+                    </span>
 
-                </div>
-
-                <div class="stock">
-
-                    ${
-                        product.stock > 0
-                        ?
-                        `${product.stock} available`
-                        :
-                        "Out of stock"
-                    }
+                    <span class="discount">
+                        ${discountPercent(product)}% OFF
+                    </span>
 
                 </div>
 
 
-                <div class="card-buttons">
+                <div class="product-buttons">
 
                     <button
-                        onclick="
-                            showProduct(
-                                ${product.id}
-                            )
-                        "
+                        class="add-cart"
+                        onclick="addToCart(${product.id})"
                     >
-                        View
+                        🛒 Add to Cart
                     </button>
 
                     <button
-                        class="primary"
-                        onclick="
-                            addToCart(
-                                ${product.id}
-                            )
-                        "
-                        ${
-                            product.stock < 1
-                            ? "disabled"
-                            : ""
-                        }
+                        class="view-product"
+                        onclick="openProduct(${product.id})"
+                        title="View Product"
                     >
-                        Add to Cart
+                        👁️
                     </button>
 
                 </div>
@@ -533,67 +560,73 @@ function productCard(product) {
 }
 
 
-/* ================= ADD CART ================= */
+/* =========================================================
+   CATEGORY
+========================================================= */
 
-function addToCart(id) {
+function filterCategory(category) {
+
+    currentCategory = category;
+
+    document.getElementById("searchInput").value = "";
+
+    renderProducts();
+
+    scrollToProducts();
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function scrollToProducts() {
+
+    document
+        .getElementById("products")
+        ?.scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+function goHome() {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(productId) {
 
     const product =
-        products.find(
-            product =>
-                product.id === id
-        );
+        products.find(p => p.id === productId);
+
+    if (!product) return;
 
 
-    if (!product) {
-
-        return;
-
-    }
+    const existing =
+        cart.find(item => item.id === productId);
 
 
-    if (product.stock <= 0) {
+    if (existing) {
 
-        toast("Product is out of stock");
+        existing.quantity++;
 
-        return;
-
-    }
-
-
-    const item =
-        cart.find(
-            item =>
-                item.id === id
-        );
-
-
-    if (item) {
-
-        if (
-            item.quantity >=
-            product.stock
-        ) {
-
-            toast(
-                "Maximum available quantity reached"
-            );
-
-            return;
-
-        }
-
-        item.quantity++;
-
-    }
-
-    else {
+    } else {
 
         cart.push({
-
-            id: id,
-
+            id: productId,
             quantity: 1
-
         });
 
     }
@@ -601,362 +634,292 @@ function addToCart(id) {
 
     saveData();
 
-    toast(
-        "Product added to cart"
-    );
+    updateCart();
 
-    openCart();
+    showToast(
+        `${product.name} added to cart 🛒`
+    );
 
 }
 
 
-/* ================= UPDATE CART ================= */
+function updateCart() {
 
-function updateCart(
-    id,
-    quantity
-) {
+    const cartCount =
+        document.getElementById("cartCount");
 
-    const item =
-        cart.find(
-            item =>
-                item.id === id
+    const cartItems =
+        document.getElementById("cartItems");
+
+
+    const totalItems =
+        cart.reduce(
+            (sum, item) =>
+                sum + item.quantity,
+            0
         );
 
+
+    if (cartCount) {
+
+        cartCount.textContent = totalItems;
+
+    }
+
+
+    if (!cartItems) return;
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <div>🛒</div>
+
+                <h3>Your cart is empty</h3>
+
+                <p>
+                    Add some products to get started.
+                </p>
+
+            </div>
+
+        `;
+
+        updateCartSummary();
+
+        return;
+
+    }
+
+
+    cartItems.innerHTML =
+        cart.map(createCartItem).join("");
+
+
+    updateCartSummary();
+
+}
+
+
+function createCartItem(item) {
 
     const product =
-        products.find(
-            product =>
-                product.id === id
-        );
+        products.find(p => p.id === item.id);
+
+    if (!product) return "";
 
 
-    if (!item || !product) {
+    return `
 
-        return;
+        <div class="cart-item">
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                onerror="this.src='https://placehold.co/300x300/fff2e8/ff6b00?text=LavKart'"
+            >
+
+            <div>
+
+                <h4>
+                    ${product.name}
+                </h4>
+
+                <p>
+                    ${formatPrice(product.price)}
+                </p>
+
+                <div class="qty">
+
+                    <button
+                        onclick="changeQuantity(${product.id}, -1)"
+                    >
+                        −
+                    </button>
+
+                    <strong>
+                        ${item.quantity}
+                    </strong>
+
+                    <button
+                        onclick="changeQuantity(${product.id}, 1)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                class="remove-item"
+                onclick="removeFromCart(${product.id})"
+            >
+                ✕
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+function changeQuantity(productId, amount) {
+
+    const item =
+        cart.find(item => item.id === productId);
+
+    if (!item) return;
+
+
+    item.quantity += amount;
+
+
+    if (item.quantity <= 0) {
+
+        cart =
+            cart.filter(
+                item => item.id !== productId
+            );
 
     }
-
-
-    if (quantity <= 0) {
-
-        removeFromCart(id);
-
-        return;
-
-    }
-
-
-    item.quantity =
-        Math.min(
-            quantity,
-            product.stock
-        );
 
 
     saveData();
 
-    renderCart();
+    updateCart();
 
 }
 
 
-/* ================= REMOVE CART ================= */
-
-function removeFromCart(id) {
+function removeFromCart(productId) {
 
     cart =
         cart.filter(
-            item =>
-                item.id !== id
+            item => item.id !== productId
         );
 
     saveData();
 
-    renderCart();
+    updateCart();
 
-    toast(
-        "Product removed"
-    );
+    showToast("Product removed");
 
 }
 
-
-/* ================= CLEAR CART ================= */
 
 function clearCart() {
 
+    if (cart.length === 0) return;
+
+
+    if (
+        !confirm(
+            "Clear all products from your cart?"
+        )
+    ) {
+        return;
+    }
+
+
     cart = [];
 
-    couponDiscount = 0;
-
-    couponCode = "";
+    couponApplied = false;
 
     saveData();
 
-    renderCart();
+    updateCart();
 
-    toast(
-        "Cart cleared"
-    );
+    showToast("Cart cleared");
 
 }
 
 
-/* ================= CART TOTALS ================= */
+function updateCartSummary() {
 
-function getCartTotals() {
-
-    let subtotal = 0;
+    let subtotalValue = 0;
 
 
     cart.forEach(item => {
 
         const product =
-            products.find(
-                p =>
-                    p.id === item.id
-            );
+            products.find(p => p.id === item.id);
 
         if (product) {
 
-            subtotal +=
-                product.price *
-                item.quantity;
+            subtotalValue +=
+                product.price * item.quantity;
 
         }
 
     });
 
 
-    const shipping =
-        subtotal === 0
-        ?
-        0
-        :
-        subtotal >= 999
-        ?
-        0
-        :
-        79;
+    const shippingValue =
+        subtotalValue === 0
+            ? 0
+            : subtotalValue >= 499
+                ? 0
+                : 49;
 
 
-    const discount =
-        Math.min(
-            couponDiscount,
-            subtotal
-        );
+    const discountValue =
+        couponApplied
+            ? Math.round(subtotalValue * 0.10)
+            : 0;
 
 
-    const total =
-        Math.max(
-            0,
-            subtotal +
-            shipping -
-            discount
-        );
+    const totalValue =
+        subtotalValue +
+        shippingValue -
+        discountValue;
 
 
-    return {
+    document.getElementById("subtotal").textContent =
+        formatPrice(subtotalValue);
 
-        subtotal,
+    document.getElementById("shipping").textContent =
+        shippingValue === 0
+            ? "FREE"
+            : formatPrice(shippingValue);
 
-        shipping,
+    document.getElementById("discount").textContent =
+        "-" + formatPrice(discountValue);
 
-        discount,
+    document.getElementById("cartTotal").textContent =
+        formatPrice(totalValue);
 
-        total
 
-    };
+    const discountRow =
+        document.getElementById("discountRow");
+
+    if (discountRow) {
+
+        discountRow.hidden =
+            !couponApplied;
+
+    }
 
 }
 
 
-/* ================= RENDER CART ================= */
-
-function renderCart() {
-
-    const container =
-        document.getElementById(
-            "cartItems"
-        );
-
-
-    if (!cart.length) {
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Your cart is empty.
-
-                <br><br>
-
-                <a href="#products"
-                   onclick="closeCart()">
-
-                    Start shopping
-
-                </a>
-
-            </div>
-
-        `;
-
-    }
-
-    else {
-
-        container.innerHTML =
-            cart.map(item => {
-
-                const product =
-                    products.find(
-                        p =>
-                            p.id === item.id
-                    );
-
-
-                return `
-
-                    <div class="cart-item">
-
-                        <img
-                            src="${product.image}"
-                            alt="${product.name}"
-                        >
-
-
-                        <div>
-
-                            <h3>
-                                ${product.name}
-                            </h3>
-
-                            <div>
-                                ${money(
-                                    product.price
-                                )}
-                            </div>
-
-
-                            <div class="qty">
-
-                                <button
-                                    onclick="
-                                        updateCart(
-                                            ${product.id},
-                                            ${item.quantity - 1}
-                                        )
-                                    "
-                                >
-                                    −
-                                </button>
-
-                                <b>
-                                    ${item.quantity}
-                                </b>
-
-                                <button
-                                    onclick="
-                                        updateCart(
-                                            ${product.id},
-                                            ${item.quantity + 1}
-                                        )
-                                    "
-                                >
-                                    +
-                                </button>
-
-
-                                <button
-                                    class="remove"
-                                    onclick="
-                                        removeFromCart(
-                                            ${product.id}
-                                        )
-                                    "
-                                >
-                                    Remove
-                                </button>
-
-                            </div>
-
-                        </div>
-
-
-                        <strong>
-
-                            ${money(
-                                product.price *
-                                item.quantity
-                            )}
-
-                        </strong>
-
-                    </div>
-
-                `;
-
-            }).join("");
-
-    }
-
-
-    const totals =
-        getCartTotals();
-
-
-    document.getElementById(
-        "subtotal"
-    ).textContent =
-        money(totals.subtotal);
-
-
-    document.getElementById(
-        "shipping"
-    ).textContent =
-        money(totals.shipping);
-
-
-    document.getElementById(
-        "discount"
-    ).textContent =
-        "-" +
-        money(totals.discount);
-
-
-    document.getElementById(
-        "discountRow"
-    ).hidden =
-        totals.discount <= 0;
-
-
-    document.getElementById(
-        "cartTotal"
-    ).textContent =
-        money(totals.total);
-
-}
-
-
-/* ================= CART OPEN/CLOSE ================= */
+/* =========================================================
+   CART DRAWER
+========================================================= */
 
 function openCart() {
 
-    renderCart();
-
     document
-        .getElementById(
-            "cartSidebar"
-        )
+        .getElementById("cartSidebar")
         .classList.add("open");
 
     document
-        .getElementById(
-            "overlay"
-        )
-        .classList.add("show");
+        .getElementById("overlay")
+        .classList.add("active");
 
 }
 
@@ -964,108 +927,251 @@ function openCart() {
 function closeCart() {
 
     document
-        .getElementById(
-            "cartSidebar"
-        )
+        .getElementById("cartSidebar")
         .classList.remove("open");
 
     document
-        .getElementById(
-            "overlay"
-        )
-        .classList.remove("show");
+        .getElementById("overlay")
+        .classList.remove("active");
 
 }
 
 
-function closeAll() {
+/* =========================================================
+   COUPON
+========================================================= */
 
-    closeCart();
+function applyCoupon() {
+
+    const input =
+        document.getElementById("couponInput");
+
+    const message =
+        document.getElementById("couponMessage");
+
+
+    const code =
+        input.value.trim().toUpperCase();
+
+
+    if (code === "WELCOME10") {
+
+        couponApplied = true;
+
+        message.textContent =
+            "✓ WELCOME10 applied — 10% discount";
+
+        updateCartSummary();
+
+        showToast("10% discount applied 🎉");
+
+    } else {
+
+        couponApplied = false;
+
+        message.textContent =
+            "Invalid coupon. Try WELCOME10.";
+
+        updateCartSummary();
+
+    }
 
 }
 
 
-/* ================= PRODUCT DETAILS ================= */
+/* =========================================================
+   WISHLIST
+========================================================= */
 
-function showProduct(id) {
+function toggleWishlist(productId) {
 
-    const product =
-        products.find(
-            p =>
-                p.id === id
+    if (wishlist.includes(productId)) {
+
+        wishlist =
+            wishlist.filter(
+                id => id !== productId
+            );
+
+        showToast("Removed from wishlist");
+
+    } else {
+
+        wishlist.push(productId);
+
+        showToast("Added to wishlist ❤️");
+
+    }
+
+
+    saveData();
+
+    updateWishlist();
+
+    renderProducts();
+
+}
+
+
+function updateWishlist() {
+
+    const count =
+        document.getElementById("wishlistCount");
+
+    if (count) {
+
+        count.textContent =
+            wishlist.length;
+
+    }
+
+}
+
+
+function openWishlist() {
+
+    renderWishlist();
+
+    document
+        .getElementById("wishlistModal")
+        .classList.add("active");
+
+}
+
+
+function closeWishlist() {
+
+    document
+        .getElementById("wishlistModal")
+        .classList.remove("active");
+
+}
+
+
+function renderWishlist() {
+
+    const container =
+        document.getElementById("wishlistItems");
+
+    if (!container) return;
+
+
+    const items =
+        products.filter(
+            product =>
+                wishlist.includes(product.id)
         );
 
 
-    if (!product) {
+    if (items.length === 0) {
+
+        container.innerHTML = `
+
+            <div
+                class="empty-state"
+                style="grid-column:1/-1"
+            >
+
+                <div style="font-size:55px">
+                    ❤️
+                </div>
+
+                <h3>
+                    Your wishlist is empty
+                </h3>
+
+                <p>
+                    Save products you love here.
+                </p>
+
+            </div>
+
+        `;
 
         return;
 
     }
 
 
-    document.getElementById(
-        "productDetails"
-    ).innerHTML = `
+    container.innerHTML =
+        items.map(createProductCard).join("");
+
+}
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+function openProduct(productId) {
+
+    const product =
+        products.find(
+            p => p.id === productId
+        );
+
+    if (!product) return;
+
+
+    const details =
+        document.getElementById(
+            "productDetails"
+        );
+
+
+    details.innerHTML = `
 
         <div class="product-detail">
 
             <img
                 src="${product.image}"
                 alt="${product.name}"
+                onerror="this.src='https://placehold.co/900x700/fff2e8/ff6b00?text=LavKart'"
             >
-
 
             <div>
 
-                <small>
+                <div class="detail-category">
                     ${product.category}
-                </small>
+                </div>
 
-                <h2>
+                <h2 class="detail-name">
                     ${product.name}
                 </h2>
 
                 <div class="rating">
-                    ★ ${product.rating}
+                    ⭐ ${product.rating}
+                    (${product.reviews} reviews)
                 </div>
 
-                <div class="large-price">
+                <div class="detail-price">
+                    ${formatPrice(product.price)}
+                </div>
 
-                    ${money(product.price)}
+                <div class="price-row">
 
-                    ${
-                        product.oldPrice
-                        ?
-                        `<del>
-                            ${money(
-                                product.oldPrice
-                            )}
-                        </del>`
-                        :
-                        ""
-                    }
+                    <span class="old-price">
+                        ${formatPrice(product.oldPrice)}
+                    </span>
+
+                    <span class="discount">
+                        ${discountPercent(product)}% OFF
+                    </span>
 
                 </div>
 
-                <p>
+                <p class="detail-description">
                     ${product.description}
                 </p>
 
-                <p>
-                    ${product.stock}
-                    units available.
-                </p>
-
                 <button
-                    class="place-order-button"
+                    class="add-cart"
+                    style="width:100%;height:48px"
                     onclick="
-                        addToCart(
-                            ${product.id}
-                        );
+                        addToCart(${product.id});
                         closeProductModal();
                     "
                 >
-                    Add to Cart
+                    🛒 Add to Cart
                 </button>
 
             </div>
@@ -1076,10 +1182,8 @@ function showProduct(id) {
 
 
     document
-        .getElementById(
-            "productModal"
-        )
-        .classList.add("open");
+        .getElementById("productModal")
+        .classList.add("active");
 
 }
 
@@ -1087,218 +1191,32 @@ function showProduct(id) {
 function closeProductModal() {
 
     document
-        .getElementById(
-            "productModal"
-        )
-        .classList.remove("open");
+        .getElementById("productModal")
+        .classList.remove("active");
 
 }
 
 
-/* ================= WISHLIST ================= */
-
-function toggleWishlist(id) {
-
-    if (
-        wishlist.includes(id)
-    ) {
-
-        wishlist =
-            wishlist.filter(
-                item =>
-                    item !== id
-            );
-
-        toast(
-            "Removed from wishlist"
-        );
-
-    }
-
-    else {
-
-        wishlist.push(id);
-
-        toast(
-            "Added to wishlist ❤️"
-        );
-
-    }
-
-
-    saveData();
-
-    renderProducts();
-
-}
-
-
-function openWishlist() {
-
-    const container =
-        document.getElementById(
-            "wishlistItems"
-        );
-
-
-    const list =
-        products.filter(
-            product =>
-                wishlist.includes(
-                    product.id
-                )
-        );
-
-
-    if (!list.length) {
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Your wishlist is empty.
-
-            </div>
-
-        `;
-
-    }
-
-    else {
-
-        container.innerHTML =
-            list.map(
-                productCard
-            ).join("");
-
-    }
-
-
-    document
-        .getElementById(
-            "wishlistModal"
-        )
-        .classList.add("open");
-
-}
-
-
-function closeWishlist() {
-
-    document
-        .getElementById(
-            "wishlistModal"
-        )
-        .classList.remove("open");
-
-}
-
-
-/* ================= COUPONS ================= */
-
-function applyCoupon() {
-
-    const code =
-        document
-            .getElementById(
-                "couponInput"
-            )
-            .value
-            .trim()
-            .toUpperCase();
-
-
-    const subtotal =
-        getCartTotals()
-            .subtotal;
-
-
-    if (
-        code === "WELCOME10"
-    ) {
-
-        couponCode = code;
-
-        couponDiscount =
-            subtotal * 0.10;
-
-        toast(
-            "10% discount applied"
-        );
-
-    }
-
-    else if (
-        code === "SAVE500"
-    ) {
-
-        couponCode = code;
-
-        couponDiscount = 500;
-
-        toast(
-            "₹500 discount applied"
-        );
-
-    }
-
-    else {
-
-        couponCode = "";
-
-        couponDiscount = 0;
-
-        toast(
-            "Invalid coupon code"
-        );
-
-    }
-
-
-    renderCart();
-
-}
-
-
-/* ================= CHECKOUT ================= */
+/* =========================================================
+   CHECKOUT
+========================================================= */
 
 function openCheckout() {
 
-    if (!cart.length) {
+    if (cart.length === 0) {
 
-        toast(
-            "Your cart is empty"
-        );
+        showToast("Your cart is empty");
 
         return;
 
     }
 
 
-    document
-        .getElementById(
-            "checkoutModal"
-        )
-        .classList.add("open");
-
-
     closeCart();
 
-
-    if (user) {
-
-        document.getElementById(
-            "checkoutEmail"
-        ).value =
-            user.email || "";
-
-        document.getElementById(
-            "firstName"
-        ).value =
-            user.name
-                ?.split(" ")[0] || "";
-
-    }
+    document
+        .getElementById("checkoutModal")
+        .classList.add("active");
 
 }
 
@@ -1306,29 +1224,80 @@ function openCheckout() {
 function closeCheckout() {
 
     document
-        .getElementById(
-            "checkoutModal"
-        )
-        .classList.remove("open");
+        .getElementById("checkoutModal")
+        .classList.remove("active");
 
 }
 
-
-/* ================= PLACE ORDER ================= */
 
 function placeOrder(event) {
 
     event.preventDefault();
 
 
-    const totals =
-        getCartTotals();
+    if (cart.length === 0) {
+
+        showToast("Your cart is empty");
+
+        closeCheckout();
+
+        return;
+
+    }
 
 
-    const payment =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        ).value;
+    const firstName =
+        document.getElementById("firstName").value;
+
+    const lastName =
+        document.getElementById("lastName").value;
+
+    const email =
+        document.getElementById("checkoutEmail").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const address =
+        document.getElementById("address").value;
+
+    const city =
+        document.getElementById("city").value;
+
+    const pincode =
+        document.getElementById("pincode").value;
+
+
+    let subtotalValue = 0;
+
+    cart.forEach(item => {
+
+        const product =
+            products.find(p => p.id === item.id);
+
+        if (product) {
+
+            subtotalValue +=
+                product.price * item.quantity;
+
+        }
+
+    });
+
+
+    const shippingValue =
+        subtotalValue >= 499 ? 0 : 49;
+
+    const discountValue =
+        couponApplied
+            ? Math.round(subtotalValue * .10)
+            : 0;
+
+
+    const totalValue =
+        subtotalValue +
+        shippingValue -
+        discountValue;
 
 
     const order = {
@@ -1340,220 +1309,103 @@ function placeOrder(event) {
                 .slice(-8),
 
         date:
-            new Date()
-                .toLocaleString(),
+            new Date().toLocaleString("en-IN"),
 
         customer: {
 
-            firstName:
-                document.getElementById(
-                    "firstName"
-                ).value,
+            name:
+                `${firstName} ${lastName}`,
 
-            lastName:
-                document.getElementById(
-                    "lastName"
-                ).value,
+            email,
 
-            email:
-                document.getElementById(
-                    "checkoutEmail"
-                ).value,
+            phone,
 
-            phone:
-                document.getElementById(
-                    "phone"
-                ).value,
+            address,
 
-            address:
-                document.getElementById(
-                    "address"
-                ).value,
+            city,
 
-            city:
-                document.getElementById(
-                    "city"
-                ).value,
-
-            pincode:
-                document.getElementById(
-                    "pincode"
-                ).value
+            pincode
 
         },
 
-        payment,
-
-        status:
-            "Order Placed",
-
         items:
-            cart.map(
-                item =>
-                    ({
-                        ...item
-                    })
-            ),
+            cart.map(item => {
 
-        subtotal:
-            totals.subtotal,
+                const product =
+                    products.find(
+                        p => p.id === item.id
+                    );
 
-        shipping:
-            totals.shipping,
+                return {
 
-        discount:
-            totals.discount,
+                    name: product.name,
+
+                    quantity:
+                        item.quantity,
+
+                    price:
+                        product.price
+
+                };
+
+            }),
 
         total:
-            totals.total
+            totalValue,
+
+        payment:
+            document.querySelector(
+                'input[name="payment"]:checked'
+            )?.value || "cod"
 
     };
 
 
     orders.unshift(order);
 
-
     cart = [];
 
-    couponDiscount = 0;
-
-    couponCode = "";
-
+    couponApplied = false;
 
     saveData();
 
+    updateCart();
 
-    document
-        .getElementById(
-            "checkoutForm"
-        )
-        .reset();
-
+    renderOrders();
 
     closeCheckout();
 
-    renderCart();
 
-    toast(
-        "Order placed successfully 🎉"
+    document.getElementById(
+        "checkoutForm"
+    ).reset();
+
+
+    showToast(
+        `Order ${order.id} placed successfully 🎉`
     );
 
 
-    setTimeout(
-        openOrders,
-        400
-    );
+    setTimeout(() => {
+
+        openOrders();
+
+    }, 700);
 
 }
 
 
-/* ================= ORDERS ================= */
+/* =========================================================
+   ORDERS
+========================================================= */
 
 function openOrders() {
 
-    const container =
-        document.getElementById(
-            "ordersList"
-        );
-
-
-    if (!orders.length) {
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                No orders yet.
-
-            </div>
-
-        `;
-
-    }
-
-    else {
-
-        container.innerHTML =
-            orders.map(order => {
-
-                return `
-
-                    <div class="order-card">
-
-                        <div class="order-head">
-
-                            <div>
-
-                                <b>
-                                    ${order.id}
-                                </b>
-
-                                <br>
-
-                                <small>
-                                    ${order.date}
-                                </small>
-
-                            </div>
-
-
-                            <strong>
-
-                                ${money(
-                                    order.total
-                                )}
-
-                            </strong>
-
-                        </div>
-
-
-                        <span class="status">
-
-                            ${order.status}
-
-                        </span>
-
-
-                        <div style="margin-top:12px">
-
-                            ${
-                                order.items
-                                    .map(item => {
-
-                                        const product =
-                                            products.find(
-                                                p =>
-                                                    p.id ===
-                                                    item.id
-                                            );
-
-                                        return `
-                                            ${product.name}
-                                            ×
-                                            ${item.quantity}
-                                        `;
-
-                                    })
-                                    .join("<br>")
-                            }
-
-                        </div>
-
-                    </div>
-
-                `;
-
-            }).join("");
-
-    }
-
+    renderOrders();
 
     document
-        .getElementById(
-            "ordersModal"
-        )
-        .classList.add("open");
+        .getElementById("ordersModal")
+        .classList.add("active");
 
 }
 
@@ -1561,48 +1413,102 @@ function openOrders() {
 function closeOrders() {
 
     document
-        .getElementById(
-            "ordersModal"
-        )
-        .classList.remove("open");
+        .getElementById("ordersModal")
+        .classList.remove("active");
 
 }
 
 
-/* ================= LOGIN ================= */
+function renderOrders() {
 
-function openLogin() {
+    const container =
+        document.getElementById("ordersList");
 
-    if (user) {
-
-        const logout =
-            confirm(
-                `You are logged in as ${user.name}.\n\nDo you want to logout?`
-            );
+    if (!container) return;
 
 
-        if (logout) {
+    if (orders.length === 0) {
 
-            user = null;
+        container.innerHTML = `
 
-            saveData();
+            <div class="empty-state">
 
-            toast(
-                "Logged out successfully"
-            );
+                <div style="font-size:55px">
+                    📦
+                </div>
 
-        }
+                <h3>
+                    No orders yet
+                </h3>
+
+                <p>
+                    Your placed orders will appear here.
+                </p>
+
+            </div>
+
+        `;
 
         return;
 
     }
 
 
+    container.innerHTML =
+        orders.map(order => `
+
+            <div class="order-card">
+
+                <div>
+                    <strong>
+                        Order #${order.id}
+                    </strong>
+                </div>
+
+                <small>
+                    ${order.date}
+                </small>
+
+                <div class="order-items">
+
+                    ${order.items.map(
+                        item =>
+                            `${item.name} × ${item.quantity}`
+                    ).join("<br>")}
+
+                </div>
+
+                <p style="margin-top:10px">
+
+                    Total:
+                    <strong>
+                        ${formatPrice(order.total)}
+                    </strong>
+
+                </p>
+
+                <p style="font-size:11px;color:#16a34a">
+
+                    ● Order placed
+
+                </p>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function openLogin() {
+
     document
-        .getElementById(
-            "authModal"
-        )
-        .classList.add("open");
+        .getElementById("authModal")
+        .classList.add("active");
 
 }
 
@@ -1610,66 +1516,60 @@ function openLogin() {
 function closeLogin() {
 
     document
-        .getElementById(
-            "authModal"
-        )
-        .classList.remove("open");
+        .getElementById("authModal")
+        .classList.remove("active");
 
 }
 
-
-/* ================= LOGIN / REGISTER ================= */
 
 function toggleAuthMode() {
 
     authMode =
         authMode === "login"
-        ?
-        "register"
-        :
-        "login";
+            ? "register"
+            : "login";
 
 
-    document.getElementById(
-        "authTitle"
-    ).textContent =
-        authMode === "login"
-        ?
-        "Welcome Back"
-        :
-        "Create Account";
+    const title =
+        document.getElementById("authTitle");
+
+    const nameGroup =
+        document.getElementById("nameGroup");
+
+    const submit =
+        document.getElementById("authSubmit");
+
+    const switchButton =
+        document.getElementById("switchAuth");
 
 
-    document.getElementById(
-        "authSubmit"
-    ).textContent =
-        authMode === "login"
-        ?
-        "Login"
-        :
-        "Register";
+    if (authMode === "register") {
 
+        title.textContent =
+            "Create Account";
 
-    document.getElementById(
-        "nameGroup"
-    ).hidden =
-        authMode === "login";
+        nameGroup.hidden = false;
 
+        submit.textContent =
+            "Create Account";
 
-    document.getElementById(
-        "authName"
-    ).required =
-        authMode === "register";
+        switchButton.textContent =
+            "Already have an account? Login";
 
+    } else {
 
-    document.getElementById(
-        "switchAuth"
-    ).textContent =
-        authMode === "login"
-        ?
-        "Create an account"
-        :
-        "Already have an account? Login";
+        title.textContent =
+            "Welcome Back";
+
+        nameGroup.hidden = true;
+
+        submit.textContent =
+            "Login";
+
+        switchButton.textContent =
+            "Create an account";
+
+    }
 
 }
 
@@ -1682,135 +1582,274 @@ function handleAuth(event) {
     const email =
         document.getElementById(
             "authEmail"
-        ).value
-        .trim()
-        .toLowerCase();
+        ).value.trim();
 
 
-    const password =
-        document.getElementById(
-            "authPassword"
-        ).value;
+    if (authMode === "register") {
+
+        const name =
+            document.getElementById(
+                "authName"
+            ).value.trim();
 
 
-    const name =
-        document.getElementById(
-            "authName"
-        ).value
-        .trim();
+        currentUser = {
+
+            name,
+
+            email
+
+        };
 
 
-    if (
-        authMode === "register"
-        &&
-        !name
-    ) {
-
-        toast(
-            "Please enter your name"
+        localStorage.setItem(
+            "lavkart_user",
+            JSON.stringify(currentUser)
         );
 
-        return;
+
+        showToast(
+            "Account created successfully 🎉"
+        );
+
+
+    } else {
+
+        currentUser = {
+
+            name:
+                email.split("@")[0],
+
+            email
+
+        };
+
+
+        localStorage.setItem(
+            "lavkart_user",
+            JSON.stringify(currentUser)
+        );
+
+
+        showToast(
+            "Welcome back 👋"
+        );
 
     }
 
 
-    /*
-        Demo frontend authentication.
-
-        In a real production application,
-        password authentication must happen
-        on a backend.
-    */
-
-    user = {
-
-        name:
-            authMode === "register"
-            ?
-            name
-            :
-            email.split("@")[0],
-
-        email: email,
-
-        role: "customer"
-
-    };
-
-
-    saveData();
+    updateAuthButton();
 
     closeLogin();
 
+}
 
-    toast(
-        authMode === "login"
-        ?
-        "Login successful"
-        :
-        "Account created successfully"
+
+function updateAuthButton() {
+
+    const button =
+        document.getElementById(
+            "loginButton"
+        );
+
+    if (!button) return;
+
+
+    if (currentUser) {
+
+        button.textContent =
+            "Hi, " +
+            currentUser.name.split(" ")[0];
+
+    } else {
+
+        button.textContent =
+            "Login";
+
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark");
+
+
+    localStorage.setItem(
+        "lavkart_dark",
+        document.body.classList.contains("dark")
     );
 
 }
 
 
-/* ================= UPDATE HEADER ================= */
+if (
+    localStorage.getItem("lavkart_dark") === "true"
+) {
 
-function updateCounts() {
-
-    document.getElementById(
-        "cartCount"
-    ).textContent =
-        cart.reduce(
-            (total,item) =>
-                total + item.quantity,
-            0
-        );
-
-
-    document.getElementById(
-        "wishlistCount"
-    ).textContent =
-        wishlist.length;
-
-
-    document.getElementById(
-        "loginButton"
-    ).textContent =
-        user
-        ?
-        `Hi, ${user.name.split(" ")[0]}`
-        :
-        "Login";
+    document.body.classList.add("dark");
 
 }
 
 
-/* ================= INITIALIZE ================= */
+/* =========================================================
+   TOAST
+========================================================= */
 
-window.addEventListener(
-    "load",
-    function() {
+let toastTimer;
 
-        if (
-            localStorage.getItem(
-                "lavkart_dark"
-            ) === "1"
-        ) {
 
-            document.body.classList.add(
-                "dark"
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    if (!toast) return;
+
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2600);
+
+}
+
+
+/* =========================================================
+   CLOSE ALL
+========================================================= */
+
+function closeAll() {
+
+    closeCart();
+
+    closeProductModal();
+
+    closeCheckout();
+
+    closeLogin();
+
+    closeWishlist();
+
+    closeOrders();
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+function startCountdown() {
+
+    const end =
+        Date.now() +
+        (
+            3 * 24 * 60 * 60 * 1000
+        ) +
+        (
+            8 * 60 * 60 * 1000
+        );
+
+
+    function update() {
+
+        const difference =
+            Math.max(
+                0,
+                end - Date.now()
             );
 
+
+        const days =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (difference /
+                    (1000 * 60 * 60)) % 24
+            );
+
+
+        const minutes =
+            Math.floor(
+                (difference /
+                    (1000 * 60)) % 60
+            );
+
+
+        const seconds =
+            Math.floor(
+                (difference /
+                    1000) % 60
+            );
+
+
+        document.getElementById(
+            "days"
+        ).textContent =
+            String(days).padStart(2, "0");
+
+
+        document.getElementById(
+            "hours"
+        ).textContent =
+            String(hours).padStart(2, "0");
+
+
+        document.getElementById(
+            "minutes"
+        ).textContent =
+            String(minutes).padStart(2, "0");
+
+
+        document.getElementById(
+            "seconds"
+        ).textContent =
+            String(seconds).padStart(2, "0");
+
+    }
+
+
+    update();
+
+    setInterval(update, 1000);
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Escape") {
+
+            closeAll();
+
         }
-
-
-        renderProducts();
-
-        renderCart();
-
-        updateCounts();
 
     }
 );
