@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="theme-color" content="#f97316">
+
     <title>LavKart - Online Shopping</title>
 
-    <meta
-        name="description"
-        content="LavKart - Everything you need, all in one place."
-    >
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
 <!-- =========================================================
-     TOP OFFER BAR
+     TOP BAR
 ========================================================= -->
 
-<div class="top-bar">
-    🔥 Mega Shopping Festival — Up to 70% OFF
-    <span>
-        Free delivery on orders above ₹499
-    </span>
+<div class="topbar">
+
+    <div>
+        🔥 Big Sale is Live — Up to 70% OFF
+    </div>
+
+    <div class="top-links">
+        <a href="#orders">Track Order</a>
+        <a href="#contact">Help</a>
+        <a href="#contact">Contact</a>
+    </div>
+
 </div>
 
 
@@ -35,58 +39,60 @@
 <header class="header">
 
     <div class="logo">
-        <span>Lav</span>Kart
+        Lav<span>Kart</span>
     </div>
 
-    <div class="search-box">
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search for products, brands and more..."
-            oninput="renderProducts()"
-        >
+    <nav class="navbar">
 
-        <button onclick="renderProducts()">
-            🔍
-        </button>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
 
-    </div>
+    </nav>
+
 
     <div class="header-actions">
 
         <button
-            class="icon-button"
+            type="button"
+            class="header-btn"
             onclick="toggleDarkMode()"
-            title="Dark mode"
+            aria-label="Dark mode"
         >
             🌙
         </button>
 
+
         <button
-            class="icon-button"
+            type="button"
+            class="header-btn"
             onclick="openWishlist()"
-            title="Wishlist"
         >
             ❤️
             <span id="wishlistCount">0</span>
         </button>
 
+
         <button
-            class="icon-button"
+            type="button"
+            class="header-btn"
             onclick="openCart()"
-            title="Shopping cart"
         >
             🛒
             <span id="cartCount">0</span>
         </button>
 
+
         <button
+            type="button"
             class="login-button"
             id="loginButton"
             onclick="openLogin()"
         >
-            👤 Login
+            Login
         </button>
 
     </div>
@@ -95,32 +101,28 @@
 
 
 <!-- =========================================================
-     NAVIGATION
+     MOBILE NAV
 ========================================================= -->
 
-<nav class="navbar">
+<div class="mobile-nav">
 
-    <div class="nav-inner">
+    <a href="#home">🏠<span>Home</span></a>
 
-        <a href="#home">🏠 Home</a>
+    <a href="#categories">📂<span>Categories</span></a>
 
-        <a href="#categories">Categories</a>
+    <a href="#products">🛍️<span>Products</span></a>
 
-        <a href="#products">All Products</a>
+    <button type="button" onclick="openWishlist()">
+        ❤️
+        <span>Wishlist</span>
+    </button>
 
-        <a href="#men">👨 Men</a>
+    <button type="button" onclick="openCart()">
+        🛒
+        <span>Cart</span>
+    </button>
 
-        <a href="#women">👩 Women</a>
-
-        <a href="#kids">🧒 Kids</a>
-
-        <a href="#electronics">📱 Electronics</a>
-
-        <a href="#deals">🔥 Today's Deals</a>
-
-    </div>
-
-</nav>
+</div>
 
 
 <!-- =========================================================
@@ -132,47 +134,57 @@
     <div class="hero-content">
 
         <div class="hero-tag">
-            ✨ INDIA'S NEW SHOPPING DESTINATION
+            ✨ WELCOME TO LAVKART
         </div>
 
+
         <h1>
-            Everything You Love.
+            Everything You Need.
             <span>All In One Place.</span>
         </h1>
 
-        <p>
-            Discover trending fashion, smart electronics,
-            stylish footwear, accessories and everyday essentials
-            at amazing prices.
+
+        <p class="hero-description">
+            Discover fashion, electronics, shoes, accessories,
+            home essentials and more at amazing prices.
         </p>
+
 
         <div class="hero-buttons">
 
-            <a href="#products" class="primary-button">
+            <a
+                href="#products"
+                class="primary-button"
+            >
                 Shop Now →
             </a>
 
-            <a href="#deals" class="secondary-button">
-                🔥 View Deals
+
+            <a
+                href="#categories"
+                class="secondary-button"
+            >
+                Explore Categories
             </a>
 
         </div>
+
 
         <div class="hero-features">
 
             <div>
                 <strong>🚚 Free Delivery</strong>
-                <small>On orders above ₹499</small>
+                <span>On orders over ₹499</span>
+            </div>
+
+            <div>
+                <strong>🔒 Secure Shopping</strong>
+                <span>Safe checkout</span>
             </div>
 
             <div>
                 <strong>↩️ Easy Returns</strong>
-                <small>7-day return policy</small>
-            </div>
-
-            <div>
-                <strong>🔒 Secure Payment</strong>
-                <small>100% secure checkout</small>
+                <span>7-day returns</span>
             </div>
 
         </div>
@@ -182,190 +194,42 @@
 
     <div class="hero-visual">
 
-        <div class="hero-product">
+        <div class="hero-main-card">
 
-            <div class="hero-sale">
-                UP TO<br>
-                <strong>70% OFF</strong>
+            <div class="sale-circle">
+                UP TO
+                <strong>70%</strong>
+                OFF
             </div>
 
-            <img
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=85"
-                alt="Fashion collection"
-            >
-
-            <div class="hero-product-label">
-                <strong>New Season Collection</strong>
-                <span>Shop the latest trends →</span>
-            </div>
-
-        </div>
-
-        <div class="floating-card card-one">
-            ⭐ 4.8/5 Rating
-        </div>
-
-        <div class="floating-card card-two">
-            🔥 Trending Now
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     QUICK BENEFITS
-========================================================= -->
-
-<section class="benefits">
-
-    <div class="benefit">
-        <div>🚚</div>
-        <strong>Free Shipping</strong>
-        <span>On orders over ₹499</span>
-    </div>
-
-    <div class="benefit">
-        <div>💳</div>
-        <strong>Secure Payments</strong>
-        <span>100% protected checkout</span>
-    </div>
-
-    <div class="benefit">
-        <div>↩️</div>
-        <strong>Easy Returns</strong>
-        <span>7-day easy returns</span>
-    </div>
-
-    <div class="benefit">
-        <div>🎧</div>
-        <strong>24/7 Support</strong>
-        <span>We're here to help</span>
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CATEGORIES
-========================================================= -->
-
-<section class="section" id="categories">
-
-    <div class="section-heading">
-
-        <div class="eyebrow">
-            SHOP BY CATEGORY
-        </div>
-
-        <h2>
-            Explore Our Categories
-        </h2>
-
-        <p>
-            Everything you need, carefully organized for you.
-        </p>
-
-    </div>
-
-
-    <div class="category-grid">
-
-        <button
-            class="category-card"
-            onclick="filterCategory('all')"
-        >
-            <div class="category-image category-all">
+            <div class="hero-shopping">
                 🛍️
             </div>
-            <h3>All Products</h3>
-            <span>Everything</span>
-        </button>
+
+            <h3>
+                Mega Shopping
+            </h3>
+
+            <p>
+                Festival Sale
+            </p>
+
+        </div>
 
 
-        <button
-            class="category-card"
-            onclick="filterCategory('Men')"
-        >
-            <div class="category-image">
-                👨
-            </div>
-            <h3>Men's Fashion</h3>
-            <span>Shirts • Jeans • Jackets</span>
-        </button>
+        <div class="floating-card floating-one">
+            🔥 Best Deals
+        </div>
 
 
-        <button
-            class="category-card"
-            onclick="filterCategory('Women')"
-        >
-            <div class="category-image">
-                👩
-            </div>
-            <h3>Women's Fashion</h3>
-            <span>Dresses • Tops • Ethnic</span>
-        </button>
+        <div class="floating-card floating-two">
+            ⭐ 4.8 Rated
+        </div>
 
 
-        <button
-            class="category-card"
-            onclick="filterCategory('Kids')"
-        >
-            <div class="category-image">
-                🧒
-            </div>
-            <h3>Kids Fashion</h3>
-            <span>Fun • Cute • Comfortable</span>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Electronics')"
-        >
-            <div class="category-image">
-                📱
-            </div>
-            <h3>Electronics</h3>
-            <span>Phones • Laptops • Audio</span>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Shoes')"
-        >
-            <div class="category-image">
-                👟
-            </div>
-            <h3>Shoes</h3>
-            <span>Sneakers • Casual • Sports</span>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Beauty')"
-        >
-            <div class="category-image">
-                💄
-            </div>
-            <h3>Beauty</h3>
-            <span>Makeup • Skincare • Care</span>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Gaming')"
-        >
-            <div class="category-image">
-                🎮
-            </div>
-            <h3>Gaming</h3>
-            <span>Gaming • Consoles • Gear</span>
-        </button>
+        <div class="floating-card floating-three">
+            🚚 Fast Delivery
+        </div>
 
     </div>
 
@@ -373,136 +237,208 @@
 
 
 <!-- =========================================================
-     GENDER SHOPPING
+     CATEGORY STRIP
 ========================================================= -->
 
-<section class="gender-section">
+<section class="category-strip" id="categories">
+
+    <button
+        type="button"
+        onclick="window.filterCategory('all')"
+    >
+        <span>🛍️</span>
+        <strong>All</strong>
+    </button>
+
+
+    <button
+        type="button"
+        onclick="window.filterCategory('Fashion')"
+    >
+        <span>👕</span>
+        <strong>Fashion</strong>
+    </button>
+
+
+    <button
+        type="button"
+        onclick="window.filterCategory('Electronics')"
+    >
+        <span>📱</span>
+        <strong>Electronics</strong>
+    </button>
+
+
+    <button
+        type="button"
+        onclick="window.filterCategory('Shoes')"
+    >
+        <span>👟</span>
+        <strong>Shoes</strong>
+    </button>
+
+
+    <button
+        type="button"
+        onclick="window.filterCategory('Accessories')"
+    >
+        <span>⌚</span>
+        <strong>Accessories</strong>
+    </button>
+
+
+    <button
+        type="button"
+        onclick="window.filterCategory('Home')"
+    >
+        <span>🏠</span>
+        <strong>Home</strong>
+    </button>
+
+</section>
+
+
+<!-- =========================================================
+     GENDER
+========================================================= -->
+
+<section class="section gender-section">
 
     <div class="section-heading">
 
-        <div class="eyebrow">
-            FASHION FOR EVERYONE
-        </div>
+        <p>SHOP YOUR STYLE</p>
 
         <h2>
             Shop By Gender
         </h2>
 
-        <p>
-            Find your style faster.
-        </p>
+        <span>
+            Discover styles made for everyone.
+        </span>
 
     </div>
 
 
     <div class="gender-grid">
 
-        <div
-            class="gender-card men-card"
-            onclick="filterCategory('Men')"
+
+        <!-- MEN -->
+
+        <button
+            type="button"
+            class="gender-card"
+            onclick="window.filterGender('Men')"
         >
+
+            <div class="gender-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=85"
+                    alt="Men Fashion"
+                >
+
+                <div class="gender-overlay"></div>
+
+            </div>
+
 
             <div class="gender-content">
 
-                <span>MEN'S COLLECTION</span>
+                <span>FASHION COLLECTION</span>
 
-                <h2>
-                    Classic.
-                    <br>
-                    Confident.
-                    <br>
-                    You.
-                </h2>
+                <h3>Men</h3>
 
-                <button>
+                <p>
+                    Shirts, jeans, shoes and accessories.
+                </p>
+
+                <strong>
                     Shop Men →
-                </button>
+                </strong>
 
             </div>
 
-        </div>
+        </button>
 
 
-        <div
-            class="gender-card women-card"
-            onclick="filterCategory('Women')"
+        <!-- WOMEN -->
+
+        <button
+            type="button"
+            class="gender-card"
+            onclick="window.filterGender('Women')"
         >
+
+            <div class="gender-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
+                    alt="Women Fashion"
+                >
+
+                <div class="gender-overlay"></div>
+
+            </div>
+
 
             <div class="gender-content">
 
-                <span>WOMEN'S COLLECTION</span>
+                <span>FASHION COLLECTION</span>
 
-                <h2>
-                    Elegant.
-                    <br>
-                    Stylish.
-                    <br>
-                    You.
-                </h2>
+                <h3>Women</h3>
 
-                <button>
+                <p>
+                    Dresses, tops, bags, shoes and more.
+                </p>
+
+                <strong>
                     Shop Women →
-                </button>
+                </strong>
 
             </div>
 
-        </div>
+        </button>
 
 
-        <div
-            class="gender-card kids-card"
-            onclick="filterCategory('Kids')"
+        <!-- KIDS -->
+
+        <button
+            type="button"
+            class="gender-card"
+            onclick="window.filterGender('Kids')"
         >
+
+            <div class="gender-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=900&q=85"
+                    alt="Kids Fashion"
+                >
+
+                <div class="gender-overlay"></div>
+
+            </div>
+
 
             <div class="gender-content">
 
-                <span>KIDS COLLECTION</span>
+                <span>FASHION COLLECTION</span>
 
-                <h2>
-                    Fun.
-                    <br>
-                    Bright.
-                    <br>
-                    Happy.
-                </h2>
+                <h3>Kids</h3>
 
-                <button>
+                <p>
+                    Fun, comfortable and stylish outfits.
+                </p>
+
+                <strong>
                     Shop Kids →
-                </button>
+                </strong>
 
             </div>
 
-        </div>
+        </button>
 
     </div>
-
-</section>
-
-
-<!-- =========================================================
-     DEAL BANNER
-========================================================= -->
-
-<section class="deal-banner" id="deals">
-
-    <div>
-
-        <span>🔥 LIMITED TIME OFFER</span>
-
-        <h2>
-            Mega Deals Up To
-            <strong>70% OFF</strong>
-        </h2>
-
-        <p>
-            Grab your favourites before they're gone.
-        </p>
-
-    </div>
-
-    <button onclick="filterDeals()">
-        Shop Deals →
-    </button>
 
 </section>
 
@@ -518,26 +454,35 @@
 
     <div class="section-heading">
 
-        <div class="eyebrow">
-            LAVKART STORE
-        </div>
+        <p>OUR STORE</p>
 
         <h2>
-            Trending Products
+            Featured Products
         </h2>
 
-        <p>
-            Hand-picked products our customers love.
-        </p>
+        <span>
+            Quality products at great prices.
+        </span>
 
     </div>
 
 
     <div class="product-tools">
 
-        <div class="result-count" id="resultCount">
-            Products
+        <div class="search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off"
+                oninput="renderProducts()"
+            >
+
         </div>
+
 
         <select
             id="sortSelect"
@@ -545,7 +490,7 @@
         >
 
             <option value="default">
-                Sort: Featured
+                Sort Products
             </option>
 
             <option value="low">
@@ -558,10 +503,6 @@
 
             <option value="rating">
                 Highest Rated
-            </option>
-
-            <option value="discount">
-                Biggest Discount
             </option>
 
             <option value="name">
@@ -584,7 +525,46 @@
     <div
         class="product-grid"
         id="productContainer"
-    >
+    ></div>
+
+</section>
+
+
+<!-- =========================================================
+     PROMO
+========================================================= -->
+
+<section class="promo-section">
+
+    <div class="promo-content">
+
+        <span>
+            🔥 LIMITED TIME OFFER
+        </span>
+
+        <h2>
+            Get Up To 70% OFF
+        </h2>
+
+        <p>
+            Grab your favourite products before the sale ends.
+        </p>
+
+        <a
+            href="#products"
+            class="primary-button"
+        >
+            Shop Deals →
+        </a>
+
+    </div>
+
+
+    <div class="promo-visual">
+        🛒
+        🎁
+        👟
+        📱
     </div>
 
 </section>
@@ -594,37 +574,25 @@
      ABOUT
 ========================================================= -->
 
-<section class="about-section" id="about">
-
-    <div class="about-image">
-
-        <img
-            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=85"
-            alt="Online shopping"
-        >
-
-        <div class="about-badge">
-            ❤️ Loved by shoppers
-        </div>
-
-    </div>
-
+<section
+    class="about-section"
+    id="about"
+>
 
     <div class="about-content">
 
-        <div class="eyebrow">
+        <p class="small-title">
             WHY LAVKART?
-        </div>
+        </p>
 
         <h2>
-            Shopping should be
-            <span>simple.</span>
+            Shopping Made
+            <span>Simple.</span>
         </h2>
 
         <p>
-            LavKart brings fashion, electronics, footwear,
-            beauty, gaming and everyday essentials together
-            in one simple shopping experience.
+            LavKart is designed to make online shopping
+            simple, convenient and enjoyable.
         </p>
 
 
@@ -632,32 +600,33 @@
 
             <div>
                 <b>01</b>
-                <span>
-                    Carefully selected products
-                </span>
+                <span>Carefully selected products</span>
             </div>
 
             <div>
                 <b>02</b>
-                <span>
-                    Competitive prices
-                </span>
+                <span>Competitive prices</span>
             </div>
 
             <div>
                 <b>03</b>
-                <span>
-                    Fast and reliable delivery
-                </span>
+                <span>Fast and reliable delivery</span>
             </div>
 
             <div>
                 <b>04</b>
-                <span>
-                    Customer-first experience
-                </span>
+                <span>Customer-first experience</span>
             </div>
 
+        </div>
+
+    </div>
+
+
+    <div class="about-visual">
+
+        <div>
+            🛍️
         </div>
 
     </div>
@@ -673,25 +642,29 @@
 
     <div>
 
-        <div class="eyebrow">
+        <p>
             SPECIAL OFFER
-        </div>
+        </p>
 
         <h2>
             Get 10% Off Your First Order
         </h2>
 
-        <p>
+        <span>
             Use coupon
             <strong>WELCOME10</strong>
-            at checkout.
-        </p>
+            during checkout.
+        </span>
 
     </div>
 
-    <button onclick="openCart()">
-        Start Shopping →
-    </button>
+
+    <a
+        href="#products"
+        class="primary-button"
+    >
+        Start Shopping
+    </a>
 
 </section>
 
@@ -704,6 +677,7 @@
 
     <div class="footer-grid">
 
+
         <div class="footer-brand">
 
             <div class="footer-logo">
@@ -711,8 +685,8 @@
             </div>
 
             <p>
-                Everything you need.
-                All in one place.
+                Your trusted destination for
+                online shopping.
             </p>
 
             <div class="socials">
@@ -729,32 +703,16 @@
 
             <h3>Shop</h3>
 
-            <a href="#products">All Products</a>
-            <a href="#categories">Categories</a>
-            <a href="#deals">Today's Deals</a>
-            <a href="#products">New Arrivals</a>
-
-        </div>
-
-
-        <div>
-
-            <h3>Fashion</h3>
-
-            <a href="#products" onclick="filterCategory('Men')">
-                Men's Fashion
+            <a href="#products">
+                Products
             </a>
 
-            <a href="#products" onclick="filterCategory('Women')">
-                Women's Fashion
+            <a href="#categories">
+                Categories
             </a>
 
-            <a href="#products" onclick="filterCategory('Kids')">
-                Kids Fashion
-            </a>
-
-            <a href="#products" onclick="filterCategory('Shoes')">
-                Shoes
+            <a href="#products">
+                Deals
             </a>
 
         </div>
@@ -764,16 +722,48 @@
 
             <h3>Customer Care</h3>
 
-            <a href="#contact">Contact Us</a>
-            <a href="#about">Shipping</a>
-            <a href="#about">Returns</a>
+            <a href="#contact">
+                Contact Us
+            </a>
 
-            <button onclick="openOrders()">
+            <a href="#about">
+                Shipping
+            </a>
+
+            <a href="#about">
+                Returns
+            </a>
+
+            <a href="#about">
+                FAQ
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Account</h3>
+
+            <button
+                type="button"
+                onclick="openLogin()"
+            >
+                Login / Register
+            </button>
+
+            <button
+                type="button"
+                onclick="openOrders()"
+            >
                 My Orders
             </button>
 
-            <button onclick="openLogin()">
-                Login / Register
+            <button
+                type="button"
+                onclick="openWishlist()"
+            >
+                My Wishlist
             </button>
 
         </div>
@@ -783,13 +773,8 @@
 
     <div class="copyright">
 
-        <span>
-            © 2026 LavKart. All rights reserved.
-        </span>
-
-        <span>
-            Made with ❤️ for shoppers
-        </span>
+        © 2026 LavKart.
+        All rights reserved.
 
     </div>
 
@@ -804,8 +789,7 @@
     id="overlay"
     class="overlay"
     onclick="closeAll()"
->
-</div>
+></div>
 
 
 <!-- =========================================================
@@ -819,12 +803,16 @@
 
     <div class="drawer-header">
 
-        <div>
-            <span>Your Shopping</span>
-            <h2>Cart 🛒</h2>
-        </div>
+        <h2>
+            Shopping Cart
+        </h2>
 
-        <button onclick="closeCart()">✕</button>
+        <button
+            type="button"
+            onclick="closeCart()"
+        >
+            ✕
+        </button>
 
     </div>
 
@@ -832,8 +820,7 @@
     <div
         id="cartItems"
         class="cart-items"
-    >
-    </div>
+    ></div>
 
 
     <div class="cart-bottom">
@@ -845,27 +832,39 @@
                 placeholder="Coupon code"
             >
 
-            <button onclick="applyCoupon()">
+            <button
+                type="button"
+                onclick="applyCoupon()"
+            >
                 Apply
             </button>
 
         </div>
 
-        <div
-            id="couponMessage"
-            class="coupon-message"
-        ></div>
-
 
         <div class="summary-row">
-            <span>Subtotal</span>
-            <strong id="subtotal">₹0</strong>
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="subtotal">
+                ₹0
+            </strong>
+
         </div>
 
 
         <div class="summary-row">
-            <span>Shipping</span>
-            <strong id="shipping">₹0</strong>
+
+            <span>
+                Shipping
+            </span>
+
+            <strong id="shipping">
+                ₹0
+            </strong>
+
         </div>
 
 
@@ -874,26 +873,42 @@
             id="discountRow"
             hidden
         >
-            <span>Discount</span>
-            <strong id="discount">₹0</strong>
+
+            <span>
+                Discount
+            </span>
+
+            <strong id="discount">
+                ₹0
+            </strong>
+
         </div>
 
 
         <div class="total-row">
-            <span>Total</span>
-            <strong id="cartTotal">₹0</strong>
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
         </div>
 
 
         <button
+            type="button"
             class="checkout-button"
             onclick="openCheckout()"
         >
-            Proceed to Checkout →
+            Proceed to Checkout
         </button>
 
 
         <button
+            type="button"
             class="clear-button"
             onclick="clearCart()"
         >
@@ -917,6 +932,7 @@
     <div class="modal-box product-modal">
 
         <button
+            type="button"
             class="modal-close"
             onclick="closeProductModal()"
         >
@@ -931,7 +947,7 @@
 
 
 <!-- =========================================================
-     CHECKOUT MODAL
+     CHECKOUT
 ========================================================= -->
 
 <div
@@ -942,17 +958,17 @@
     <div class="modal-box">
 
         <button
+            type="button"
             class="modal-close"
             onclick="closeCheckout()"
         >
             ✕
         </button>
 
-        <div class="eyebrow">
-            SECURE CHECKOUT
-        </div>
 
-        <h2>Complete Your Order</h2>
+        <h2>
+            Checkout
+        </h2>
 
         <p class="muted">
             Enter your delivery details.
@@ -968,7 +984,9 @@
 
                 <div class="form-group">
 
-                    <label>First Name</label>
+                    <label>
+                        First Name
+                    </label>
 
                     <input
                         id="firstName"
@@ -980,7 +998,9 @@
 
                 <div class="form-group">
 
-                    <label>Last Name</label>
+                    <label>
+                        Last Name
+                    </label>
 
                     <input
                         id="lastName"
@@ -994,7 +1014,9 @@
 
             <div class="form-group">
 
-                <label>Email</label>
+                <label>
+                    Email
+                </label>
 
                 <input
                     id="checkoutEmail"
@@ -1007,12 +1029,13 @@
 
             <div class="form-group">
 
-                <label>Phone</label>
+                <label>
+                    Phone
+                </label>
 
                 <input
                     id="phone"
-                    pattern="[0-9]{10}"
-                    maxlength="10"
+                    type="tel"
                     required
                 >
 
@@ -1021,7 +1044,9 @@
 
             <div class="form-group">
 
-                <label>Address</label>
+                <label>
+                    Address
+                </label>
 
                 <textarea
                     id="address"
@@ -1036,7 +1061,9 @@
 
                 <div class="form-group">
 
-                    <label>City</label>
+                    <label>
+                        City
+                    </label>
 
                     <input
                         id="city"
@@ -1048,10 +1075,13 @@
 
                 <div class="form-group">
 
-                    <label>PIN Code</label>
+                    <label>
+                        PIN Code
+                    </label>
 
                     <input
                         id="pincode"
+                        inputmode="numeric"
                         pattern="[0-9]{6}"
                         maxlength="6"
                         required
@@ -1062,7 +1092,7 @@
             </div>
 
 
-            <h3 class="payment-title">
+            <h3>
                 Payment Method
             </h3>
 
@@ -1098,7 +1128,7 @@
                 class="place-order-button"
                 type="submit"
             >
-                Place Order →
+                Place Order
             </button>
 
         </form>
@@ -1120,19 +1150,23 @@
     <div class="modal-box auth-box">
 
         <button
+            type="button"
             class="modal-close"
             onclick="closeLogin()"
         >
             ✕
         </button>
 
+
         <div class="auth-logo">
             Lav<span>Kart</span>
         </div>
 
+
         <h2 id="authTitle">
             Welcome Back
         </h2>
+
 
         <p class="muted">
             Login or create your account.
@@ -1147,7 +1181,9 @@
                 hidden
             >
 
-                <label>Name</label>
+                <label>
+                    Name
+                </label>
 
                 <input id="authName">
 
@@ -1156,7 +1192,9 @@
 
             <div class="form-group">
 
-                <label>Email</label>
+                <label>
+                    Email
+                </label>
 
                 <input
                     id="authEmail"
@@ -1169,7 +1207,9 @@
 
             <div class="form-group">
 
-                <label>Password</label>
+                <label>
+                    Password
+                </label>
 
                 <input
                     id="authPassword"
@@ -1193,6 +1233,7 @@
 
 
         <button
+            type="button"
             class="switch-auth"
             onclick="toggleAuthMode()"
             id="switchAuth"
@@ -1217,23 +1258,23 @@
     <div class="modal-box wide">
 
         <button
+            type="button"
             class="modal-close"
             onclick="closeWishlist()"
         >
             ✕
         </button>
 
-        <div class="eyebrow">
-            YOUR SAVED ITEMS
-        </div>
 
-        <h2>My Wishlist ❤️</h2>
+        <h2>
+            My Wishlist ❤️
+        </h2>
+
 
         <div
             id="wishlistItems"
             class="product-grid"
-        >
-        </div>
+        ></div>
 
     </div>
 
@@ -1252,17 +1293,18 @@
     <div class="modal-box wide">
 
         <button
+            type="button"
             class="modal-close"
             onclick="closeOrders()"
         >
             ✕
         </button>
 
-        <div class="eyebrow">
-            ORDER HISTORY
-        </div>
 
-        <h2>My Orders 📦</h2>
+        <h2>
+            My Orders
+        </h2>
+
 
         <div id="ordersList"></div>
 
@@ -1281,7 +1323,11 @@
 ></div>
 
 
-<script src="script.js"></script>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="./script.js"></script>
 
 </body>
 </html>
