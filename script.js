@@ -1,875 +1,495 @@
 /* =========================================================
-   LAVKART - ONLINE SHOPPING
-   Complete Frontend JavaScript
-   Works directly with GitHub Pages
-========================================================= */
+   LAVKART - ECOMMERCE WEBSITE
+   Products + Gender Categories + Cart + Wishlist + Search
+   ========================================================= */
 
 const products = [
 
-    /* ================= MEN'S FASHION ================= */
+    /* ================= MEN ================= */
 
     {
         id: 1,
-        name: "Classic Cotton T-Shirt",
-        brand: "Roadster",
+        name: "Men's Classic Oxford Shirt",
         category: "Fashion",
         gender: "Men",
         price: 899,
         oldPrice: 1499,
         rating: 4.5,
         reviews: 128,
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",
-        description: "Premium soft cotton regular-fit T-shirt for everyday comfort."
+        image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
     },
 
     {
         id: 2,
-        name: "Premium Casual Shirt",
-        brand: "Levis",
+        name: "Men's Premium Casual T-Shirt",
         category: "Fashion",
         gender: "Men",
-        price: 1499,
-        oldPrice: 2499,
-        rating: 4.6,
-        reviews: 94,
-        image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80",
-        description: "Smart casual shirt designed for office and weekend wear."
+        price: 599,
+        oldPrice: 999,
+        rating: 4.4,
+        reviews: 245,
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
     },
 
     {
         id: 3,
-        name: "Slim Fit Blue Jeans",
-        brand: "Flying Machine",
-        category: "Fashion",
-        gender: "Men",
-        price: 1799,
-        oldPrice: 2999,
-        rating: 4.4,
-        reviews: 211,
-        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=80",
-        description: "Comfortable slim-fit denim with premium stretch fabric."
-    },
-
-    {
-        id: 4,
-        name: "Premium Hoodie",
-        brand: "Puma",
-        category: "Fashion",
-        gender: "Men",
-        price: 1999,
-        oldPrice: 3499,
-        rating: 4.7,
-        reviews: 176,
-        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80",
-        description: "Warm fleece hoodie perfect for casual winter outfits."
-    },
-
-    {
-        id: 5,
-        name: "Formal Black Trousers",
-        brand: "Van Heusen",
-        category: "Fashion",
-        gender: "Men",
-        price: 1599,
-        oldPrice: 2799,
-        rating: 4.3,
-        reviews: 87,
-        image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=700&q=80",
-        description: "Elegant formal trousers with a modern slim fit."
-    },
-
-    {
-        id: 6,
-        name: "Denim Jacket",
-        brand: "Levis",
-        category: "Fashion",
-        gender: "Men",
-        price: 2499,
-        oldPrice: 3999,
-        rating: 4.7,
-        reviews: 145,
-        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80",
-        description: "Classic denim jacket that works with almost any outfit."
-    },
-
-    {
-        id: 7,
-        name: "Cotton Polo T-Shirt",
-        brand: "U.S. Polo Assn.",
+        name: "Men's Slim Fit Jeans",
         category: "Fashion",
         gender: "Men",
         price: 1299,
         oldPrice: 2199,
+        rating: 4.6,
+        reviews: 189,
+        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
+    },
+
+    {
+        id: 4,
+        name: "Men's Lightweight Hoodie",
+        category: "Fashion",
+        gender: "Men",
+        price: 1099,
+        oldPrice: 1799,
+        rating: 4.7,
+        reviews: 96,
+        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+        badge: "HOT"
+    },
+
+    {
+        id: 5,
+        name: "Men's Leather Jacket",
+        category: "Fashion",
+        gender: "Men",
+        price: 2499,
+        oldPrice: 3999,
+        rating: 4.8,
+        reviews: 74,
+        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+        badge: "PREMIUM"
+    },
+
+    {
+        id: 6,
+        name: "Men's Running Shoes",
+        category: "Shoes",
+        gender: "Men",
+        price: 1599,
+        oldPrice: 2999,
+        rating: 4.7,
+        reviews: 321,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
+    },
+
+    {
+        id: 7,
+        name: "Men's Formal Blazer",
+        category: "Fashion",
+        gender: "Men",
+        price: 2199,
+        oldPrice: 3499,
         rating: 4.5,
-        reviews: 153,
-        image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?auto=format&fit=crop&w=700&q=80",
-        description: "Classic polo T-shirt made from breathable cotton."
+        reviews: 67,
+        image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
     },
 
     {
         id: 8,
-        name: "Traditional Men's Kurta",
-        brand: "Manyavar",
-        category: "Fashion",
+        name: "Men's Analog Watch",
+        category: "Accessories",
         gender: "Men",
-        price: 1899,
-        oldPrice: 2999,
+        price: 1299,
+        oldPrice: 2499,
         rating: 4.6,
-        reviews: 76,
-        image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=80",
-        description: "Elegant ethnic kurta suitable for festivals and celebrations."
+        reviews: 154,
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
     },
 
-    /* ================= WOMEN'S FASHION ================= */
+
+    /* ================= WOMEN ================= */
 
     {
         id: 9,
-        name: "Floral Summer Dress",
-        brand: "AND",
+        name: "Women's Floral Summer Dress",
         category: "Fashion",
         gender: "Women",
-        price: 1799,
-        oldPrice: 2999,
-        rating: 4.7,
-        reviews: 231,
-        image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=700&q=80",
-        description: "Beautiful floral dress designed for a comfortable summer look."
+        price: 1199,
+        oldPrice: 1999,
+        rating: 4.8,
+        reviews: 287,
+        image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
     },
 
     {
         id: 10,
         name: "Women's Casual Top",
-        brand: "ONLY",
         category: "Fashion",
         gender: "Women",
-        price: 999,
-        oldPrice: 1699,
+        price: 699,
+        oldPrice: 1199,
         rating: 4.5,
-        reviews: 118,
-        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80",
-        description: "Stylish casual top suitable for everyday wear."
+        reviews: 193,
+        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
     },
 
     {
         id: 11,
-        name: "Elegant Silk Saree",
-        brand: "Libas",
+        name: "Women's High Waist Jeans",
         category: "Fashion",
         gender: "Women",
-        price: 2499,
-        oldPrice: 4499,
-        rating: 4.8,
-        reviews: 189,
-        image: "https://images.unsplash.com/photo-1610030469668-8e9b4d8a5f2a?auto=format&fit=crop&w=700&q=80",
-        description: "Elegant traditional saree with a premium festive look."
+        price: 1399,
+        oldPrice: 2299,
+        rating: 4.7,
+        reviews: 211,
+        image: "https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
     },
 
     {
         id: 12,
-        name: "Printed Women's Kurti",
-        brand: "Biba",
-        category: "Fashion",
+        name: "Women's Handbag",
+        category: "Accessories",
         gender: "Women",
-        price: 1199,
-        oldPrice: 1999,
+        price: 999,
+        oldPrice: 1799,
         rating: 4.6,
-        reviews: 203,
-        image: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=700&q=80",
-        description: "Comfortable printed kurti for daily and festive occasions."
+        reviews: 348,
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+        badge: "HOT"
     },
 
     {
         id: 13,
-        name: "High Waist Jeans",
-        brand: "Levis",
-        category: "Fashion",
+        name: "Women's Running Sneakers",
+        category: "Shoes",
         gender: "Women",
-        price: 1899,
-        oldPrice: 2999,
-        rating: 4.5,
-        reviews: 164,
-        image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80",
-        description: "Trendy high-waist jeans with a comfortable stretch fit."
+        price: 1499,
+        oldPrice: 2699,
+        rating: 4.7,
+        reviews: 174,
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
     },
 
     {
         id: 14,
-        name: "Women's Denim Jacket",
-        brand: "ONLY",
-        category: "Fashion",
+        name: "Women's Elegant Watch",
+        category: "Accessories",
         gender: "Women",
-        price: 2299,
-        oldPrice: 3799,
-        rating: 4.6,
-        reviews: 92,
-        image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80",
-        description: "Trendy denim jacket designed for modern casual outfits."
+        price: 1199,
+        oldPrice: 2199,
+        rating: 4.5,
+        reviews: 86,
+        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
     },
 
     {
         id: 15,
-        name: "Women's Casual Hoodie",
-        brand: "H&M",
+        name: "Women's Denim Jacket",
         category: "Fashion",
         gender: "Women",
-        price: 1599,
-        oldPrice: 2499,
-        rating: 4.4,
-        reviews: 113,
-        image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80",
-        description: "Soft and comfortable hoodie for everyday casual wear."
+        price: 1299,
+        oldPrice: 2099,
+        rating: 4.6,
+        reviews: 109,
+        image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
     },
 
     {
         id: 16,
-        name: "Party Wear Gown",
-        brand: "Aurelia",
-        category: "Fashion",
+        name: "Women's Sunglasses",
+        category: "Accessories",
         gender: "Women",
-        price: 2899,
-        oldPrice: 4999,
-        rating: 4.8,
-        reviews: 68,
-        image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=80",
-        description: "Elegant party gown designed for special occasions."
+        price: 699,
+        oldPrice: 1299,
+        rating: 4.4,
+        reviews: 221,
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+        badge: "SALE"
     },
 
-    /* ================= SHOES ================= */
+
+    /* ================= KIDS ================= */
 
     {
         id: 17,
-        name: "Air Running Sneakers",
-        brand: "Nike",
-        category: "Shoes",
-        gender: "Men",
-        price: 3499,
-        oldPrice: 5999,
-        rating: 4.8,
-        reviews: 324,
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
-        description: "Lightweight running shoes with responsive cushioning."
+        name: "Boys Cotton Casual T-Shirt",
+        category: "Fashion",
+        gender: "Kids",
+        price: 399,
+        oldPrice: 699,
+        rating: 4.7,
+        reviews: 143,
+        image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
     },
 
     {
         id: 18,
-        name: "Classic White Sneakers",
-        brand: "Adidas",
-        category: "Shoes",
-        gender: "Men",
-        price: 2999,
-        oldPrice: 4999,
-        rating: 4.7,
-        reviews: 286,
-        image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=700&q=80",
-        description: "Minimal white sneakers for everyday street style."
+        name: "Girls Floral Summer Dress",
+        category: "Fashion",
+        gender: "Kids",
+        price: 599,
+        oldPrice: 999,
+        rating: 4.8,
+        reviews: 174,
+        image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
     },
 
     {
         id: 19,
-        name: "Women's Fashion Sneakers",
-        brand: "Puma",
+        name: "Kids Comfortable Sneakers",
         category: "Shoes",
-        gender: "Women",
-        price: 2799,
-        oldPrice: 4499,
+        gender: "Kids",
+        price: 799,
+        oldPrice: 1399,
         rating: 4.6,
-        reviews: 198,
-        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80",
-        description: "Fashionable sneakers combining comfort and modern style."
+        reviews: 112,
+        image: "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=800&q=80",
+        badge: "HOT"
     },
 
     {
         id: 20,
-        name: "Women's Party Heels",
-        brand: "Aldo",
-        category: "Shoes",
-        gender: "Women",
-        price: 2399,
-        oldPrice: 3999,
-        rating: 4.5,
-        reviews: 147,
-        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80",
-        description: "Elegant heels for parties, events and special occasions."
+        name: "Kids Cartoon Hoodie",
+        category: "Fashion",
+        gender: "Kids",
+        price: 699,
+        oldPrice: 1099,
+        rating: 4.7,
+        reviews: 92,
+        image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
     },
 
     {
         id: 21,
-        name: "Comfort Sandals",
-        brand: "Bata",
-        category: "Shoes",
-        gender: "Women",
+        name: "Kids School Backpack",
+        category: "Accessories",
+        gender: "Kids",
+        price: 649,
+        oldPrice: 1099,
+        rating: 4.5,
+        reviews: 204,
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+        badge: "SALE"
+    },
+
+    {
+        id: 22,
+        name: "Kids Denim Jacket",
+        category: "Fashion",
+        gender: "Kids",
         price: 899,
         oldPrice: 1499,
-        rating: 4.4,
-        reviews: 178,
-        image: "https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=700&q=80",
-        description: "Lightweight sandals designed for all-day comfort."
+        rating: 4.6,
+        reviews: 77,
+        image: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
     },
+
 
     /* ================= ELECTRONICS ================= */
 
     {
-        id: 22,
-        name: "Galaxy Smartphone Pro",
-        brand: "Samsung",
-        category: "Electronics",
-        gender: "Unisex",
-        price: 42999,
-        oldPrice: 49999,
-        rating: 4.8,
-        reviews: 542,
-        image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=700&q=80",
-        description: "Premium smartphone with advanced camera and high-performance processor."
-    },
-
-    {
         id: 23,
-        name: "iPhone Pro",
-        brand: "Apple",
+        name: "Apple Style Wireless Earbuds",
         category: "Electronics",
         gender: "Unisex",
-        price: 99999,
-        oldPrice: 109999,
-        rating: 4.9,
-        reviews: 827,
-        image: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=700&q=80",
-        description: "Powerful smartphone with a premium design and advanced camera."
+        price: 1499,
+        oldPrice: 2999,
+        rating: 4.5,
+        reviews: 642,
+        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
     },
 
     {
         id: 24,
-        name: "Wireless Earbuds Pro",
-        brand: "Sony",
+        name: "Smart Fitness Watch",
         category: "Electronics",
         gender: "Unisex",
-        price: 4999,
-        oldPrice: 7999,
-        rating: 4.7,
-        reviews: 412,
-        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=80",
-        description: "Wireless earbuds with active noise cancellation."
+        price: 1799,
+        oldPrice: 3499,
+        rating: 4.6,
+        reviews: 481,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
     },
 
     {
         id: 25,
-        name: "Noise Cancelling Headphones",
-        brand: "Sony",
+        name: "Premium Wireless Headphones",
         category: "Electronics",
         gender: "Unisex",
-        price: 8999,
-        oldPrice: 12999,
-        rating: 4.8,
-        reviews: 365,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80",
-        description: "Premium over-ear headphones with immersive sound."
+        price: 2299,
+        oldPrice: 3999,
+        rating: 4.7,
+        reviews: 357,
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+        badge: "PREMIUM"
     },
 
     {
         id: 26,
-        name: "Smart Watch Series 9",
-        brand: "Apple",
+        name: "Portable Bluetooth Speaker",
         category: "Electronics",
         gender: "Unisex",
-        price: 39999,
-        oldPrice: 44999,
-        rating: 4.8,
-        reviews: 318,
-        image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=700&q=80",
-        description: "Smartwatch with fitness tracking, notifications and health features."
+        price: 999,
+        oldPrice: 1799,
+        rating: 4.5,
+        reviews: 285,
+        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
     },
 
     {
         id: 27,
-        name: "Bluetooth Speaker",
-        brand: "JBL",
-        category: "Electronics",
-        gender: "Unisex",
-        price: 2999,
-        oldPrice: 4999,
-        rating: 4.7,
-        reviews: 489,
-        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80",
-        description: "Portable Bluetooth speaker with powerful bass and long battery life."
-    },
-
-    {
-        id: 28,
         name: "Fast Charging Power Bank",
-        brand: "Anker",
         category: "Electronics",
         gender: "Unisex",
-        price: 1999,
-        oldPrice: 2999,
-        rating: 4.6,
-        reviews: 254,
-        image: "https://images.unsplash.com/photo-1609592424971-a9f8f3c6e4e4?auto=format&fit=crop&w=700&q=80",
-        description: "High-capacity power bank with fast charging support."
+        price: 899,
+        oldPrice: 1599,
+        rating: 4.4,
+        reviews: 316,
+        image: "https://images.unsplash.com/photo-1609592424729-7e8f5e8f2a1e?auto=format&fit=crop&w=800&q=80",
+        badge: "SALE"
     },
 
-    {
-        id: 29,
-        name: "Ultra Slim Laptop",
-        brand: "Dell",
-        category: "Electronics",
-        gender: "Unisex",
-        price: 64999,
-        oldPrice: 74999,
-        rating: 4.7,
-        reviews: 198,
-        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80",
-        description: "Slim productivity laptop suitable for work, study and entertainment."
-    },
-
-    {
-        id: 30,
-        name: "Mechanical Gaming Keyboard",
-        brand: "Logitech",
-        category: "Gaming",
-        gender: "Unisex",
-        price: 3999,
-        oldPrice: 5999,
-        rating: 4.7,
-        reviews: 287,
-        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80",
-        description: "RGB mechanical keyboard built for competitive gaming."
-    },
-
-    /* ================= GAMING ================= */
-
-    {
-        id: 31,
-        name: "Wireless Gaming Mouse",
-        brand: "Logitech",
-        category: "Gaming",
-        gender: "Unisex",
-        price: 2499,
-        oldPrice: 3999,
-        rating: 4.8,
-        reviews: 342,
-        image: "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=700&q=80",
-        description: "High-precision wireless gaming mouse with customizable buttons."
-    },
-
-    {
-        id: 32,
-        name: "Gaming Headset",
-        brand: "HyperX",
-        category: "Gaming",
-        gender: "Unisex",
-        price: 3499,
-        oldPrice: 4999,
-        rating: 4.6,
-        reviews: 229,
-        image: "https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=700&q=80",
-        description: "Immersive gaming headset with surround sound and microphone."
-    },
-
-    {
-        id: 33,
-        name: "Wireless Game Controller",
-        brand: "Sony",
-        category: "Gaming",
-        gender: "Unisex",
-        price: 5499,
-        oldPrice: 6499,
-        rating: 4.8,
-        reviews: 183,
-        image: "https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=700&q=80",
-        description: "Wireless controller with responsive triggers and ergonomic design."
-    },
-
-    /* ================= ACCESSORIES ================= */
-
-    {
-        id: 34,
-        name: "Classic Analog Watch",
-        brand: "Fossil",
-        category: "Accessories",
-        gender: "Men",
-        price: 5999,
-        oldPrice: 8999,
-        rating: 4.7,
-        reviews: 174,
-        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=80",
-        description: "Classic premium watch with a timeless design."
-    },
-
-    {
-        id: 35,
-        name: "Women's Fashion Watch",
-        brand: "Titan",
-        category: "Accessories",
-        gender: "Women",
-        price: 4499,
-        oldPrice: 6999,
-        rating: 4.6,
-        reviews: 132,
-        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=700&q=80",
-        description: "Elegant fashion watch designed for everyday and occasion wear."
-    },
-
-    {
-        id: 36,
-        name: "Premium Leather Wallet",
-        brand: "Tommy Hilfiger",
-        category: "Accessories",
-        gender: "Men",
-        price: 1499,
-        oldPrice: 2499,
-        rating: 4.5,
-        reviews: 215,
-        image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=700&q=80",
-        description: "Compact genuine leather wallet with multiple card slots."
-    },
-
-    {
-        id: 37,
-        name: "Women's Handbag",
-        brand: "Lavie",
-        category: "Accessories",
-        gender: "Women",
-        price: 1999,
-        oldPrice: 3499,
-        rating: 4.7,
-        reviews: 243,
-        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80",
-        description: "Stylish spacious handbag for everyday use."
-    },
-
-    {
-        id: 38,
-        name: "Premium Sunglasses",
-        brand: "Ray-Ban",
-        category: "Accessories",
-        gender: "Unisex",
-        price: 4999,
-        oldPrice: 6999,
-        rating: 4.8,
-        reviews: 157,
-        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80",
-        description: "Classic sunglasses with UV protection and premium styling."
-    },
-
-    {
-        id: 39,
-        name: "Travel Backpack",
-        brand: "American Tourister",
-        category: "Accessories",
-        gender: "Unisex",
-        price: 1799,
-        oldPrice: 2999,
-        rating: 4.7,
-        reviews: 321,
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80",
-        description: "Durable backpack with laptop compartment and travel storage."
-    },
 
     /* ================= HOME ================= */
 
     {
-        id: 40,
+        id: 28,
         name: "Modern Table Lamp",
-        brand: "Philips",
-        category: "Home",
-        gender: "Unisex",
-        price: 1299,
-        oldPrice: 1999,
-        rating: 4.5,
-        reviews: 119,
-        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80",
-        description: "Modern decorative table lamp for bedroom or workspace."
-    },
-
-    {
-        id: 41,
-        name: "Premium Bedsheet Set",
-        brand: "Spaces",
-        category: "Home",
-        gender: "Unisex",
-        price: 1499,
-        oldPrice: 2499,
-        rating: 4.6,
-        reviews: 203,
-        image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=700&q=80",
-        description: "Soft premium cotton bedsheet set with elegant patterns."
-    },
-
-    {
-        id: 42,
-        name: "Decorative Cushion Set",
-        brand: "Home Centre",
         category: "Home",
         gender: "Unisex",
         price: 799,
-        oldPrice: 1299,
-        rating: 4.4,
-        reviews: 89,
-        image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=700&q=80",
-        description: "Decorative cushions to add a stylish touch to your living room."
+        oldPrice: 1399,
+        rating: 4.5,
+        reviews: 94,
+        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
     },
 
     {
-        id: 43,
-        name: "Kitchen Storage Set",
-        brand: "Milton",
+        id: 29,
+        name: "Premium Cushion Set",
         category: "Home",
         gender: "Unisex",
-        price: 999,
-        oldPrice: 1499,
-        rating: 4.5,
-        reviews: 167,
-        image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=700&q=80",
-        description: "Practical storage containers for an organized kitchen."
-    },
-
-    /* ================= BEAUTY ================= */
-
-    {
-        id: 44,
-        name: "Premium Eau De Parfum",
-        brand: "Calvin Klein",
-        category: "Beauty",
-        gender: "Unisex",
-        price: 2999,
-        oldPrice: 4999,
-        rating: 4.7,
-        reviews: 234,
-        image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80",
-        description: "Long-lasting premium fragrance with a sophisticated aroma."
-    },
-
-    {
-        id: 45,
-        name: "Hydrating Face Serum",
-        brand: "The Ordinary",
-        category: "Beauty",
-        gender: "Unisex",
-        price: 899,
-        oldPrice: 1299,
-        rating: 4.6,
-        reviews: 412,
-        image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&q=80",
-        description: "Lightweight hydrating serum for daily skincare."
-    },
-
-    {
-        id: 46,
-        name: "Matte Lipstick Set",
-        brand: "Maybelline",
-        category: "Beauty",
-        gender: "Women",
-        price: 799,
+        price: 699,
         oldPrice: 1199,
-        rating: 4.5,
-        reviews: 321,
-        image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=80",
-        description: "Long-lasting matte lipstick collection with beautiful shades."
-    },
-
-    {
-        id: 47,
-        name: "Hair Care Essentials",
-        brand: "L'Oreal",
-        category: "Beauty",
-        gender: "Unisex",
-        price: 1199,
-        oldPrice: 1799,
-        rating: 4.5,
-        reviews: 198,
-        image: "https://images.unsplash.com/photo-1527799820374-dcf8c0a3c7d0?auto=format&fit=crop&w=700&q=80",
-        description: "Complete hair-care set for smooth and healthy-looking hair."
-    },
-
-    /* ================= EXTRA PRODUCTS ================= */
-
-    {
-        id: 48,
-        name: "Premium Running Shoes",
-        brand: "Adidas",
-        category: "Shoes",
-        gender: "Men",
-        price: 3999,
-        oldPrice: 6499,
-        rating: 4.8,
-        reviews: 267,
-        image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=700&q=80",
-        description: "Performance running shoes designed for comfort and stability."
-    },
-
-    {
-        id: 49,
-        name: "Women's Casual Sandals",
-        brand: "Metro",
-        category: "Shoes",
-        gender: "Women",
-        price: 999,
-        oldPrice: 1699,
         rating: 4.4,
-        reviews: 156,
-        image: "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?auto=format&fit=crop&w=700&q=80",
-        description: "Comfortable casual sandals for everyday outings."
+        reviews: 122,
+        image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
     },
 
     {
-        id: 50,
-        name: "Smart Fitness Band",
-        brand: "Fitbit",
-        category: "Electronics",
+        id: 30,
+        name: "Minimal Wall Clock",
+        category: "Home",
         gender: "Unisex",
-        price: 2999,
-        oldPrice: 4499,
-        rating: 4.6,
-        reviews: 278,
-        image: "https://images.unsplash.com/photo-1557935728-e6d1eaabe558?auto=format&fit=crop&w=700&q=80",
-        description: "Fitness tracker with activity monitoring and smart notifications."
-    },
-
-    {
-        id: 51,
-        name: "Classic Leather Belt",
-        brand: "Levis",
-        category: "Accessories",
-        gender: "Men",
-        price: 899,
-        oldPrice: 1499,
+        price: 599,
+        oldPrice: 999,
         rating: 4.5,
-        reviews: 143,
-        image: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=700&q=80",
-        description: "Classic leather belt suitable for formal and casual outfits."
-    },
-
-    {
-        id: 52,
-        name: "Women's Designer Handbag",
-        brand: "Caprese",
-        category: "Accessories",
-        gender: "Women",
-        price: 2499,
-        oldPrice: 3999,
-        rating: 4.7,
-        reviews: 221,
-        image: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=700&q=80",
-        description: "Premium designer handbag with spacious compartments."
+        reviews: 88,
+        image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
     }
-
 ];
 
 
 /* =========================================================
    STATE
-========================================================= */
+   ========================================================= */
 
 let cart = JSON.parse(localStorage.getItem("lavkart_cart")) || [];
 let wishlist = JSON.parse(localStorage.getItem("lavkart_wishlist")) || [];
 let orders = JSON.parse(localStorage.getItem("lavkart_orders")) || [];
 
-let currentCategory = "all";
-let currentGender = "all";
-let couponApplied = false;
-let authMode = "login";
+let activeCategory = "all";
+let activeGender = "all";
+let couponDiscount = 0;
 
 
 /* =========================================================
-   SAVE DATA
-========================================================= */
+   INITIAL LOAD
+   ========================================================= */
 
-function saveData() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    localStorage.setItem(
-        "lavkart_cart",
-        JSON.stringify(cart)
-    );
+    renderProducts();
+    updateCartCount();
+    updateWishlistCount();
 
-    localStorage.setItem(
-        "lavkart_wishlist",
-        JSON.stringify(wishlist)
-    );
-
-    localStorage.setItem(
-        "lavkart_orders",
-        JSON.stringify(orders)
-    );
-
-}
+});
 
 
 /* =========================================================
    PRODUCT RENDER
-========================================================= */
+   ========================================================= */
 
 function renderProducts() {
 
-    const container =
-        document.getElementById("productContainer");
+    const container = document.getElementById("productContainer");
 
     if (!container) return;
 
     const search =
-        document.getElementById("searchInput")
-            ?.value
-            ?.toLowerCase()
+        document.getElementById("searchInput")?.value
+            .toLowerCase()
             .trim() || "";
 
     const sort =
-        document.getElementById("sortSelect")
-            ?.value || "default";
+        document.getElementById("sortSelect")?.value || "default";
 
 
     let filtered = products.filter(product => {
 
         const categoryMatch =
-            currentCategory === "all" ||
-            product.category === currentCategory;
+            activeCategory === "all" ||
+            product.category === activeCategory;
 
         const genderMatch =
-            currentGender === "all" ||
-            product.gender === currentGender ||
-            product.gender === "Unisex";
+            activeGender === "all" ||
+            product.gender === activeGender;
 
         const searchMatch =
             product.name.toLowerCase().includes(search) ||
-            product.brand.toLowerCase().includes(search) ||
             product.category.toLowerCase().includes(search) ||
             product.gender.toLowerCase().includes(search);
 
-        return categoryMatch &&
-               genderMatch &&
-               searchMatch;
+        return categoryMatch && genderMatch && searchMatch;
 
     });
 
 
     if (sort === "low") {
-
-        filtered.sort(
-            (a, b) => a.price - b.price
-        );
-
+        filtered.sort((a, b) => a.price - b.price);
     }
 
     if (sort === "high") {
-
-        filtered.sort(
-            (a, b) => b.price - a.price
-        );
-
+        filtered.sort((a, b) => b.price - a.price);
     }
 
     if (sort === "rating") {
-
-        filtered.sort(
-            (a, b) => b.rating - a.rating
-        );
-
+        filtered.sort((a, b) => b.rating - a.rating);
     }
 
     if (sort === "name") {
-
-        filtered.sort(
-            (a, b) =>
-                a.name.localeCompare(b.name)
-        );
-
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
     }
 
 
@@ -887,15 +507,14 @@ function renderProducts() {
     }
 
 
-    container.innerHTML =
-        filtered.map(createProductCard).join("");
+    container.innerHTML = filtered.map(product => createProductCard(product)).join("");
 
 }
 
 
 /* =========================================================
    PRODUCT CARD
-========================================================= */
+   ========================================================= */
 
 function createProductCard(product) {
 
@@ -906,7 +525,7 @@ function createProductCard(product) {
         );
 
 
-    const isWishlisted =
+    const wished =
         wishlist.includes(product.id);
 
 
@@ -919,21 +538,20 @@ function createProductCard(product) {
                 <img
                     src="${product.image}"
                     alt="${product.name}"
-                    class="product-image"
                     loading="lazy"
-                    onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80'"
+                    onerror="this.src='https://via.placeholder.com/800x800?text=LavKart'"
                 >
 
-                <span class="discount-badge">
-                    ${discount}% OFF
+                <span class="product-badge">
+                    ${product.badge}
                 </span>
 
                 <button
-                    class="wishlist-btn ${isWishlisted ? "active" : ""}"
+                    class="wishlist-button ${wished ? "active" : ""}"
                     onclick="toggleWishlist(${product.id})"
-                    title="Wishlist"
+                    aria-label="Wishlist"
                 >
-                    ${isWishlisted ? "❤️" : "♡"}
+                    ${wished ? "❤️" : "♡"}
                 </button>
 
             </div>
@@ -941,51 +559,22 @@ function createProductCard(product) {
 
             <div class="product-info">
 
-                <div class="product-brand">
-                    ${product.brand}
+                <div class="product-category">
+                    ${product.gender} · ${product.category}
                 </div>
 
-                <h3 class="product-name">
+                <h3>
                     ${product.name}
                 </h3>
 
-                <div class="product-meta">
-
-                    <span>
-                        ${product.gender === "Men"
-                            ? "👨 Men"
-                            : product.gender === "Women"
-                                ? "👩 Women"
-                                : "👨‍👩‍👧 Unisex"}
-                    </span>
-
-                    <span>
-                        ${product.category}
-                    </span>
-
-                </div>
-
-
                 <div class="rating">
-
-                    <span class="stars">
-                        ${getStars(product.rating)}
-                    </span>
-
-                    <span>
-                        ${product.rating}
-                    </span>
-
-                    <small>
-                        (${product.reviews})
-                    </small>
-
+                    ⭐ ${product.rating}
+                    <span>(${product.reviews})</span>
                 </div>
-
 
                 <div class="price-row">
 
-                    <strong class="product-price">
+                    <strong>
                         ₹${product.price.toLocaleString("en-IN")}
                     </strong>
 
@@ -993,23 +582,27 @@ function createProductCard(product) {
                         ₹${product.oldPrice.toLocaleString("en-IN")}
                     </del>
 
+                    <span class="discount">
+                        ${discount}% OFF
+                    </span>
+
                 </div>
 
 
                 <div class="product-actions">
 
                     <button
-                        class="details-btn"
+                        class="view-button"
                         onclick="openProduct(${product.id})"
                     >
-                        View Details
+                        View
                     </button>
 
                     <button
-                        class="add-cart-btn"
+                        class="add-button"
                         onclick="addToCart(${product.id})"
                     >
-                        🛒 Add
+                        🛒 Add to Cart
                     </button>
 
                 </div>
@@ -1017,44 +610,19 @@ function createProductCard(product) {
             </div>
 
         </article>
-
     `;
-
-}
-
-
-/* =========================================================
-   STARS
-========================================================= */
-
-function getStars(rating) {
-
-    let stars = "";
-
-    for (let i = 1; i <= 5; i++) {
-
-        if (rating >= i) {
-            stars += "★";
-        } else if (rating >= i - 0.5) {
-            stars += "★";
-        } else {
-            stars += "☆";
-        }
-
-    }
-
-    return stars;
 }
 
 
 /* =========================================================
    CATEGORY FILTER
-========================================================= */
+   ========================================================= */
 
 function filterCategory(category) {
 
-    currentCategory = category;
-    currentGender = "all";
+    activeCategory = category;
+
+    activeGender = "all";
 
     renderProducts();
 
@@ -1063,17 +631,18 @@ function filterCategory(category) {
         ?.scrollIntoView({
             behavior: "smooth"
         });
-
 }
 
 
 /* =========================================================
    GENDER FILTER
-========================================================= */
+   ========================================================= */
 
 function filterGender(gender) {
 
-    currentGender = gender;
+    activeGender = gender;
+
+    activeCategory = "Fashion";
 
     renderProducts();
 
@@ -1082,79 +651,159 @@ function filterGender(gender) {
         ?.scrollIntoView({
             behavior: "smooth"
         });
-
-}
-
-
-/* =========================================================
-   ADD TO CART
-========================================================= */
-
-function addToCart(id) {
-
-    const product =
-        products.find(p => p.id === id);
-
-    if (!product) return;
-
-
-    const existing =
-        cart.find(item => item.id === id);
-
-
-    if (existing) {
-
-        existing.quantity++;
-
-    } else {
-
-        cart.push({
-
-            id: product.id,
-            quantity: 1
-
-        });
-
-    }
-
-
-    saveData();
-
-    updateCart();
-
-    showToast(
-        `🛒 ${product.name} added to cart`
-    );
-
 }
 
 
 /* =========================================================
    CART
-========================================================= */
+   ========================================================= */
 
-function updateCart() {
+function addToCart(id) {
 
-    const cartCount =
-        document.getElementById("cartCount");
+    const product = products.find(p => p.id === id);
 
-    const totalItems =
-        cart.reduce(
-            (sum, item) =>
-                sum + item.quantity,
-            0
-        );
+    if (!product) return;
 
 
-    if (cartCount) {
+    const existing = cart.find(item => item.id === id);
 
-        cartCount.textContent =
-            totalItems;
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+
+        cart.push({
+            id: id,
+            quantity: 1
+        });
 
     }
 
 
+    saveCart();
+
+    updateCartCount();
+
+    showToast(`${product.name} added to cart 🛒`);
+
+}
+
+
+function removeFromCart(id) {
+
+    cart = cart.filter(item => item.id !== id);
+
+    saveCart();
+
     renderCart();
+
+    updateCartCount();
+
+}
+
+
+function changeQuantity(id, change) {
+
+    const item = cart.find(item => item.id === id);
+
+    if (!item) return;
+
+
+    item.quantity += change;
+
+
+    if (item.quantity <= 0) {
+
+        removeFromCart(id);
+
+        return;
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+    updateCartCount();
+
+}
+
+
+function clearCart() {
+
+    cart = [];
+
+    couponDiscount = 0;
+
+    saveCart();
+
+    renderCart();
+
+    updateCartCount();
+
+}
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "lavkart_cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function updateCartCount() {
+
+    const count =
+        cart.reduce(
+            (total, item) =>
+                total + item.quantity,
+            0
+        );
+
+
+    const element =
+        document.getElementById("cartCount");
+
+
+    if (element) {
+        element.textContent = count;
+    }
+
+}
+
+
+/* =========================================================
+   CART SIDEBAR
+   ========================================================= */
+
+function openCart() {
+
+    renderCart();
+
+    document
+        .getElementById("cartSidebar")
+        ?.classList.add("open");
+
+    document
+        .getElementById("overlay")
+        ?.classList.add("show");
+
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById("cartSidebar")
+        ?.classList.remove("open");
+
+    document
+        .getElementById("overlay")
+        ?.classList.remove("show");
 
 }
 
@@ -1163,6 +812,7 @@ function renderCart() {
 
     const container =
         document.getElementById("cartItems");
+
 
     if (!container) return;
 
@@ -1177,195 +827,100 @@ function renderCart() {
 
                 <h3>Your cart is empty</h3>
 
-                <p>Add something you love.</p>
+                <p>Add some products to get started.</p>
+
+            </div>
+        `;
+
+        updateSummary(0);
+
+        return;
+    }
+
+
+    container.innerHTML = cart.map(item => {
+
+        const product =
+            products.find(p => p.id === item.id);
+
+        if (!product) return "";
+
+
+        return `
+
+            <div class="cart-item">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+                <div class="cart-item-info">
+
+                    <h4>
+                        ${product.name}
+                    </h4>
+
+                    <strong>
+                        ₹${product.price.toLocaleString("en-IN")}
+                    </strong>
+
+
+                    <div class="quantity-controls">
+
+                        <button
+                            onclick="changeQuantity(${product.id}, -1)"
+                        >
+                            −
+                        </button>
+
+                        <span>
+                            ${item.quantity}
+                        </span>
+
+                        <button
+                            onclick="changeQuantity(${product.id}, 1)"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
 
                 <button
-                    class="checkout-button"
-                    onclick="closeCart(); document.getElementById('products').scrollIntoView({behavior:'smooth'})"
+                    class="remove-item"
+                    onclick="removeFromCart(${product.id})"
                 >
-                    Start Shopping
+                    ✕
                 </button>
 
             </div>
 
         `;
 
-        updateSummary();
+    }).join("");
 
-        return;
-
-    }
-
-
-    container.innerHTML =
-        cart.map(item => {
-
-            const product =
-                products.find(
-                    p => p.id === item.id
-                );
-
-            if (!product) return "";
-
-
-            return `
-
-                <div class="cart-item">
-
-                    <img
-                        src="${product.image}"
-                        alt="${product.name}"
-                    >
-
-                    <div class="cart-item-info">
-
-                        <h4>
-                            ${product.name}
-                        </h4>
-
-                        <small>
-                            ${product.brand}
-                        </small>
-
-                        <strong>
-                            ₹${product.price.toLocaleString("en-IN")}
-                        </strong>
-
-
-                        <div class="quantity-controls">
-
-                            <button
-                                onclick="changeQuantity(${product.id}, -1)"
-                            >
-                                −
-                            </button>
-
-                            <span>
-                                ${item.quantity}
-                            </span>
-
-                            <button
-                                onclick="changeQuantity(${product.id}, 1)"
-                            >
-                                +
-                            </button>
-
-                            <button
-                                class="remove-item"
-                                onclick="removeFromCart(${product.id})"
-                            >
-                                🗑️
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }).join("");
-
-
-    updateSummary();
-
-}
-
-
-function changeQuantity(id, amount) {
-
-    const item =
-        cart.find(i => i.id === id);
-
-    if (!item) return;
-
-
-    item.quantity += amount;
-
-
-    if (item.quantity <= 0) {
-
-        cart =
-            cart.filter(
-                i => i.id !== id
-            );
-
-    }
-
-
-    saveData();
-
-    updateCart();
-
-}
-
-
-function removeFromCart(id) {
-
-    cart =
-        cart.filter(
-            item => item.id !== id
-        );
-
-    saveData();
-
-    updateCart();
-
-    showToast("Product removed from cart");
-
-}
-
-
-function clearCart() {
-
-    if (!cart.length) return;
-
-
-    cart = [];
-
-    couponApplied = false;
-
-    saveData();
-
-    updateCart();
-
-    showToast("Cart cleared");
-
-}
-
-
-/* =========================================================
-   CART SUMMARY
-========================================================= */
-
-function calculateSubtotal() {
-
-    return cart.reduce(
-        (sum, item) => {
-
-            const product =
-                products.find(
-                    p => p.id === item.id
-                );
-
-            return sum +
-                (product
-                    ? product.price * item.quantity
-                    : 0);
-
-        },
-        0
-    );
-
-}
-
-
-function updateSummary() {
 
     const subtotal =
-        calculateSubtotal();
+        cart.reduce((total, item) => {
 
+            const product =
+                products.find(p => p.id === item.id);
+
+            return total +
+                (product.price * item.quantity);
+
+        }, 0);
+
+
+    updateSummary(subtotal);
+
+}
+
+
+function updateSummary(subtotal) {
 
     const shipping =
         subtotal === 0
@@ -1376,9 +931,9 @@ function updateSummary() {
 
 
     const discount =
-        couponApplied
-            ? Math.round(subtotal * 0.10)
-            : 0;
+        Math.round(
+            subtotal * couponDiscount
+        );
 
 
     const total =
@@ -1387,53 +942,61 @@ function updateSummary() {
         discount;
 
 
-    setText(
-        "subtotal",
-        `₹${subtotal.toLocaleString("en-IN")}`
-    );
+    const subtotalElement =
+        document.getElementById("subtotal");
+
+    const shippingElement =
+        document.getElementById("shipping");
+
+    const discountElement =
+        document.getElementById("discount");
+
+    const totalElement =
+        document.getElementById("cartTotal");
 
 
-    setText(
-        "shipping",
-        shipping === 0
-            ? "FREE"
-            : `₹${shipping}`
-    );
+    if (subtotalElement)
+        subtotalElement.textContent =
+            `₹${subtotal.toLocaleString("en-IN")}`;
 
+    if (shippingElement)
+        shippingElement.textContent =
+            shipping === 0
+                ? "FREE"
+                : `₹${shipping}`;
 
-    setText(
-        "discount",
-        `-₹${discount.toLocaleString("en-IN")}`
-    );
+    if (discountElement)
+        discountElement.textContent =
+            `-₹${discount.toLocaleString("en-IN")}`;
 
-
-    setText(
-        "cartTotal",
-        `₹${Math.max(0, total).toLocaleString("en-IN")}`
-    );
+    if (totalElement)
+        totalElement.textContent =
+            `₹${Math.max(0, total).toLocaleString("en-IN")}`;
 
 
     const row =
-        document.getElementById(
-            "discountRow"
-        );
+        document.getElementById("discountRow");
+
 
     if (row) {
 
         row.hidden =
-            !couponApplied;
+            discount === 0;
 
     }
 
 }
 
 
+/* =========================================================
+   COUPON
+   ========================================================= */
+
 function applyCoupon() {
 
     const input =
-        document.getElementById(
-            "couponInput"
-        );
+        document.getElementById("couponInput");
+
 
     if (!input) return;
 
@@ -1444,66 +1007,51 @@ function applyCoupon() {
 
     if (code === "WELCOME10") {
 
-        couponApplied = true;
+        couponDiscount = 0.10;
 
-        updateSummary();
-
-        showToast(
-            "🎉 10% discount applied!"
-        );
+        showToast("10% discount applied 🎉");
 
     } else {
 
-        couponApplied = false;
+        couponDiscount = 0;
 
-        updateSummary();
-
-        showToast(
-            "❌ Invalid coupon. Try WELCOME10"
-        );
+        showToast("Invalid coupon code ❌");
 
     }
+
+
+    renderCart();
 
 }
 
 
 /* =========================================================
    WISHLIST
-========================================================= */
+   ========================================================= */
 
 function toggleWishlist(id) {
-
-    const product =
-        products.find(
-            p => p.id === id
-        );
-
-    if (!product) return;
-
 
     if (wishlist.includes(id)) {
 
         wishlist =
-            wishlist.filter(
-                item => item !== id
-            );
+            wishlist.filter(item => item !== id);
 
-        showToast(
-            "Removed from wishlist"
-        );
+        showToast("Removed from wishlist");
 
     } else {
 
         wishlist.push(id);
 
-        showToast(
-            "❤️ Added to wishlist"
-        );
+        showToast("Added to wishlist ❤️");
 
     }
 
 
-    saveData();
+    localStorage.setItem(
+        "lavkart_wishlist",
+        JSON.stringify(wishlist)
+    );
+
 
     updateWishlistCount();
 
@@ -1515,9 +1063,8 @@ function toggleWishlist(id) {
 function updateWishlistCount() {
 
     const element =
-        document.getElementById(
-            "wishlistCount"
-        );
+        document.getElementById("wishlistCount");
+
 
     if (element) {
 
@@ -1529,22 +1076,23 @@ function updateWishlistCount() {
 }
 
 
-function renderWishlist() {
+function openWishlist() {
+
+    const modal =
+        document.getElementById("wishlistModal");
+
 
     const container =
-        document.getElementById(
-            "wishlistItems"
-        );
+        document.getElementById("wishlistItems");
 
-    if (!container) return;
+
+    if (!modal || !container) return;
 
 
     const items =
         products.filter(
             product =>
-                wishlist.includes(
-                    product.id
-                )
+                wishlist.includes(product.id)
         );
 
 
@@ -1552,68 +1100,74 @@ function renderWishlist() {
 
         container.innerHTML = `
 
-            <div class="empty-cart">
+            <div class="empty-products">
 
                 <div>❤️</div>
 
                 <h3>Your wishlist is empty</h3>
 
-                <p>
-                    Save products you love here.
-                </p>
+                <p>Save products you love here.</p>
 
             </div>
 
         `;
 
-        return;
+    } else {
+
+        container.innerHTML =
+            items
+                .map(product => createProductCard(product))
+                .join("");
 
     }
 
 
-    container.innerHTML =
-        items.map(createProductCard).join("");
+    modal.classList.add("show");
+
+}
+
+
+function closeWishlist() {
+
+    document
+        .getElementById("wishlistModal")
+        ?.classList.remove("show");
 
 }
 
 
 /* =========================================================
-   PRODUCT DETAILS
-========================================================= */
+   PRODUCT MODAL
+   ========================================================= */
 
 function openProduct(id) {
 
     const product =
-        products.find(
-            p => p.id === id
-        );
+        products.find(p => p.id === id);
+
 
     if (!product) return;
 
 
-    const discount =
-        Math.round(
-            ((product.oldPrice - product.price) /
-            product.oldPrice) * 100
-        );
+    const modal =
+        document.getElementById("productModal");
 
 
-    const container =
-        document.getElementById(
-            "productDetails"
-        );
+    const details =
+        document.getElementById("productDetails");
 
 
-    if (!container) return;
+    if (!modal || !details) return;
 
 
-    container.innerHTML = `
+    details.innerHTML = `
 
-        <div class="detail-layout">
+        <div class="product-detail-grid">
 
-            <div class="detail-image">
+            <div>
 
                 <img
+                    class="product-detail-image"
                     src="${product.image}"
                     alt="${product.name}"
                 >
@@ -1621,78 +1175,50 @@ function openProduct(id) {
             </div>
 
 
-            <div class="detail-content">
+            <div class="product-detail-content">
 
-                <span class="detail-brand">
-                    ${product.brand}
+                <span class="product-badge">
+                    ${product.badge}
                 </span>
+
+                <p class="product-category">
+                    ${product.gender} · ${product.category}
+                </p>
 
                 <h2>
                     ${product.name}
                 </h2>
 
                 <div class="rating">
-
-                    <span class="stars">
-                        ${getStars(product.rating)}
-                    </span>
-
-                    ${product.rating}
+                    ⭐ ${product.rating}
                     (${product.reviews} reviews)
-
                 </div>
 
-
                 <div class="detail-price">
-
-                    <strong>
-                        ₹${product.price.toLocaleString("en-IN")}
-                    </strong>
-
+                    ₹${product.price.toLocaleString("en-IN")}
                     <del>
                         ₹${product.oldPrice.toLocaleString("en-IN")}
                     </del>
-
-                    <span>
-                        ${discount}% OFF
-                    </span>
-
                 </div>
-
 
                 <p>
-                    ${product.description}
+                    Premium quality product from LavKart.
+                    Carefully selected for comfort, style,
+                    quality and everyday use.
                 </p>
 
+                <div class="detail-features">
 
-                <div class="detail-info">
-
-                    <div>
-                        <strong>Category</strong>
-                        <span>${product.category}</span>
-                    </div>
-
-                    <div>
-                        <strong>Gender</strong>
-                        <span>${product.gender}</span>
-                    </div>
-
-                    <div>
-                        <strong>Delivery</strong>
-                        <span>🚚 Free delivery over ₹499</span>
-                    </div>
-
-                    <div>
-                        <strong>Returns</strong>
-                        <span>↩️ 7-day easy returns</span>
-                    </div>
+                    ✓ Quality checked<br>
+                    ✓ Fast delivery<br>
+                    ✓ Easy 7-day returns<br>
+                    ✓ Secure checkout
 
                 </div>
 
-
                 <button
-                    class="place-order-button"
-                    onclick="addToCart(${product.id}); closeProductModal(); openCart();"
+                    class="add-button large"
+                    onclick="addToCart(${product.id}); closeProductModal();"
                 >
                     🛒 Add to Cart
                 </button>
@@ -1704,16 +1230,7 @@ function openProduct(id) {
     `;
 
 
-    const modal =
-        document.getElementById(
-            "productModal"
-        );
-
-    if (modal) {
-
-        modal.classList.add("active");
-
-    }
+    modal.classList.add("show");
 
 }
 
@@ -1722,76 +1239,20 @@ function closeProductModal() {
 
     document
         .getElementById("productModal")
-        ?.classList.remove("active");
-
-}
-
-
-/* =========================================================
-   CART SIDEBAR
-========================================================= */
-
-function openCart() {
-
-    document
-        .getElementById("cartSidebar")
-        ?.classList.add("active");
-
-    document
-        .getElementById("overlay")
-        ?.classList.add("active");
-
-}
-
-
-function closeCart() {
-
-    document
-        .getElementById("cartSidebar")
-        ?.classList.remove("active");
-
-    document
-        .getElementById("overlay")
-        ?.classList.remove("active");
-
-}
-
-
-/* =========================================================
-   WISHLIST MODAL
-========================================================= */
-
-function openWishlist() {
-
-    renderWishlist();
-
-    document
-        .getElementById("wishlistModal")
-        ?.classList.add("active");
-
-}
-
-
-function closeWishlist() {
-
-    document
-        .getElementById("wishlistModal")
-        ?.classList.remove("active");
+        ?.classList.remove("show");
 
 }
 
 
 /* =========================================================
    CHECKOUT
-========================================================= */
+   ========================================================= */
 
 function openCheckout() {
 
     if (cart.length === 0) {
 
-        showToast(
-            "Your cart is empty"
-        );
+        showToast("Your cart is empty");
 
         return;
 
@@ -1800,9 +1261,10 @@ function openCheckout() {
 
     closeCart();
 
+
     document
         .getElementById("checkoutModal")
-        ?.classList.add("active");
+        ?.classList.add("show");
 
 }
 
@@ -1811,7 +1273,7 @@ function closeCheckout() {
 
     document
         .getElementById("checkoutModal")
-        ?.classList.remove("active");
+        ?.classList.remove("show");
 
 }
 
@@ -1823,35 +1285,11 @@ function placeOrder(event) {
 
     if (cart.length === 0) {
 
-        showToast(
-            "Your cart is empty"
-        );
+        showToast("Your cart is empty");
 
         return;
 
     }
-
-
-    const firstName =
-        document.getElementById(
-            "firstName"
-        )?.value || "";
-
-
-    const lastName =
-        document.getElementById(
-            "lastName"
-        )?.value || "";
-
-
-    const email =
-        document.getElementById(
-            "checkoutEmail"
-        )?.value || "";
-
-
-    const total =
-        calculateSubtotal();
 
 
     const order = {
@@ -1863,47 +1301,43 @@ function placeOrder(event) {
                 .slice(-8),
 
         date:
-            new Date()
-                .toLocaleString("en-IN"),
-
-        customer:
-            `${firstName} ${lastName}`,
-
-        email,
-
-        total,
+            new Date().toLocaleString("en-IN"),
 
         items:
             [...cart],
 
         status:
-            "Order Placed"
+            "Order Confirmed"
 
     };
 
 
     orders.unshift(order);
 
+
+    localStorage.setItem(
+        "lavkart_orders",
+        JSON.stringify(orders)
+    );
+
+
     cart = [];
 
-    couponApplied = false;
+    couponDiscount = 0;
 
-    saveData();
+    saveCart();
 
-    updateCart();
+    updateCartCount();
 
     closeCheckout();
 
-
     document
-        .getElementById(
-            "checkoutForm"
-        )
+        .getElementById("checkoutForm")
         ?.reset();
 
 
     showToast(
-        `🎉 Order ${order.id} placed successfully!`
+        `Order ${order.id} placed successfully 🎉`
     );
 
 }
@@ -1911,15 +1345,100 @@ function placeOrder(event) {
 
 /* =========================================================
    ORDERS
-========================================================= */
+   ========================================================= */
 
 function openOrders() {
 
-    renderOrders();
+    const modal =
+        document.getElementById("ordersModal");
 
-    document
-        .getElementById("ordersModal")
-        ?.classList.add("active");
+
+    const container =
+        document.getElementById("ordersList");
+
+
+    if (!modal || !container) return;
+
+
+    if (orders.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty-products">
+
+                <div>📦</div>
+
+                <h3>No orders yet</h3>
+
+                <p>Your orders will appear here.</p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        container.innerHTML =
+            orders.map(order => {
+
+                const total =
+                    order.items.reduce(
+                        (sum, item) => {
+
+                            const product =
+                                products.find(
+                                    p => p.id === item.id
+                                );
+
+                            return sum +
+                                (
+                                    product.price *
+                                    item.quantity
+                                );
+
+                        },
+                        0
+                    );
+
+
+                return `
+
+                    <div class="order-card">
+
+                        <div>
+
+                            <strong>
+                                ${order.id}
+                            </strong>
+
+                            <span>
+                                ${order.date}
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                ₹${total.toLocaleString("en-IN")}
+                            </strong>
+
+                            <span class="order-status">
+                                ${order.status}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+    }
+
+
+    modal.classList.add("show");
 
 }
 
@@ -1928,89 +1447,23 @@ function closeOrders() {
 
     document
         .getElementById("ordersModal")
-        ?.classList.remove("active");
-
-}
-
-
-function renderOrders() {
-
-    const container =
-        document.getElementById(
-            "ordersList"
-        );
-
-    if (!container) return;
-
-
-    if (orders.length === 0) {
-
-        container.innerHTML = `
-
-            <div class="empty-cart">
-
-                <div>📦</div>
-
-                <h3>No orders yet</h3>
-
-                <p>
-                    Your completed orders will appear here.
-                </p>
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        orders.map(order => `
-
-            <div class="order-card">
-
-                <div>
-
-                    <strong>
-                        Order #${order.id}
-                    </strong>
-
-                    <p>
-                        ${order.date}
-                    </p>
-
-                </div>
-
-                <div>
-
-                    <strong>
-                        ₹${order.total.toLocaleString("en-IN")}
-                    </strong>
-
-                    <span class="order-status">
-                        ${order.status}
-                    </span>
-
-                </div>
-
-            </div>
-
-        `).join("");
+        ?.classList.remove("show");
 
 }
 
 
 /* =========================================================
-   LOGIN / REGISTER
-========================================================= */
+   LOGIN
+   ========================================================= */
+
+let registerMode = false;
+
 
 function openLogin() {
 
     document
         .getElementById("authModal")
-        ?.classList.add("active");
+        ?.classList.add("show");
 
 }
 
@@ -2019,73 +1472,54 @@ function closeLogin() {
 
     document
         .getElementById("authModal")
-        ?.classList.remove("active");
+        ?.classList.remove("show");
 
 }
 
 
 function toggleAuthMode() {
 
-    authMode =
-        authMode === "login"
-            ? "register"
-            : "login";
+    registerMode = !registerMode;
 
 
     const title =
-        document.getElementById(
-            "authTitle"
-        );
+        document.getElementById("authTitle");
 
-    const nameGroup =
-        document.getElementById(
-            "nameGroup"
-        );
+    const name =
+        document.getElementById("nameGroup");
 
     const submit =
-        document.getElementById(
-            "authSubmit"
-        );
+        document.getElementById("authSubmit");
 
     const switchButton =
-        document.getElementById(
-            "switchAuth"
-        );
+        document.getElementById("switchAuth");
 
 
-    if (authMode === "register") {
+    if (registerMode) {
 
-        if (title)
-            title.textContent =
-                "Create Account";
+        title.textContent =
+            "Create Your Account";
 
-        if (nameGroup)
-            nameGroup.hidden = false;
+        name.hidden = false;
 
-        if (submit)
-            submit.textContent =
-                "Create Account";
+        submit.textContent =
+            "Create Account";
 
-        if (switchButton)
-            switchButton.textContent =
-                "Already have an account? Login";
+        switchButton.textContent =
+            "Already have an account? Login";
 
     } else {
 
-        if (title)
-            title.textContent =
-                "Welcome Back";
+        title.textContent =
+            "Welcome Back";
 
-        if (nameGroup)
-            nameGroup.hidden = true;
+        name.hidden = true;
 
-        if (submit)
-            submit.textContent =
-                "Login";
+        submit.textContent =
+            "Login";
 
-        if (switchButton)
-            switchButton.textContent =
-                "Create an account";
+        switchButton.textContent =
+            "Create an account";
 
     }
 
@@ -2098,125 +1532,68 @@ function handleAuth(event) {
 
 
     const email =
-        document.getElementById(
-            "authEmail"
-        )?.value || "";
+        document.getElementById("authEmail").value;
 
 
-    if (authMode === "register") {
-
-        const name =
-            document.getElementById(
-                "authName"
-            )?.value || "Customer";
-
-
-        localStorage.setItem(
-            "lavkart_user",
-            JSON.stringify({
-                name,
-                email
-            })
-        );
-
-
-        showToast(
-            "🎉 Account created successfully!"
-        );
-
-    } else {
-
-        showToast(
-            "👋 Welcome back to LavKart!"
-        );
-
-    }
+    localStorage.setItem(
+        "lavkart_user",
+        email
+    );
 
 
     closeLogin();
 
 
-    updateLoginButton();
-
-}
-
-
-function updateLoginButton() {
-
     const button =
-        document.getElementById(
-            "loginButton"
-        );
-
-    if (!button) return;
+        document.getElementById("loginButton");
 
 
-    const user =
-        JSON.parse(
-            localStorage.getItem(
-                "lavkart_user"
-            )
-        );
-
-
-    if (user) {
+    if (button) {
 
         button.textContent =
-            `Hi, ${user.name.split(" ")[0]}`;
-
-    } else {
-
-        button.textContent =
-            "Login";
+            "✓ Logged In";
 
     }
+
+
+    showToast(
+        registerMode
+            ? "Account created successfully 🎉"
+            : "Welcome back 👋"
+    );
 
 }
 
 
 /* =========================================================
    DARK MODE
-========================================================= */
+   ========================================================= */
 
 function toggleDarkMode() {
 
-    document.body.classList.toggle(
-        "dark-mode"
-    );
+    document.body.classList.toggle("dark");
 
 
     localStorage.setItem(
         "lavkart_dark",
-        document.body.classList.contains(
-            "dark-mode"
-        )
+        document.body.classList.contains("dark")
     );
 
 }
 
 
-function loadDarkMode() {
+if (
+    localStorage.getItem("lavkart_dark") === "true"
+) {
 
-    const dark =
-        localStorage.getItem(
-            "lavkart_dark"
-        );
-
-
-    if (dark === "true") {
-
-        document.body.classList.add(
-            "dark-mode"
-        );
-
-    }
+    document.body.classList.add("dark");
 
 }
 
 
 /* =========================================================
-   OVERLAY / CLOSE
-========================================================= */
+   CLOSE EVERYTHING
+   ========================================================= */
 
 function closeAll() {
 
@@ -2224,12 +1601,20 @@ function closeAll() {
 
     closeProductModal();
 
+    closeCheckout();
+
+    closeLogin();
+
+    closeWishlist();
+
+    closeOrders();
+
 }
 
 
 /* =========================================================
    TOAST
-========================================================= */
+   ========================================================= */
 
 let toastTimer;
 
@@ -2237,20 +1622,15 @@ let toastTimer;
 function showToast(message) {
 
     const toast =
-        document.getElementById(
-            "toast"
-        );
+        document.getElementById("toast");
+
 
     if (!toast) return;
 
 
-    toast.textContent =
-        message;
+    toast.textContent = message;
 
-
-    toast.classList.add(
-        "show"
-    );
+    toast.classList.add("show");
 
 
     clearTimeout(toastTimer);
@@ -2259,134 +1639,8 @@ function showToast(message) {
     toastTimer =
         setTimeout(() => {
 
-            toast.classList.remove(
-                "show"
-            );
+            toast.classList.remove("show");
 
         }, 2500);
 
 }
-
-
-/* =========================================================
-   HELPER
-========================================================= */
-
-function setText(id, value) {
-
-    const element =
-        document.getElementById(id);
-
-    if (element) {
-
-        element.textContent =
-            value;
-
-    }
-
-}
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        renderProducts();
-
-        updateCart();
-
-        updateWishlistCount();
-
-        updateLoginButton();
-
-        loadDarkMode();
-
-    }
-);
-
-
-/* =========================================================
-   GLOBAL CATEGORY/GENDER SHORTCUTS
-========================================================= */
-
-window.filterCategory =
-    filterCategory;
-
-window.filterGender =
-    filterGender;
-
-window.addToCart =
-    addToCart;
-
-window.changeQuantity =
-    changeQuantity;
-
-window.removeFromCart =
-    removeFromCart;
-
-window.clearCart =
-    clearCart;
-
-window.applyCoupon =
-    applyCoupon;
-
-window.openCart =
-    openCart;
-
-window.closeCart =
-    closeCart;
-
-window.openWishlist =
-    openWishlist;
-
-window.closeWishlist =
-    closeWishlist;
-
-window.toggleWishlist =
-    toggleWishlist;
-
-window.openProduct =
-    openProduct;
-
-window.closeProductModal =
-    closeProductModal;
-
-window.openCheckout =
-    openCheckout;
-
-window.closeCheckout =
-    closeCheckout;
-
-window.placeOrder =
-    placeOrder;
-
-window.openOrders =
-    openOrders;
-
-window.closeOrders =
-    closeOrders;
-
-window.openLogin =
-    openLogin;
-
-window.closeLogin =
-    closeLogin;
-
-window.toggleAuthMode =
-    toggleAuthMode;
-
-window.handleAuth =
-    handleAuth;
-
-window.toggleDarkMode =
-    toggleDarkMode;
-
-window.closeAll =
-    closeAll;
-
-window.renderProducts =
-    renderProducts;
