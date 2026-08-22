@@ -2,108 +2,220 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrangeCart - Online Shopping</title>
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="OrangeCart - Your one stop online shopping destination"
+    >
+
+    <title>OrangeCart | Online Shopping</title>
+
+    <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- IMPORTANT: CSS FILE -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-    <div>🔥 Big Sale is Live — Up to 70% OFF</div>
-    <div class="top-links">
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+    <div class="topbar-left">
+        🔥 Big Sale is Live — Up to 70% OFF
+    </div>
+
+    <div class="topbar-right">
         <span>Track Order</span>
         <span>Help</span>
         <span>Contact</span>
     </div>
+
 </div>
 
-<!-- HEADER -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header class="header">
 
-    <div class="logo">
-        <div class="logo-icon">🛒</div>
-        <div>
-            <strong>Orange<span>Cart</span></strong>
-            <small>Shop Smart. Live Better.</small>
+    <div class="logo-area">
+
+        <div class="logo-icon">
+            🛒
         </div>
+
+        <div class="logo-text">
+            <h1>
+                Orange<span>Cart</span>
+            </h1>
+
+            <p>
+                Shop Smart. Live Better.
+            </p>
+        </div>
+
     </div>
 
-    <div class="search-box">
+
+    <div class="search-container">
+
         <input
             type="text"
             id="searchInput"
-            placeholder="Search for products, brands and more..."
+            placeholder="Search products, brands and more..."
         >
-        <button onclick="searchProducts()">🔍</button>
+
+        <button
+            id="searchButton"
+            aria-label="Search"
+        >
+            🔍
+        </button>
+
     </div>
+
 
     <div class="header-actions">
 
-        <button class="header-btn">
-            👤
-            <span>Account</span>
+        <button
+            class="header-action"
+            onclick="showToast('Account feature coming soon 👤')"
+        >
+            <span class="action-icon">👤</span>
+            <span class="action-text">Account</span>
         </button>
 
-        <button class="header-btn">
-            ❤️
-            <span>Wishlist</span>
+
+        <button
+            class="header-action"
+            onclick="showWishlist()"
+        >
+            <span class="action-icon">❤️</span>
+            <span class="action-text">Wishlist</span>
         </button>
 
-        <button class="cart-button" onclick="openCart()">
-            🛒
-            <span>Cart</span>
-            <b id="cartCount">0</b>
+
+        <button
+            class="cart-header-button"
+            onclick="openCart()"
+        >
+
+            <span class="action-icon">
+                🛒
+            </span>
+
+            <span class="action-text">
+                Cart
+            </span>
+
+            <span
+                id="cartCount"
+                class="cart-count"
+            >
+                0
+            </span>
+
         </button>
 
     </div>
 
 </header>
 
-<!-- NAVIGATION -->
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <nav class="navigation">
 
     <div class="nav-inner">
 
-        <button onclick="filterProducts('all')" class="nav-item active">
+        <button
+            class="nav-link active"
+            data-category="all"
+            onclick="filterProducts('all')"
+        >
             🏠 All
         </button>
 
-        <button onclick="filterProducts('electronics')" class="nav-item">
+        <button
+            class="nav-link"
+            data-category="electronics"
+            onclick="filterProducts('electronics')"
+        >
             📱 Electronics
         </button>
 
-        <button onclick="filterProducts('fashion')" class="nav-item">
+        <button
+            class="nav-link"
+            data-category="fashion"
+            onclick="filterProducts('fashion')"
+        >
             👕 Fashion
         </button>
 
-        <button onclick="filterProducts('shoes')" class="nav-item">
+        <button
+            class="nav-link"
+            data-category="shoes"
+            onclick="filterProducts('shoes')"
+        >
             👟 Shoes
         </button>
 
-        <button onclick="filterProducts('home')" class="nav-item">
+        <button
+            class="nav-link"
+            data-category="home"
+            onclick="filterProducts('home')"
+        >
             🏠 Home
         </button>
 
-        <button onclick="filterProducts('beauty')" class="nav-item">
+        <button
+            class="nav-link"
+            data-category="beauty"
+            onclick="filterProducts('beauty')"
+        >
             💄 Beauty
         </button>
 
-        <button onclick="filterProducts('gaming')" class="nav-item">
+        <button
+            class="nav-link"
+            data-category="gaming"
+            onclick="filterProducts('gaming')"
+        >
             🎮 Gaming
         </button>
 
-        <button onclick="filterProducts('accessories')" class="nav-item">
+        <button
+            class="nav-link"
+            data-category="accessories"
+            onclick="filterProducts('accessories')"
+        >
             🎒 Accessories
         </button>
 
-        <button onclick="filterProducts('deals')" class="nav-item deal-nav">
+        <button
+            class="nav-link deals-link"
+            data-category="deals"
+            onclick="filterProducts('deals')"
+        >
             🔥 Today's Deals
         </button>
 
@@ -111,68 +223,127 @@
 
 </nav>
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-container">
 
-        <div class="hero-text">
+        <div class="hero-content">
 
-            <span class="hero-badge">🔥 MEGA SHOPPING FESTIVAL</span>
+            <div class="hero-badge">
+                🔥 MEGA SHOPPING FESTIVAL
+            </div>
 
-            <h1>
+            <h2>
                 Everything You Love.
                 <span>All in One Place.</span>
-            </h1>
+            </h2>
 
             <p>
-                Discover amazing products, unbeatable prices and
-                exclusive deals delivered right to your doorstep.
+                Discover amazing products, unbeatable prices
+                and exclusive deals delivered right to your doorstep.
             </p>
 
             <div class="hero-buttons">
-                <button class="primary-btn" onclick="scrollToProducts()">
+
+                <button
+                    class="btn-primary"
+                    onclick="scrollToProducts()"
+                >
                     Shop Now →
                 </button>
 
-                <button class="secondary-btn" onclick="filterProducts('deals')">
+                <button
+                    class="btn-secondary"
+                    onclick="filterProducts('deals')"
+                >
                     🔥 View Deals
                 </button>
+
             </div>
 
-            <div class="hero-features">
 
-                <div>
-                    <strong>🚚 Free Delivery</strong>
-                    <small>On orders over ₹499</small>
+            <div class="hero-benefits">
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        🚚
+                    </div>
+
+                    <div>
+                        <strong>Free Delivery</strong>
+                        <small>Orders above ₹499</small>
+                    </div>
+
                 </div>
 
-                <div>
-                    <strong>🔄 Easy Returns</strong>
-                    <small>7-day return policy</small>
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        🔄
+                    </div>
+
+                    <div>
+                        <strong>Easy Returns</strong>
+                        <small>7-day returns</small>
+                    </div>
+
                 </div>
 
-                <div>
-                    <strong>🔒 Secure Payment</strong>
-                    <small>100% secure checkout</small>
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <strong>Secure Payment</strong>
+                        <small>100% protected</small>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
-        <div class="hero-image">
 
-            <div class="hero-circle"></div>
+        <div class="hero-visual">
+
+            <div class="hero-background-circle"></div>
 
             <img
                 src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=900&q=85"
-                alt="Shopping"
+                alt="Online Shopping"
+                class="hero-main-image"
             >
 
-            <div class="floating-offer">
+            <div class="offer-circle">
+
                 <strong>70%</strong>
                 <span>OFF</span>
+
+            </div>
+
+
+            <div class="floating-card">
+
+                <div class="floating-product-icon">
+                    🎧
+                </div>
+
+                <div>
+                    <small>Trending Now</small>
+                    <strong>Premium Gadgets</strong>
+                </div>
+
             </div>
 
         </div>
@@ -181,135 +352,393 @@
 
 </section>
 
-<!-- CATEGORY CARDS -->
-<section class="categories-section">
 
-    <div class="section-heading">
+<!-- =====================================================
+     CATEGORY SECTION
+===================================================== -->
+
+<section class="categories section">
+
+    <div class="section-header">
 
         <div>
-            <span class="section-label">EXPLORE</span>
-            <h2>Shop by Category</h2>
+            <span class="section-kicker">
+                EXPLORE
+            </span>
+
+            <h2>
+                Shop by Category
+            </h2>
         </div>
 
-        <button onclick="filterProducts('all')" class="view-all">
+        <button
+            class="view-all"
+            onclick="filterProducts('all')"
+        >
             View All →
         </button>
 
     </div>
 
+
     <div class="category-grid">
 
-        <div class="category-card" onclick="filterProducts('electronics')">
-            <div class="category-icon orange">📱</div>
+        <div
+            class="category-card"
+            onclick="filterProducts('electronics')"
+        >
+            <div class="category-circle orange-bg">
+                📱
+            </div>
+
             <h3>Electronics</h3>
-            <p>120+ Products</p>
+            <p>8 Products</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('fashion')">
-            <div class="category-icon purple">👕</div>
+
+        <div
+            class="category-card"
+            onclick="filterProducts('fashion')"
+        >
+            <div class="category-circle purple-bg">
+                👕
+            </div>
+
             <h3>Fashion</h3>
-            <p>250+ Products</p>
+            <p>4 Products</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('shoes')">
-            <div class="category-icon blue">👟</div>
+
+        <div
+            class="category-card"
+            onclick="filterProducts('shoes')"
+        >
+            <div class="category-circle blue-bg">
+                👟
+            </div>
+
             <h3>Footwear</h3>
-            <p>180+ Products</p>
+            <p>3 Products</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('home')">
-            <div class="category-icon green">🏠</div>
+
+        <div
+            class="category-card"
+            onclick="filterProducts('home')"
+        >
+            <div class="category-circle green-bg">
+                🏠
+            </div>
+
             <h3>Home & Living</h3>
-            <p>300+ Products</p>
+            <p>4 Products</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('beauty')">
-            <div class="category-icon pink">💄</div>
+
+        <div
+            class="category-card"
+            onclick="filterProducts('beauty')"
+        >
+            <div class="category-circle pink-bg">
+                💄
+            </div>
+
             <h3>Beauty</h3>
-            <p>150+ Products</p>
+            <p>2 Products</p>
         </div>
 
-        <div class="category-card" onclick="filterProducts('gaming')">
-            <div class="category-icon dark">🎮</div>
+
+        <div
+            class="category-card"
+            onclick="filterProducts('gaming')"
+        >
+            <div class="category-circle dark-bg">
+                🎮
+            </div>
+
             <h3>Gaming</h3>
-            <p>90+ Products</p>
+            <p>3 Products</p>
         </div>
 
     </div>
 
 </section>
 
-<!-- DEAL BANNER -->
-<section class="deal-banner">
 
-    <div>
-        <span>LIMITED TIME OFFER</span>
-        <h2>🔥 Mega Deals Are Here!</h2>
-        <p>Save big on your favourite products today.</p>
+<!-- =====================================================
+     PROMO BANNER
+===================================================== -->
+
+<section class="promo-wrapper">
+
+    <div class="promo-banner">
+
+        <div class="promo-content">
+
+            <span>
+                LIMITED TIME OFFER
+            </span>
+
+            <h2>
+                🔥 Mega Deals Are Here!
+            </h2>
+
+            <p>
+                Grab your favourite products before they're gone.
+            </p>
+
+        </div>
+
+
+        <div class="promo-discount">
+
+            <small>UP TO</small>
+
+            <strong>
+                70%
+            </strong>
+
+            <span>
+                OFF
+            </span>
+
+        </div>
+
+
+        <button
+            onclick="filterProducts('deals')"
+        >
+            Shop Deals →
+        </button>
+
     </div>
-
-    <div class="deal-discount">
-        <strong>UP TO</strong>
-        <b>70%</b>
-        <span>OFF</span>
-    </div>
-
-    <button onclick="filterProducts('deals')">
-        Shop Deals →
-    </button>
 
 </section>
 
-<!-- PRODUCTS -->
-<main class="products-section" id="products">
 
-    <div class="section-heading">
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
+
+<section
+    class="products section"
+    id="productsSection"
+>
+
+    <div class="section-header">
 
         <div>
-            <span class="section-label">OUR COLLECTION</span>
-            <h2 id="productHeading">Trending Products</h2>
+
+            <span class="section-kicker">
+                OUR COLLECTION
+            </span>
+
+            <h2 id="productTitle">
+                Trending Products
+            </h2>
+
         </div>
 
-        <div class="sort-box">
-            <select id="sortSelect" onchange="sortProducts()">
-                <option value="default">Sort By</option>
-                <option value="low">Price: Low to High</option>
-                <option value="high">Price: High to Low</option>
-                <option value="rating">Top Rated</option>
+
+        <div class="product-controls">
+
+            <span
+                id="productCount"
+                class="product-count"
+            >
+                24 Products
+            </span>
+
+            <select
+                id="sortSelect"
+                onchange="sortProducts()"
+            >
+
+                <option value="default">
+                    Sort By
+                </option>
+
+                <option value="low">
+                    Price: Low to High
+                </option>
+
+                <option value="high">
+                    Price: High to Low
+                </option>
+
+                <option value="rating">
+                    Top Rated
+                </option>
+
+                <option value="discount">
+                    Biggest Discount
+                </option>
+
             </select>
+
         </div>
 
     </div>
 
-    <div id="productGrid" class="product-grid"></div>
 
-</main>
+    <div
+        id="productGrid"
+        class="product-grid"
+    ></div>
 
-<!-- NEWSLETTER -->
-<section class="newsletter">
+</section>
 
-    <div>
-        <span>STAY UPDATED</span>
-        <h2>Get the Best Deals in Your Inbox</h2>
-        <p>Subscribe and receive exclusive offers and discounts.</p>
+
+<!-- =====================================================
+     WHY SHOP WITH US
+===================================================== -->
+
+<section class="why-section">
+
+    <div class="section-header centered">
+
+        <div>
+
+            <span class="section-kicker">
+                ORANGECART PROMISE
+            </span>
+
+            <h2>
+                Why Shop With Us?
+            </h2>
+
+        </div>
+
     </div>
 
-    <div class="newsletter-form">
-        <input type="email" placeholder="Enter your email address">
-        <button onclick="subscribeNewsletter()">Subscribe</button>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🚚
+            </div>
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Quick and reliable delivery right to your doorstep.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                💳
+            </div>
+
+            <h3>
+                Secure Payments
+            </h3>
+
+            <p>
+                Your payment information is always protected.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                🔄
+            </div>
+
+            <h3>
+                Easy Returns
+            </h3>
+
+            <p>
+                Hassle-free returns on eligible products.
+            </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+            <div class="why-icon">
+                ⭐
+            </div>
+
+            <h3>
+                Quality Products
+            </h3>
+
+            <p>
+                Carefully selected products at great prices.
+            </p>
+
+        </div>
+
     </div>
 
 </section>
 
-<!-- FOOTER -->
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="newsletter">
+
+    <div class="newsletter-content">
+
+        <span>
+            STAY UPDATED
+        </span>
+
+        <h2>
+            Get Exclusive Deals
+        </h2>
+
+        <p>
+            Subscribe to receive special offers,
+            new arrivals and discounts.
+        </p>
+
+    </div>
+
+
+    <div class="newsletter-form">
+
+        <input
+            type="email"
+            id="emailInput"
+            placeholder="Enter your email address"
+        >
+
+        <button onclick="subscribeNewsletter()">
+            Subscribe
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
-    <div class="footer-main">
+    <div class="footer-content">
 
-        <div class="footer-about">
+        <div class="footer-brand">
 
             <div class="footer-logo">
-                🛒 <strong>Orange<span>Cart</span></strong>
+                🛒 Orange<span>Cart</span>
             </div>
 
             <p>
@@ -317,86 +746,198 @@
                 fashion, home essentials and much more.
             </p>
 
-            <div class="socials">
+
+            <div class="social-icons">
+
                 <span>f</span>
                 <span>𝕏</span>
                 <span>◎</span>
                 <span>▶</span>
+
             </div>
 
         </div>
 
-        <div>
-            <h3>Quick Links</h3>
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
-            <a href="#">Careers</a>
-            <a href="#">Blog</a>
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="#">
+                About Us
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+            <a href="#">
+                Careers
+            </a>
+
+            <a href="#">
+                Blog
+            </a>
+
         </div>
 
-        <div>
-            <h3>Customer Service</h3>
-            <a href="#">Help Center</a>
-            <a href="#">Track Order</a>
-            <a href="#">Returns</a>
-            <a href="#">Shipping Info</a>
+
+        <div class="footer-column">
+
+            <h3>
+                Customer Service
+            </h3>
+
+            <a href="#">
+                Help Center
+            </a>
+
+            <a href="#">
+                Track Order
+            </a>
+
+            <a href="#">
+                Returns
+            </a>
+
+            <a href="#">
+                Shipping Info
+            </a>
+
         </div>
 
-        <div>
-            <h3>Policies</h3>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Refund Policy</a>
-            <a href="#">Security</a>
+
+        <div class="footer-column">
+
+            <h3>
+                Policies
+            </h3>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+            <a href="#">
+                Refund Policy
+            </a>
+
+            <a href="#">
+                Security
+            </a>
+
         </div>
 
-        <div>
-            <h3>Contact Us</h3>
-            <p>📍 India</p>
-            <p>📞 +91 98765 43210</p>
-            <p>✉️ support@orangecart.com</p>
+
+        <div class="footer-column">
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                📍 India
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉️ support@orangecart.com
+            </p>
+
         </div>
 
     </div>
 
+
     <div class="footer-bottom">
+
         © 2026 OrangeCart. All Rights Reserved.
+
     </div>
 
 </footer>
 
-<!-- CART OVERLAY -->
-<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
 
-<!-- CART -->
-<aside id="cartPanel" class="cart-panel">
+<!-- =====================================================
+     CART OVERLAY
+===================================================== -->
+
+<div
+    id="cartOverlay"
+    class="cart-overlay"
+    onclick="closeCart()"
+></div>
+
+
+<!-- =====================================================
+     CART PANEL
+===================================================== -->
+
+<aside
+    id="cartPanel"
+    class="cart-panel"
+>
 
     <div class="cart-header">
 
-        <h2>🛒 Your Cart</h2>
+        <div>
 
-        <button onclick="closeCart()">✕</button>
+            <span class="cart-kicker">
+                SHOPPING CART
+            </span>
 
-    </div>
+            <h2>
+                Your Cart 🛒
+            </h2>
 
-    <div id="cartItems" class="cart-items">
-
-        <div class="empty-cart">
-            <div>🛒</div>
-            <h3>Your cart is empty</h3>
-            <p>Add some amazing products!</p>
         </div>
 
+        <button
+            class="close-button"
+            onclick="closeCart()"
+        >
+            ✕
+        </button>
+
     </div>
+
+
+    <div
+        id="cartItems"
+        class="cart-items"
+    ></div>
+
 
     <div class="cart-footer">
 
-        <div class="subtotal">
-            <span>Subtotal</span>
-            <strong id="cartTotal">₹0</strong>
+        <div class="cart-summary">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="cartTotal">
+                ₹0
+            </strong>
+
         </div>
 
-        <button class="checkout-btn" onclick="checkout()">
+        <p class="free-delivery-note">
+            🚚 Free delivery on orders above ₹499
+        </p>
+
+        <button
+            class="checkout-button"
+            onclick="checkout()"
+        >
             Proceed to Checkout →
         </button>
 
@@ -404,25 +945,48 @@
 
 </aside>
 
-<!-- PRODUCT MODAL -->
-<div id="productModal" class="modal">
 
-    <div class="modal-content">
+<!-- =====================================================
+     PRODUCT MODAL
+===================================================== -->
 
-        <button class="modal-close" onclick="closeProductModal()">✕</button>
+<div
+    id="productModal"
+    class="modal"
+>
 
-        <div id="modalProduct"></div>
+    <div class="modal-box">
+
+        <button
+            class="modal-close"
+            onclick="closeProductModal()"
+        >
+            ✕
+        </button>
+
+        <div id="modalContent"></div>
 
     </div>
 
 </div>
 
-<!-- TOAST -->
-<div id="toast" class="toast">
-    Product added to cart 🛒
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    id="toast"
+    class="toast"
+>
 </div>
 
-<script src="script.js"></script>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="./script.js"></script>
 
 </body>
 </html>
