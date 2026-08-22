@@ -4,943 +4,1393 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LavKart - Online Shopping</title>
+    <title>LavKart - Everything You Need</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fffaf5;
+            color: #222;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+            height: 75px;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #222;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #f97316;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            border: none;
+            background: #fff7ed;
+            color: #333;
+            padding: 10px 13px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            background: #ffedd5;
+        }
+
+        .count {
+            background: #f97316;
+            color: white;
+            font-size: 11px;
+            border-radius: 50%;
+            padding: 3px 6px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        .login-btn {
+            border: none;
+            background: #f97316;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #ea580c;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 1250px;
+            margin: 30px auto;
+            padding: 70px 55px;
+            border-radius: 25px;
+            background:
+                radial-gradient(circle at 90% 20%, rgba(249,115,22,.25), transparent 35%),
+                linear-gradient(135deg, #fff7ed, #ffedd5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-tag {
+            color: #ea580c;
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 22px;
+            color: #171717;
+        }
+
+        .hero h1 span {
+            color: #f97316;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .primary-btn {
+            background: #f97316;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .primary-btn:hover {
+            background: #ea580c;
+            transform: translateY(-1px);
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #ea580c;
+            padding: 14px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #fed7aa;
+        }
+
+        .secondary-btn:hover {
+            background: #fff7ed;
+        }
+
+        .hero-emoji {
+            font-size: 180px;
+            opacity: .9;
+        }
+
+        /* =========================
+           BENEFITS
+        ========================= */
+
+        .benefits {
+            max-width: 1250px;
+            margin: 20px auto 60px;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .benefit {
+            background: white;
+            border: 1px solid #eee;
+            padding: 22px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: #fff7ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .benefit h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .benefit p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            max-width: 1250px;
+            margin: 0 auto 70px;
+            padding: 0 25px;
+        }
+
+        .section-label {
+            color: #f97316;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 28px;
+        }
+
+        /* =========================
+           CATEGORY CARDS
+        ========================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .category {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            border-color: #fdba74;
+            box-shadow: 0 10px 25px rgba(249,115,22,.12);
+        }
+
+        .category-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            margin-bottom: 8px;
+        }
+
+        .category p {
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: .25s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,.08);
+        }
+
+        .product-image {
+            height: 220px;
+            background: #fff7ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 85px;
+            position: relative;
+        }
+
+        .sale {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #f97316;
+            color: white;
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-category {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .product h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: #f59e0b;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 800;
+            color: #111;
+        }
+
+        .add-btn {
+            background: #f97316;
+            border: none;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .add-btn:hover {
+            background: #ea580c;
+        }
+
+        /* =========================
+           DEAL BANNER
+        ========================= */
+
+        .deal {
+            max-width: 1250px;
+            margin: 0 auto 70px;
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f97316, #fb923c);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .deal h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .deal p {
+            opacity: .9;
+        }
+
+        .deal .primary-btn {
+            background: white;
+            color: #ea580c;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #171717;
+            color: white;
+            padding: 50px 25px 25px;
+        }
+
+        .footer-content {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            font-size: 27px;
+            font-weight: 800;
+            color: #fb923c;
+            margin-bottom: 15px;
+        }
+
+        .footer-about {
+            color: #aaa;
+            line-height: 1.7;
+            max-width: 350px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        footer a:hover {
+            color: #fb923c;
+        }
+
+        .copyright {
+            max-width: 1250px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* =========================
+           CART
+        ========================= */
+
+        .cart-panel {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 380px;
+            max-width: 90%;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 25px rgba(0,0,0,.15);
+            transition: .3s;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .close-cart {
+            border: none;
+            background: #f5f5f5;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-icon {
+            width: 55px;
+            height: 55px;
+            background: #fff7ed;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-info p {
+            font-size: 13px;
+            color: #f97316;
+            font-weight: bold;
+        }
+
+        .remove-item {
+            border: none;
+            background: transparent;
+            color: #ef4444;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #f97316;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                margin: 15px;
+                padding: 45px 25px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-emoji {
+                display: none;
+            }
+
+            .benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .header-actions .icon-btn {
+                padding: 8px;
+            }
+
+            .login-btn {
+                padding: 9px 13px;
+            }
+
+            .hero {
+                margin: 10px;
+                padding: 35px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons a {
+                text-align: center;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 0 15px;
+            }
+
+            .categories {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .category {
+                padding: 18px 10px;
+            }
+
+            .products {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .product-image {
+                height: 160px;
+                font-size: 60px;
+            }
+
+            .product-info {
+                padding: 12px;
+            }
+
+            .product h3 {
+                font-size: 14px;
+            }
+
+            .price {
+                font-size: 16px;
+            }
+
+            .deal {
+                margin: 0 15px 50px;
+                padding: 30px 20px;
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .deal h2 {
+                font-size: 25px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- =========================
+     HEADER
+========================= -->
 
-<header class="header">
+<header>
+    <div class="navbar">
 
-    <div class="logo">
-        Lav<span>Kart</span>
+        <a href="#" class="logo">
+            Lav<span>Kart</span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button class="icon-btn" title="Wishlist">
+                ❤️
+                <span class="count" id="wishlistCount">0</span>
+            </button>
+
+            <button class="icon-btn" onclick="openCart()" title="Shopping Cart">
+                🛒
+                <span class="count" id="cartCount">0</span>
+            </button>
+
+            <button class="login-btn" onclick="login()">
+                Login
+            </button>
+
+        </div>
+
     </div>
-
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#categories">Categories</a>
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="header-actions">
-
-        <button onclick="toggleDarkMode()" class="header-btn">
-            🌙
-        </button>
-
-        <button onclick="openWishlist()" class="header-btn">
-            ❤️ <span id="wishlistCount">0</span>
-        </button>
-
-        <button onclick="openCart()" class="header-btn">
-            🛒 <span id="cartCount">0</span>
-        </button>
-
-        <button onclick="openLogin()" class="login-button" id="loginButton">
-            Login
-        </button>
-
-    </div>
-
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="home">
 
     <div class="hero-content">
 
-        <p class="small-title">
+        <div class="hero-tag">
             WELCOME TO LAVKART
-        </p>
+        </div>
 
         <h1>
             Everything You Need.
             <span>All In One Place.</span>
         </h1>
 
-        <p class="hero-description">
+        <p>
             Discover fashion, electronics, shoes, accessories
             and more at amazing prices.
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#products" class="primary-button">
-                Shop Now
+            <a href="#products" class="primary-btn">
+                Shop Now →
             </a>
 
-            <a href="#categories" class="secondary-button">
+            <a href="#categories" class="secondary-btn">
                 Explore Categories
             </a>
 
         </div>
 
-        <div class="hero-features">
-
-            <div>
-                🚚
-                <strong>Free Shipping</strong>
-            </div>
-
-            <div>
-                🔒
-                <strong>Secure Shopping</strong>
-            </div>
-
-            <div>
-                ↩️
-                <strong>Easy Returns</strong>
-            </div>
-
-        </div>
-
     </div>
 
-    <div class="hero-image">
-
-        <div class="hero-circle">
-            🛍️
-        </div>
-
-        <div class="floating-card floating-one">
-            🔥 Best Deals
-        </div>
-
-        <div class="floating-card floating-two">
-            ⭐ Top Rated
-        </div>
-
+    <div class="hero-emoji">
+        🛍️
     </div>
 
 </section>
 
 
-<!-- ================= CATEGORIES ================= -->
+<!-- =========================
+     BENEFITS
+========================= -->
+
+<div class="benefits">
+
+    <div class="benefit">
+        <div class="benefit-icon">🚚</div>
+        <div>
+            <h3>Free Shipping</h3>
+            <p>On orders above ₹999</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">🔒</div>
+        <div>
+            <h3>Secure Shopping</h3>
+            <p>100% secure payments</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">↩️</div>
+        <div>
+            <h3>Easy Returns</h3>
+            <p>7-day easy returns</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">⭐</div>
+        <div>
+            <h3>Top Rated</h3>
+            <p>Trusted by customers</p>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
 
 <section class="section" id="categories">
 
-    <div class="section-heading">
-
-        <p>SHOP BY CATEGORY</p>
-
-        <h2>
-            Popular Categories
-        </h2>
-
-        <span>
-            Find exactly what you're looking for.
-        </span>
-
+    <div class="section-label">
+        SHOP BY CATEGORY
     </div>
 
-    <div class="category-grid">
+    <h2 class="section-title">
+        Popular Categories
+    </h2>
 
-        <button
-            class="category-card"
-            onclick="filterCategory('all')"
-        >
+    <p class="section-subtitle">
+        Find exactly what you're looking for.
+    </p>
+
+    <div class="categories">
+
+        <div class="category">
             <div class="category-icon">🛍️</div>
             <h3>All Products</h3>
             <p>View everything</p>
-        </button>
+        </div>
 
-        <button
-            class="category-card"
-            onclick="filterCategory('Fashion')"
-        >
+        <div class="category">
             <div class="category-icon">👕</div>
             <h3>Fashion</h3>
             <p>Clothing & style</p>
-        </button>
+        </div>
 
-        <button
-            class="category-card"
-            onclick="filterCategory('Electronics')"
-        >
+        <div class="category">
             <div class="category-icon">📱</div>
             <h3>Electronics</h3>
             <p>Latest gadgets</p>
-        </button>
+        </div>
 
-        <button
-            class="category-card"
-            onclick="filterCategory('Shoes')"
-        >
+        <div class="category">
             <div class="category-icon">👟</div>
             <h3>Shoes</h3>
             <p>Walk in style</p>
-        </button>
+        </div>
 
-        <button
-            class="category-card"
-            onclick="filterCategory('Accessories')"
-        >
+        <div class="category">
             <div class="category-icon">⌚</div>
             <h3>Accessories</h3>
             <p>Complete your look</p>
-        </button>
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- ================= PRODUCTS ================= -->
+<!-- =========================
+     PRODUCTS
+========================= -->
 
-<section class="section products-section" id="products">
+<section class="section" id="products">
 
-    <div class="section-heading">
-
-        <p>OUR STORE</p>
-
-        <h2>
-            Featured Products
-        </h2>
-
-        <span>
-            Quality products at great prices.
-        </span>
-
+    <div class="section-label">
+        TRENDING NOW
     </div>
 
+    <h2 class="section-title">
+        Featured Products
+    </h2>
 
-    <div class="product-tools">
+    <p class="section-subtitle">
+        Check out our most popular products.
+    </p>
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="🔍 Search products..."
-            oninput="renderProducts()"
-        >
+    <div class="products">
 
-        <select
-            id="sortSelect"
-            onchange="renderProducts()"
-        >
+        <div class="product">
 
-            <option value="default">
-                Sort Products
-            </option>
-
-            <option value="low">
-                Price: Low to High
-            </option>
-
-            <option value="high">
-                Price: High to Low
-            </option>
-
-            <option value="rating">
-                Highest Rated
-            </option>
-
-            <option value="name">
-                Name A-Z
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <div
-        class="product-grid"
-        id="productContainer"
-    >
-    </div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section class="about-section" id="about">
-
-    <div class="about-content">
-
-        <p class="small-title">
-            WHY LAVKART?
-        </p>
-
-        <h2>
-            Shopping Made
-            <span>Simple.</span>
-        </h2>
-
-        <p>
-            LavKart is designed to make online shopping
-            simple, convenient and enjoyable.
-        </p>
-
-        <div class="about-points">
-
-            <div>
-                <b>01</b>
-                Carefully selected products
+            <div class="product-image">
+                <span class="sale">SALE</span>
+                👕
             </div>
 
-            <div>
-                <b>02</b>
-                Competitive prices
+            <div class="product-info">
+                <div class="product-category">Fashion</div>
+
+                <h3>Premium Cotton T-Shirt</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (128)
+                </div>
+
+                <div class="price-row">
+                    <div class="price">₹699</div>
+
+                    <button class="add-btn"
+                            onclick="addToCart('Premium Cotton T-Shirt', 699, '👕')">
+                        +
+                    </button>
+                </div>
             </div>
 
-            <div>
-                <b>03</b>
-                Fast and reliable delivery
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                <span class="sale">SALE</span>
+                🎧
             </div>
 
-            <div>
-                <b>04</b>
-                Customer-first experience
+            <div class="product-info">
+
+                <div class="product-category">
+                    Electronics
+                </div>
+
+                <h3>Wireless Headphones</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (96)
+                </div>
+
+                <div class="price-row">
+
+                    <div class="price">
+                        ₹1,499
+                    </div>
+
+                    <button class="add-btn"
+                            onclick="addToCart('Wireless Headphones', 1499, '🎧')">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                👟
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Shoes
+                </div>
+
+                <h3>Comfort Running Shoes</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (214)
+                </div>
+
+                <div class="price-row">
+
+                    <div class="price">
+                        ₹2,199
+                    </div>
+
+                    <button class="add-btn"
+                            onclick="addToCart('Comfort Running Shoes', 2199, '👟')">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <div class="product-image">
+                <span class="sale">SALE</span>
+                ⌚
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-category">
+                    Accessories
+                </div>
+
+                <h3>Smart Fitness Watch</h3>
+
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ (175)
+                </div>
+
+                <div class="price-row">
+
+                    <div class="price">
+                        ₹2,999
+                    </div>
+
+                    <button class="add-btn"
+                            onclick="addToCart('Smart Fitness Watch', 2999, '⌚')">
+                        +
+                    </button>
+
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-    <div class="about-image">
-        🛒
-    </div>
-
 </section>
 
 
-<!-- ================= NEWSLETTER ================= -->
+<!-- =========================
+     DEAL
+========================= -->
 
-<section class="newsletter">
+<div class="deal">
 
     <div>
-
-        <p>
-            SPECIAL OFFERS
-        </p>
-
-        <h2>
-            Get 10% Off Your First Order
-        </h2>
-
-        <span>
-            Use coupon
-            <strong>WELCOME10</strong>
-            during checkout.
-        </span>
-
+        <h2>🔥 Big Deals Are Here!</h2>
+        <p>Save up to 50% on selected products.</p>
     </div>
 
-    <a
-        href="#products"
-        class="primary-button"
-    >
-        Start Shopping
+    <a href="#products" class="primary-btn">
+        Shop Deals
     </a>
+
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="section" id="about">
+
+    <div class="section-label">
+        ABOUT LAVKART
+    </div>
+
+    <h2 class="section-title">
+        Shopping Made Simple
+    </h2>
+
+    <p class="section-subtitle">
+        LavKart brings fashion, electronics, shoes and accessories
+        together in one convenient place.
+    </p>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer id="contact">
 
-    <div class="footer-grid">
+    <div class="footer-content">
 
         <div>
 
             <div class="footer-logo">
-                Lav<span>Kart</span>
+                LavKart
             </div>
 
-            <p>
-                Your trusted destination
-                for online shopping.
+            <p class="footer-about">
+                Everything you need, all in one place.
+                Shop quality products at amazing prices.
             </p>
 
         </div>
-
 
         <div>
 
             <h3>Shop</h3>
 
-            <a href="#products">
-                Products
-            </a>
-
-            <a href="#categories">
-                Categories
-            </a>
-
-            <a href="#products">
-                Deals
-            </a>
+            <a href="#products">All Products</a>
+            <a href="#categories">Fashion</a>
+            <a href="#categories">Electronics</a>
+            <a href="#categories">Shoes</a>
 
         </div>
 
-
         <div>
 
-            <h3>Customer Care</h3>
+            <h3>Help</h3>
 
-            <a href="#contact">
-                Contact Us
-            </a>
-
-            <a href="#about">
-                Shipping
-            </a>
-
-            <a href="#about">
-                Returns
-            </a>
-
-            <a href="#about">
-                FAQ
-            </a>
+            <a href="#">Customer Support</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+            <a href="#">FAQs</a>
 
         </div>
 
-
         <div>
 
-            <h3>Account</h3>
+            <h3>Contact</h3>
 
-            <button onclick="openLogin()">
-                Login / Register
-            </button>
+            <a href="mailto:support@lavkart.com">
+                support@lavkart.com
+            </a>
 
-            <button onclick="openOrders()">
-                My Orders
-            </button>
+            <a href="#">
+                📍 India
+            </a>
 
         </div>
 
     </div>
 
-
     <div class="copyright">
-
-        © 2026 LavKart.
-        All rights reserved.
-
+        © 2026 LavKart. All rights reserved.
     </div>
 
 </footer>
 
 
-<!-- ================= OVERLAY ================= -->
+<!-- =========================
+     CART
+========================= -->
 
-<div
-    id="overlay"
-    class="overlay"
-    onclick="closeAll()"
->
-</div>
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
 
+<div class="cart-panel" id="cartPanel">
 
-<!-- ================= CART ================= -->
-
-<aside
-    id="cartSidebar"
-    class="cart-sidebar"
->
-
-    <div class="drawer-header">
+    <div class="cart-header">
 
         <h2>
-            Shopping Cart
+            🛒 Your Cart
         </h2>
 
-        <button onclick="closeCart()">
+        <button class="close-cart" onclick="closeCart()">
             ✕
         </button>
 
     </div>
 
+    <div id="cartItems">
 
-    <div
-        id="cartItems"
-        class="cart-items"
-    >
-    </div>
-
-
-    <div class="cart-bottom">
-
-        <div class="coupon-box">
-
-            <input
-                id="couponInput"
-                placeholder="Coupon code"
-            >
-
-            <button onclick="applyCoupon()">
-                Apply
-            </button>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span>
-                Subtotal
-            </span>
-
-            <strong id="subtotal">
-                ₹0
-            </strong>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span>
-                Shipping
-            </span>
-
-            <strong id="shipping">
-                ₹0
-            </strong>
-
-        </div>
-
-
-        <div
-            class="summary-row"
-            id="discountRow"
-            hidden
-        >
-
-            <span>
-                Discount
-            </span>
-
-            <strong id="discount">
-                ₹0
-            </strong>
-
-        </div>
-
-
-        <div class="total-row">
-
-            <span>
-                Total
-            </span>
-
-            <strong id="cartTotal">
-                ₹0
-            </strong>
-
-        </div>
-
-
-        <button
-            class="checkout-button"
-            onclick="openCheckout()"
-        >
-            Proceed to Checkout
-        </button>
-
-
-        <button
-            class="clear-button"
-            onclick="clearCart()"
-        >
-            Clear Cart
-        </button>
-
-    </div>
-
-</aside>
-
-
-<!-- ================= PRODUCT MODAL ================= -->
-
-<div
-    id="productModal"
-    class="modal"
->
-
-    <div class="modal-box product-modal">
-
-        <button
-            class="modal-close"
-            onclick="closeProductModal()"
-        >
-            ✕
-        </button>
-
-        <div id="productDetails">
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= CHECKOUT MODAL ================= -->
-
-<div
-    id="checkoutModal"
-    class="modal"
->
-
-    <div class="modal-box">
-
-        <button
-            class="modal-close"
-            onclick="closeCheckout()"
-        >
-            ✕
-        </button>
-
-        <h2>
-            Checkout
-        </h2>
-
-        <p class="muted">
-            Enter your delivery details.
+        <p style="color:#777;">
+            Your cart is empty.
         </p>
 
+    </div>
 
-        <form
-            id="checkoutForm"
-            onsubmit="placeOrder(event)"
-        >
+    <div class="cart-total">
 
-            <div class="form-row">
+        <span>Total</span>
 
-                <div class="form-group">
-
-                    <label>
-                        First Name
-                    </label>
-
-                    <input
-                        id="firstName"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        Last Name
-                    </label>
-
-                    <input
-                        id="lastName"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Email
-                </label>
-
-                <input
-                    id="checkoutEmail"
-                    type="email"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Phone
-                </label>
-
-                <input
-                    id="phone"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Address
-                </label>
-
-                <textarea
-                    id="address"
-                    rows="3"
-                    required
-                ></textarea>
-
-            </div>
-
-
-            <div class="form-row">
-
-                <div class="form-group">
-
-                    <label>
-                        City
-                    </label>
-
-                    <input
-                        id="city"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
-                        PIN Code
-                    </label>
-
-                    <input
-                        id="pincode"
-                        pattern="[0-9]{6}"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <h3>
-                Payment Method
-            </h3>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="cod"
-                    checked
-                >
-
-                💵 Cash on Delivery
-
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="online"
-                >
-
-                💳 Online Payment
-
-            </label>
-
-
-            <button
-                class="place-order-button"
-                type="submit"
-            >
-                Place Order
-            </button>
-
-        </form>
+        <span id="cartTotal">
+            ₹0
+        </span>
 
     </div>
 
-</div>
-
-
-<!-- ================= LOGIN ================= -->
-
-<div
-    id="authModal"
-    class="modal"
->
-
-    <div class="modal-box auth-box">
-
-        <button
-            class="modal-close"
-            onclick="closeLogin()"
-        >
-            ✕
-        </button>
-
-        <div class="auth-logo">
-            Lav<span>Kart</span>
-        </div>
-
-        <h2 id="authTitle">
-            Welcome Back
-        </h2>
-
-        <p class="muted">
-            Login or create your account.
-        </p>
-
-
-        <form
-            onsubmit="handleAuth(event)"
-        >
-
-            <div
-                id="nameGroup"
-                class="form-group"
-                hidden
-            >
-
-                <label>
-                    Name
-                </label>
-
-                <input id="authName">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Email
-                </label>
-
-                <input
-                    id="authEmail"
-                    type="email"
-                    required
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Password
-                </label>
-
-                <input
-                    id="authPassword"
-                    type="password"
-                    minlength="6"
-                    required
-                >
-
-            </div>
-
-
-            <button
-                class="place-order-button"
-                id="authSubmit"
-                type="submit"
-            >
-                Login
-            </button>
-
-        </form>
-
-
-        <button
-            class="switch-auth"
-            onclick="toggleAuthMode()"
-            id="switchAuth"
-        >
-            Create an account
-        </button>
-
-    </div>
+    <button class="checkout-btn" onclick="checkout()">
+        Proceed to Checkout
+    </button>
 
 </div>
 
 
-<!-- ================= WISHLIST ================= -->
+<script>
 
-<div
-    id="wishlistModal"
-    class="modal"
->
+    let cart = [];
 
-    <div class="modal-box wide">
+    function addToCart(name, price, icon) {
 
-        <button
-            class="modal-close"
-            onclick="closeWishlist()"
-        >
-            ✕
-        </button>
+        cart.push({
+            name: name,
+            price: price,
+            icon: icon
+        });
 
-        <h2>
-            My Wishlist ❤️
-        </h2>
+        updateCart();
 
-        <div
-            id="wishlistItems"
-            class="product-grid"
-        >
-        </div>
-
-    </div>
-
-</div>
+        alert(name + " added to cart!");
+    }
 
 
-<!-- ================= ORDERS ================= -->
+    function updateCart() {
 
-<div
-    id="ordersModal"
-    class="modal"
->
+        const cartCount =
+            document.getElementById("cartCount");
 
-    <div class="modal-box wide">
+        const cartItems =
+            document.getElementById("cartItems");
 
-        <button
-            class="modal-close"
-            onclick="closeOrders()"
-        >
-            ✕
-        </button>
-
-        <h2>
-            My Orders
-        </h2>
-
-        <div id="ordersList">
-        </div>
-
-    </div>
-
-</div>
+        const cartTotal =
+            document.getElementById("cartTotal");
 
 
-<div
-    id="toast"
-    class="toast"
->
-</div>
+        cartCount.textContent = cart.length;
 
 
-<script src="script.js"></script>
+        if (cart.length === 0) {
+
+            cartItems.innerHTML =
+                '<p style="color:#777;">Your cart is empty.</p>';
+
+            cartTotal.textContent = "₹0";
+
+            return;
+        }
+
+
+        let total = 0;
+
+
+        cartItems.innerHTML = cart.map((item, index) => {
+
+            total += item.price;
+
+            return `
+                <div class="cart-item">
+
+                    <div class="cart-item-icon">
+                        ${item.icon}
+                    </div>
+
+                    <div class="cart-item-info">
+
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <p>
+                            ₹${item.price.toLocaleString("en-IN")}
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})">
+                        ✕
+                    </button>
+
+                </div>
+            `;
+
+        }).join("");
+
+
+        cartTotal.textContent =
+            "₹" + total.toLocaleString("en-IN");
+    }
+
+
+    function removeFromCart(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+    }
+
+
+    function openCart() {
+
+        document
+            .getElementById("cartPanel")
+            .classList.add("open");
+
+        document
+            .getElementById("overlay")
+            .classList.add("show");
+    }
+
+
+    function closeCart() {
+
+        document
+            .getElementById("cartPanel")
+            .classList.remove("open");
+
+        document
+            .getElementById("overlay")
+            .classList.remove("show");
+    }
+
+
+    function checkout() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty.");
+
+            return;
+        }
+
+        alert(
+            "Checkout feature will be connected next!"
+        );
+    }
+
+
+    function login() {
+
+        alert(
+            "Login feature will be connected next!"
+        );
+    }
+
+</script>
 
 </body>
 </html>
