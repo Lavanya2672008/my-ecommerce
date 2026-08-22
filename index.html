@@ -1,985 +1,2315 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>LavKart - Online Shopping</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<!-- ================= TOP BAR ================= -->
-
-<div class="top-bar">
-    <div class="top-bar-sale">
-        🔥 Big Sale is Live — Up to 70% OFF
-    </div>
-
-    <div class="top-links">
-        <a href="#products">Track Order</a>
-        <a href="#contact">Help</a>
-        <a href="#contact">Contact</a>
-    </div>
-</div>
-
-
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-
-    <div class="header-inner">
-
-        <a href="#home" class="logo">
-            Lav<span>Kart</span>
-        </a>
-
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="header-actions">
-
-            <button
-                class="icon-button"
-                onclick="toggleDarkMode()"
-                title="Dark mode"
-            >
-                🌙
-            </button>
-
-            <button
-                class="icon-button wishlist-head"
-                onclick="openWishlist()"
-                title="Wishlist"
-            >
-                ❤️
-                <span id="wishlistCount">0</span>
-            </button>
-
-            <button
-                class="icon-button cart-head"
-                onclick="openCart()"
-                title="Cart"
-            >
-                🛒
-                <span id="cartCount">0</span>
-            </button>
-
-            <button
-                class="login-button"
-                onclick="openLogin()"
-                id="loginButton"
-            >
-                Login
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="hero-label">
-            ✨ WELCOME TO LAVKART
-        </div>
-
-        <h1>
-            Everything You Need.
-            <span>All In One Place.</span>
-        </h1>
-
-        <p>
-            Discover fashion, electronics, shoes, accessories
-            and everyday essentials at amazing prices.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#products" class="primary-button">
-                Shop Now →
-            </a>
-
-            <a href="#categories" class="secondary-button">
-                Explore Categories
-            </a>
-
-        </div>
-
-        <div class="hero-features">
-
-            <div class="hero-feature">
-                <span>🚚</span>
-                <div>
-                    <strong>Free Shipping</strong>
-                    <small>On orders over ₹499</small>
-                </div>
-            </div>
-
-            <div class="hero-feature">
-                <span>🔒</span>
-                <div>
-                    <strong>Secure Shopping</strong>
-                    <small>100% secure checkout</small>
-                </div>
-            </div>
-
-            <div class="hero-feature">
-                <span>↩️</span>
-                <div>
-                    <strong>Easy Returns</strong>
-                    <small>7-day return policy</small>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-visual">
-
-        <div class="hero-main-card">
-
-            <div class="hero-product-circle">
-                🛍️
-            </div>
-
-            <div class="hero-card-text">
-                <small>MEGA SHOPPING</small>
-                <strong>Festival Sale</strong>
-                <span>Up to 70% OFF</span>
-            </div>
-
-        </div>
-
-        <div class="floating-card floating-one">
-            🔥 Best Deals
-        </div>
-
-        <div class="floating-card floating-two">
-            ⭐ Top Rated
-        </div>
-
-        <div class="hero-discount">
-            <strong>70%</strong>
-            <span>OFF</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CATEGORIES ================= -->
-
-<section class="section" id="categories">
-
-    <div class="section-heading">
-
-        <div class="heading-label">
-            SHOP BY CATEGORY
-        </div>
-
-        <h2>Popular Categories</h2>
-
-        <p>
-            Find exactly what you're looking for.
-        </p>
-
-    </div>
-
-
-    <div class="category-grid">
-
-        <button
-            class="category-card"
-            onclick="filterCategory('all')"
-        >
-            <div class="category-icon orange">
-                🛍️
-            </div>
-
-            <h3>All Products</h3>
-            <p>Everything</p>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterGender('Men')"
-        >
-            <div class="category-icon blue">
-                👨
-            </div>
-
-            <h3>Men</h3>
-            <p>Men's fashion</p>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterGender('Women')"
-        >
-            <div class="category-icon pink">
-                👩
-            </div>
-
-            <h3>Women</h3>
-            <p>Women's fashion</p>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterGender('Kids')"
-        >
-            <div class="category-icon purple">
-                🧒
-            </div>
-
-            <h3>Kids</h3>
-            <p>Kids collection</p>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Electronics')"
-        >
-            <div class="category-icon green">
-                📱
-            </div>
-
-            <h3>Electronics</h3>
-            <p>Latest gadgets</p>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Shoes')"
-        >
-            <div class="category-icon yellow">
-                👟
-            </div>
-
-            <h3>Shoes</h3>
-            <p>Walk in style</p>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Accessories')"
-        >
-            <div class="category-icon teal">
-                ⌚
-            </div>
-
-            <h3>Accessories</h3>
-            <p>Complete your look</p>
-        </button>
-
-
-        <button
-            class="category-card"
-            onclick="filterCategory('Home')"
-        >
-            <div class="category-icon red">
-                🏠
-            </div>
-
-            <h3>Home</h3>
-            <p>Home essentials</p>
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- ================= DEAL BANNER ================= -->
-
-<section class="deal-banner">
-
-    <div class="deal-content">
-
-        <div class="deal-icon">
-            🔥
-        </div>
-
-        <div>
-            <small>LIMITED TIME OFFER</small>
-            <h2>Today's Mega Deals</h2>
-            <p>Save big on selected products.</p>
-        </div>
-
-    </div>
-
-    <a href="#products" class="deal-button">
-        Shop Deals →
-    </a>
-
-</section>
-
-
-<!-- ================= PRODUCTS ================= -->
-
-<section class="section products-section" id="products">
-
-    <div class="section-heading">
-
-        <div class="heading-label">
-            OUR STORE
-        </div>
-
-        <h2>Featured Products</h2>
-
-        <p>
-            Quality products at great prices.
-        </p>
-
-    </div>
-
-
-    <div class="product-tools">
-
-        <div class="search-box">
-
-            <span>🔍</span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search products..."
-                oninput="renderProducts()"
-            >
-
-        </div>
-
-
-        <select
-            id="sortSelect"
-            onchange="renderProducts()"
-        >
-            <option value="default">
-                Sort Products
-            </option>
-
-            <option value="low">
-                Price: Low to High
-            </option>
-
-            <option value="high">
-                Price: High to Low
-            </option>
-
-            <option value="rating">
-                Highest Rated
-            </option>
-
-            <option value="name">
-                Name A-Z
-            </option>
-        </select>
-
-    </div>
-
-
-    <div
-        class="product-grid"
-        id="productContainer"
-    ></div>
-
-</section>
-
-
-<!-- ================= WHY LAVKART ================= -->
-
-<section class="about-section" id="about">
-
-    <div class="about-content">
-
-        <div class="heading-label">
-            WHY LAVKART?
-        </div>
-
-        <h2>
-            Shopping Made
-            <span>Simple.</span>
-        </h2>
-
-        <p>
-            LavKart brings fashion, electronics, shoes,
-            accessories and home essentials together in one
-            convenient shopping destination.
-        </p>
-
-
-        <div class="about-points">
-
-            <div>
-                <b>01</b>
-                <span>Carefully selected products</span>
-            </div>
-
-            <div>
-                <b>02</b>
-                <span>Competitive prices</span>
-            </div>
-
-            <div>
-                <b>03</b>
-                <span>Fast and reliable delivery</span>
-            </div>
-
-            <div>
-                <b>04</b>
-                <span>Customer-first experience</span>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="about-visual">
-
-        <div class="about-circle">
-            🛒
-        </div>
-
-        <div class="about-badge">
-            ⭐ 4.8/5
-            <small>Customer Rating</small>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= NEWSLETTER ================= -->
-
-<section class="newsletter">
-
-    <div>
-
-        <div class="heading-label">
-            SPECIAL OFFER
-        </div>
-
-        <h2>
-            Get 10% Off Your First Order
-        </h2>
-
-        <p>
-            Use coupon
-            <strong>WELCOME10</strong>
-            during checkout.
-        </p>
-
-    </div>
-
-    <a
-        href="#products"
-        class="primary-button"
-    >
-        Start Shopping
-    </a>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer id="contact">
-
-    <div class="footer-grid">
-
-        <div class="footer-brand">
-
-            <div class="footer-logo">
-                Lav<span>Kart</span>
-            </div>
-
-            <p>
-                Your trusted destination
-                for online shopping.
-            </p>
-
-            <div class="socials">
-                <span>📘</span>
-                <span>📸</span>
-                <span>🐦</span>
-                <span>▶️</span>
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <h3>Shop</h3>
-
-            <a href="#products">Products</a>
-            <a href="#categories">Categories</a>
-            <a href="#products">Deals</a>
-
-        </div>
-
-
-        <div>
-
-            <h3>Customer Care</h3>
-
-            <a href="#contact">Contact Us</a>
-            <a href="#about">Shipping</a>
-            <a href="#about">Returns</a>
-            <a href="#about">FAQ</a>
-
-        </div>
-
-
-        <div>
-
-            <h3>Account</h3>
-
-            <button onclick="openLogin()">
-                Login / Register
-            </button>
-
-            <button onclick="openOrders()">
-                My Orders
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © 2026 LavKart.
-        All rights reserved.
-
-    </div>
-
-</footer>
-
-
-<!-- ================= OVERLAY ================= -->
-
-<div
-    id="overlay"
-    class="overlay"
-    onclick="closeAll()"
-></div>
-
-
-<!-- ================= CART ================= -->
-
-<aside
-    id="cartSidebar"
-    class="cart-sidebar"
->
-
-    <div class="drawer-header">
-
-        <h2>Shopping Cart</h2>
-
-        <button onclick="closeCart()">
-            ✕
-        </button>
-
-    </div>
-
-
-    <div
-        id="cartItems"
-        class="cart-items"
-    ></div>
-
-
-    <div class="cart-bottom">
-
-        <div class="coupon-box">
-
-            <input
-                id="couponInput"
-                placeholder="Coupon code"
-            >
-
-            <button onclick="applyCoupon()">
-                Apply
-            </button>
-
-        </div>
-
-
-        <div class="summary-row">
-            <span>Subtotal</span>
-            <strong id="subtotal">₹0</strong>
-        </div>
-
-
-        <div class="summary-row">
-            <span>Shipping</span>
-            <strong id="shipping">₹0</strong>
-        </div>
-
-
-        <div
-            class="summary-row"
-            id="discountRow"
-            hidden
-        >
-            <span>Discount</span>
-            <strong id="discount">₹0</strong>
-        </div>
-
-
-        <div class="total-row">
-            <span>Total</span>
-            <strong id="cartTotal">₹0</strong>
-        </div>
-
-
-        <button
-            class="checkout-button"
-            onclick="openCheckout()"
-        >
-            Proceed to Checkout
-        </button>
-
-
-        <button
-            class="clear-button"
-            onclick="clearCart()"
-        >
-            Clear Cart
-        </button>
-
-    </div>
-
-</aside>
-
-
-<!-- ================= PRODUCT MODAL ================= -->
-
-<div
-    id="productModal"
-    class="modal"
->
-
-    <div class="modal-box product-modal">
-
-        <button
-            class="modal-close"
-            onclick="closeProductModal()"
-        >
-            ✕
-        </button>
-
-        <div id="productDetails"></div>
-
-    </div>
-
-</div>
-
-
-<!-- ================= CHECKOUT ================= -->
-
-<div
-    id="checkoutModal"
-    class="modal"
->
-
-    <div class="modal-box">
-
-        <button
-            class="modal-close"
-            onclick="closeCheckout()"
-        >
-            ✕
-        </button>
-
-        <h2>Checkout</h2>
-
-        <p class="muted">
-            Enter your delivery details.
-        </p>
-
-
-        <form
-            id="checkoutForm"
-            onsubmit="placeOrder(event)"
-        >
-
-            <div class="form-row">
-
-                <div class="form-group">
-                    <label>First Name</label>
-                    <input id="firstName" required>
-                </div>
-
-                <div class="form-group">
-                    <label>Last Name</label>
-                    <input id="lastName" required>
-                </div>
+"use strict";
+
+/* =========================================================
+   LAVKART - COMPLETE JAVASCRIPT
+========================================================= */
+
+
+/* =========================================================
+   PRODUCTS
+========================================================= */
+
+const products = [
+
+    /* ================= MEN ================= */
+
+    {
+        id: 1,
+        name: "Men's Classic Oxford Shirt",
+        category: "Fashion",
+        gender: "Men",
+        price: 899,
+        oldPrice: 1499,
+        rating: 4.5,
+        reviews: 128,
+        image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
+    },
+
+    {
+        id: 2,
+        name: "Men's Premium Casual T-Shirt",
+        category: "Fashion",
+        gender: "Men",
+        price: 599,
+        oldPrice: 999,
+        rating: 4.4,
+        reviews: 245,
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
+    },
+
+    {
+        id: 3,
+        name: "Men's Slim Fit Jeans",
+        category: "Fashion",
+        gender: "Men",
+        price: 1299,
+        oldPrice: 2199,
+        rating: 4.6,
+        reviews: 189,
+        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
+    },
+
+    {
+        id: 4,
+        name: "Men's Lightweight Hoodie",
+        category: "Fashion",
+        gender: "Men",
+        price: 1099,
+        oldPrice: 1799,
+        rating: 4.7,
+        reviews: 96,
+        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+        badge: "HOT"
+    },
+
+    {
+        id: 5,
+        name: "Men's Leather Jacket",
+        category: "Fashion",
+        gender: "Men",
+        price: 2499,
+        oldPrice: 3999,
+        rating: 4.8,
+        reviews: 74,
+        image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+        badge: "PREMIUM"
+    },
+
+    {
+        id: 6,
+        name: "Men's Running Shoes",
+        category: "Shoes",
+        gender: "Men",
+        price: 1599,
+        oldPrice: 2999,
+        rating: 4.7,
+        reviews: 321,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
+    },
+
+    {
+        id: 7,
+        name: "Men's Formal Blazer",
+        category: "Fashion",
+        gender: "Men",
+        price: 2199,
+        oldPrice: 3499,
+        rating: 4.5,
+        reviews: 67,
+        image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
+    },
+
+    {
+        id: 8,
+        name: "Men's Analog Watch",
+        category: "Accessories",
+        gender: "Men",
+        price: 1299,
+        oldPrice: 2499,
+        rating: 4.6,
+        reviews: 154,
+        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
+    },
+
+
+    /* ================= WOMEN ================= */
+
+    {
+        id: 9,
+        name: "Women's Floral Summer Dress",
+        category: "Fashion",
+        gender: "Women",
+        price: 1199,
+        oldPrice: 1999,
+        rating: 4.8,
+        reviews: 287,
+        image: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
+    },
+
+    {
+        id: 10,
+        name: "Women's Casual Top",
+        category: "Fashion",
+        gender: "Women",
+        price: 699,
+        oldPrice: 1199,
+        rating: 4.5,
+        reviews: 193,
+        image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
+    },
+
+    {
+        id: 11,
+        name: "Women's High Waist Jeans",
+        category: "Fashion",
+        gender: "Women",
+        price: 1399,
+        oldPrice: 2299,
+        rating: 4.7,
+        reviews: 211,
+        image: "https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
+    },
+
+    {
+        id: 12,
+        name: "Women's Handbag",
+        category: "Accessories",
+        gender: "Women",
+        price: 999,
+        oldPrice: 1799,
+        rating: 4.6,
+        reviews: 348,
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+        badge: "HOT"
+    },
+
+    {
+        id: 13,
+        name: "Women's Running Sneakers",
+        category: "Shoes",
+        gender: "Women",
+        price: 1499,
+        oldPrice: 2699,
+        rating: 4.7,
+        reviews: 174,
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
+    },
+
+    {
+        id: 14,
+        name: "Women's Elegant Watch",
+        category: "Accessories",
+        gender: "Women",
+        price: 1199,
+        oldPrice: 2199,
+        rating: 4.5,
+        reviews: 86,
+        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
+    },
+
+    {
+        id: 15,
+        name: "Women's Denim Jacket",
+        category: "Fashion",
+        gender: "Women",
+        price: 1299,
+        oldPrice: 2099,
+        rating: 4.6,
+        reviews: 109,
+        image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
+    },
+
+    {
+        id: 16,
+        name: "Women's Sunglasses",
+        category: "Accessories",
+        gender: "Women",
+        price: 699,
+        oldPrice: 1299,
+        rating: 4.4,
+        reviews: 221,
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+        badge: "SALE"
+    },
+
+
+    /* ================= KIDS ================= */
+
+    {
+        id: 17,
+        name: "Boys Cotton Casual T-Shirt",
+        category: "Fashion",
+        gender: "Kids",
+        price: 399,
+        oldPrice: 699,
+        rating: 4.7,
+        reviews: 143,
+        image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
+    },
+
+    {
+        id: 18,
+        name: "Girls Floral Summer Dress",
+        category: "Fashion",
+        gender: "Kids",
+        price: 599,
+        oldPrice: 999,
+        rating: 4.8,
+        reviews: 174,
+        image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
+    },
+
+    {
+        id: 19,
+        name: "Kids Comfortable Sneakers",
+        category: "Shoes",
+        gender: "Kids",
+        price: 799,
+        oldPrice: 1399,
+        rating: 4.6,
+        reviews: 112,
+        image: "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=800&q=80",
+        badge: "HOT"
+    },
+
+    {
+        id: 20,
+        name: "Kids Cartoon Hoodie",
+        category: "Fashion",
+        gender: "Kids",
+        price: 699,
+        oldPrice: 1099,
+        rating: 4.7,
+        reviews: 92,
+        image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
+    },
+
+    {
+        id: 21,
+        name: "Kids School Backpack",
+        category: "Accessories",
+        gender: "Kids",
+        price: 649,
+        oldPrice: 1099,
+        rating: 4.5,
+        reviews: 204,
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+        badge: "SALE"
+    },
+
+    {
+        id: 22,
+        name: "Kids Denim Jacket",
+        category: "Fashion",
+        gender: "Kids",
+        price: 899,
+        oldPrice: 1499,
+        rating: 4.6,
+        reviews: 77,
+        image: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
+    },
+
+
+    /* ================= ELECTRONICS ================= */
+
+    {
+        id: 23,
+        name: "Wireless Earbuds",
+        category: "Electronics",
+        gender: "Unisex",
+        price: 1499,
+        oldPrice: 2999,
+        rating: 4.5,
+        reviews: 642,
+        image: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=800&q=80",
+        badge: "BEST SELLER"
+    },
+
+    {
+        id: 24,
+        name: "Smart Fitness Watch",
+        category: "Electronics",
+        gender: "Unisex",
+        price: 1799,
+        oldPrice: 3499,
+        rating: 4.6,
+        reviews: 481,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+        badge: "TRENDING"
+    },
+
+    {
+        id: 25,
+        name: "Premium Wireless Headphones",
+        category: "Electronics",
+        gender: "Unisex",
+        price: 2299,
+        oldPrice: 3999,
+        rating: 4.7,
+        reviews: 357,
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+        badge: "PREMIUM"
+    },
+
+    {
+        id: 26,
+        name: "Portable Bluetooth Speaker",
+        category: "Electronics",
+        gender: "Unisex",
+        price: 999,
+        oldPrice: 1799,
+        rating: 4.5,
+        reviews: 285,
+        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
+    },
+
+    {
+        id: 27,
+        name: "Fast Charging Power Bank",
+        category: "Electronics",
+        gender: "Unisex",
+        price: 899,
+        oldPrice: 1599,
+        rating: 4.4,
+        reviews: 316,
+        image: "https://images.unsplash.com/photo-1609592424729-7e8f5e8f2a1e?auto=format&fit=crop&w=800&q=80",
+        badge: "SALE"
+    },
+
+
+    /* ================= HOME ================= */
+
+    {
+        id: 28,
+        name: "Modern Table Lamp",
+        category: "Home",
+        gender: "Unisex",
+        price: 799,
+        oldPrice: 1399,
+        rating: 4.5,
+        reviews: 94,
+        image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
+        badge: "NEW"
+    },
+
+    {
+        id: 29,
+        name: "Premium Cushion Set",
+        category: "Home",
+        gender: "Unisex",
+        price: 699,
+        oldPrice: 1199,
+        rating: 4.4,
+        reviews: 122,
+        image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+        badge: "POPULAR"
+    },
+
+    {
+        id: 30,
+        name: "Minimal Wall Clock",
+        category: "Home",
+        gender: "Unisex",
+        price: 599,
+        oldPrice: 999,
+        rating: 4.5,
+        reviews: 88,
+        image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=800&q=80",
+        badge: "DEAL"
+    }
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("lavkart_cart")
+    ) || [];
+
+let wishlist =
+    JSON.parse(
+        localStorage.getItem("lavkart_wishlist")
+    ) || [];
+
+let orders =
+    JSON.parse(
+        localStorage.getItem("lavkart_orders")
+    ) || [];
+
+let activeCategory = "all";
+let activeGender = "all";
+
+let couponDiscount = 0;
+
+let registerMode = false;
+
+let toastTimer;
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    initializeLavKart
+);
+
+
+function initializeLavKart() {
+
+    restoreDarkMode();
+
+    restoreLogin();
+
+    setupSearch();
+
+    setupSorting();
+
+    renderProducts();
+
+    updateCartCount();
+
+    updateWishlistCount();
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function setupSearch() {
+
+    const input =
+        document.getElementById("searchInput");
+
+    if (!input) return;
+
+    input.addEventListener(
+        "input",
+        renderProducts
+    );
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+function setupSorting() {
+
+    const select =
+        document.getElementById("sortSelect");
+
+    if (!select) return;
+
+    select.addEventListener(
+        "change",
+        renderProducts
+    );
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+
+function renderProducts() {
+
+    const container =
+        document.getElementById(
+            "productContainer"
+        );
+
+    if (!container) return;
+
+
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
+
+    const search =
+        input
+            ? input.value
+                .toLowerCase()
+                .trim()
+            : "";
+
+
+    const sortElement =
+        document.getElementById(
+            "sortSelect"
+        );
+
+    const sort =
+        sortElement
+            ? sortElement.value
+            : "default";
+
+
+    let filtered =
+        products.filter(
+            product => {
+
+                const categoryMatch =
+                    activeCategory === "all" ||
+                    product.category ===
+                        activeCategory;
+
+
+                const genderMatch =
+                    activeGender === "all" ||
+                    product.gender ===
+                        activeGender;
+
+
+                const searchMatch =
+                    product.name
+                        .toLowerCase()
+                        .includes(search) ||
+
+                    product.category
+                        .toLowerCase()
+                        .includes(search) ||
+
+                    product.gender
+                        .toLowerCase()
+                        .includes(search);
+
+
+                return (
+                    categoryMatch &&
+                    genderMatch &&
+                    searchMatch
+                );
+
+            }
+        );
+
+
+    if (sort === "low") {
+
+        filtered.sort(
+            (a, b) =>
+                a.price - b.price
+        );
+
+    }
+
+
+    if (sort === "high") {
+
+        filtered.sort(
+            (a, b) =>
+                b.price - a.price
+        );
+
+    }
+
+
+    if (sort === "rating") {
+
+        filtered.sort(
+            (a, b) =>
+                b.rating - a.rating
+        );
+
+    }
+
+
+    if (sort === "name") {
+
+        filtered.sort(
+            (a, b) =>
+                a.name.localeCompare(
+                    b.name
+                )
+        );
+
+    }
+
+
+    updateActiveFilter();
+
+
+    if (!filtered.length) {
+
+        container.innerHTML = `
+
+            <div class="empty-products">
+
+                <div>🔎</div>
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try another search or category.
+                </p>
 
             </div>
 
+        `;
 
-            <div class="form-group">
-                <label>Email</label>
-                <input
-                    id="checkoutEmail"
-                    type="email"
-                    required
+        return;
+    }
+
+
+    container.innerHTML =
+        filtered
+            .map(createProductCard)
+            .join("");
+
+}
+
+
+/* =========================================================
+   ACTIVE FILTER
+========================================================= */
+
+function updateActiveFilter() {
+
+    const element =
+        document.getElementById(
+            "activeFilter"
+        );
+
+    if (!element) return;
+
+
+    let text =
+        "Showing All Products";
+
+
+    if (activeGender !== "all") {
+
+        text =
+            `Showing ${activeGender}'s Products`;
+
+    } else if (
+        activeCategory !== "all"
+    ) {
+
+        text =
+            `Showing ${activeCategory}`;
+
+    }
+
+
+    element.textContent = text;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+function createProductCard(product) {
+
+    const discount =
+        Math.round(
+            (
+                (
+                    product.oldPrice -
+                    product.price
+                ) /
+                product.oldPrice
+            ) * 100
+        );
+
+
+    const wished =
+        wishlist.includes(
+            product.id
+        );
+
+
+    return `
+
+        <article class="product-card">
+
+            <div class="product-image-wrapper">
+
+                <img
+                    src="${product.image}"
+                    alt="${escapeHTML(product.name)}"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='https://placehold.co/800x800/f5f5f5/ff7200?text=LavKart'"
                 >
+
+                <span class="product-badge">
+                    ${product.badge}
+                </span>
+
+                <button
+                    type="button"
+                    class="wishlist-button ${wished ? "active" : ""}"
+                    onclick="toggleWishlist(${product.id})"
+                    aria-label="Add to wishlist"
+                >
+                    ${wished ? "❤️" : "♡"}
+                </button>
+
             </div>
 
 
-            <div class="form-group">
-                <label>Phone</label>
-                <input id="phone" required>
-            </div>
+            <div class="product-info">
 
-
-            <div class="form-group">
-                <label>Address</label>
-                <textarea
-                    id="address"
-                    rows="3"
-                    required
-                ></textarea>
-            </div>
-
-
-            <div class="form-row">
-
-                <div class="form-group">
-                    <label>City</label>
-                    <input id="city" required>
+                <div class="product-category">
+                    ${product.gender}
+                    ·
+                    ${product.category}
                 </div>
 
-                <div class="form-group">
-                    <label>PIN Code</label>
-                    <input
-                        id="pincode"
-                        pattern="[0-9]{6}"
-                        required
+
+                <h3>
+                    ${escapeHTML(product.name)}
+                </h3>
+
+
+                <div class="rating">
+
+                    ⭐ ${product.rating}
+
+                    <span>
+                        (${product.reviews})
+                    </span>
+
+                </div>
+
+
+                <div class="price-row">
+
+                    <strong>
+                        ₹${product.price.toLocaleString("en-IN")}
+                    </strong>
+
+                    <del>
+                        ₹${product.oldPrice.toLocaleString("en-IN")}
+                    </del>
+
+                    <span class="discount">
+                        ${discount}% OFF
+                    </span>
+
+                </div>
+
+
+                <div class="product-actions">
+
+                    <button
+                        type="button"
+                        class="view-button"
+                        onclick="openProduct(${product.id})"
                     >
+                        View
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="add-button"
+                        onclick="addToCart(${product.id})"
+                    >
+                        🛒 Add to Cart
+                    </button>
+
                 </div>
 
             </div>
 
+        </article>
 
-            <h3>Payment Method</h3>
+    `;
+}
 
 
-            <label class="payment-option">
-                <input
-                    type="radio"
-                    name="payment"
-                    value="cod"
-                    checked
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+
+function filterCategory(category) {
+
+    activeCategory = category;
+
+    activeGender = "all";
+
+    renderProducts();
+
+    scrollToProducts();
+
+}
+
+
+/* =========================================================
+   GENDER FILTER
+========================================================= */
+
+function filterGender(gender) {
+
+    activeGender = gender;
+
+    /*
+       Important:
+       Do NOT force category = Fashion.
+
+       This allows future Men/Women/Kids
+       products from other categories
+       to also appear.
+    */
+
+    activeCategory = "all";
+
+    renderProducts();
+
+    scrollToProducts();
+
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+function scrollToProducts() {
+
+    const section =
+        document.getElementById(
+            "products"
+        );
+
+    if (!section) return;
+
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(id) {
+
+    const product =
+        products.find(
+            p => p.id === id
+        );
+
+    if (!product) return;
+
+
+    const existing =
+        cart.find(
+            item => item.id === id
+        );
+
+
+    if (existing) {
+
+        existing.quantity += 1;
+
+    } else {
+
+        cart.push({
+            id: id,
+            quantity: 1
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCartCount();
+
+    showToast(
+        `${product.name} added to cart 🛒`
+    );
+
+}
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "lavkart_cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function updateCartCount() {
+
+    const element =
+        document.getElementById(
+            "cartCount"
+        );
+
+    if (!element) return;
+
+
+    const count =
+        cart.reduce(
+            (total, item) =>
+                total +
+                Number(item.quantity || 0),
+            0
+        );
+
+
+    element.textContent =
+        count;
+
+}
+
+
+/* =========================================================
+   CART OPEN / CLOSE
+========================================================= */
+
+function openCart() {
+
+    renderCart();
+
+    document
+        .getElementById(
+            "cartSidebar"
+        )
+        ?.classList.add("open");
+
+    document
+        .getElementById(
+            "overlay"
+        )
+        ?.classList.add("show");
+
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById(
+            "cartSidebar"
+        )
+        ?.classList.remove("open");
+
+    document
+        .getElementById(
+            "overlay"
+        )
+        ?.classList.remove("show");
+
+}
+
+
+/* =========================================================
+   RENDER CART
+========================================================= */
+
+function renderCart() {
+
+    const container =
+        document.getElementById(
+            "cartItems"
+        );
+
+    if (!container) return;
+
+
+    if (!cart.length) {
+
+        container.innerHTML = `
+
+            <div class="empty-cart">
+
+                <div>🛒</div>
+
+                <h3>
+                    Your cart is empty
+                </h3>
+
+                <p>
+                    Add some products to get started.
+                </p>
+
+            </div>
+
+        `;
+
+        updateSummary(0);
+
+        return;
+    }
+
+
+    container.innerHTML =
+        cart.map(
+            item => {
+
+                const product =
+                    products.find(
+                        p =>
+                            p.id === item.id
+                    );
+
+                if (!product) {
+                    return "";
+                }
+
+
+                return `
+
+                    <div class="cart-item">
+
+                        <img
+                            src="${product.image}"
+                            alt="${escapeHTML(product.name)}"
+                        >
+
+
+                        <div class="cart-item-info">
+
+                            <h4>
+                                ${escapeHTML(product.name)}
+                            </h4>
+
+                            <strong>
+                                ₹${product.price.toLocaleString("en-IN")}
+                            </strong>
+
+
+                            <div class="quantity-controls">
+
+                                <button
+                                    type="button"
+                                    onclick="changeQuantity(${product.id}, -1)"
+                                >
+                                    −
+                                </button>
+
+                                <span>
+                                    ${item.quantity}
+                                </span>
+
+                                <button
+                                    type="button"
+                                    onclick="changeQuantity(${product.id}, 1)"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-item"
+                            onclick="removeFromCart(${product.id})"
+                        >
+                            ✕
+                        </button>
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+
+    const subtotal =
+        cart.reduce(
+            (total, item) => {
+
+                const product =
+                    products.find(
+                        p =>
+                            p.id === item.id
+                    );
+
+                if (!product) {
+                    return total;
+                }
+
+                return (
+                    total +
+                    product.price *
+                    item.quantity
+                );
+
+            },
+            0
+        );
+
+
+    updateSummary(subtotal);
+
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+function changeQuantity(
+    id,
+    change
+) {
+
+    const item =
+        cart.find(
+            item =>
+                item.id === id
+        );
+
+    if (!item) return;
+
+
+    item.quantity += change;
+
+
+    if (item.quantity <= 0) {
+
+        removeFromCart(id);
+
+        return;
+
+    }
+
+
+    saveCart();
+
+    renderCart();
+
+    updateCartCount();
+
+}
+
+
+function removeFromCart(id) {
+
+    cart =
+        cart.filter(
+            item =>
+                item.id !== id
+        );
+
+
+    saveCart();
+
+    renderCart();
+
+    updateCartCount();
+
+}
+
+
+function clearCart() {
+
+    cart = [];
+
+    couponDiscount = 0;
+
+    saveCart();
+
+    renderCart();
+
+    updateCartCount();
+
+    showToast(
+        "Cart cleared"
+    );
+
+}
+
+
+/* =========================================================
+   CART SUMMARY
+========================================================= */
+
+function updateSummary(
+    subtotal
+) {
+
+    const shipping =
+        subtotal === 0
+            ? 0
+            : subtotal >= 499
+                ? 0
+                : 49;
+
+
+    const discount =
+        Math.round(
+            subtotal *
+            couponDiscount
+        );
+
+
+    const total =
+        Math.max(
+            0,
+            subtotal +
+            shipping -
+            discount
+        );
+
+
+    const subtotalElement =
+        document.getElementById(
+            "subtotal"
+        );
+
+    const shippingElement =
+        document.getElementById(
+            "shipping"
+        );
+
+    const discountElement =
+        document.getElementById(
+            "discount"
+        );
+
+    const totalElement =
+        document.getElementById(
+            "cartTotal"
+        );
+
+
+    if (subtotalElement) {
+
+        subtotalElement.textContent =
+            `₹${subtotal.toLocaleString("en-IN")}`;
+
+    }
+
+
+    if (shippingElement) {
+
+        shippingElement.textContent =
+            shipping === 0
+                ? "FREE"
+                : `₹${shipping}`;
+
+    }
+
+
+    if (discountElement) {
+
+        discountElement.textContent =
+            `-₹${discount.toLocaleString("en-IN")}`;
+
+    }
+
+
+    if (totalElement) {
+
+        totalElement.textContent =
+            `₹${total.toLocaleString("en-IN")}`;
+
+    }
+
+
+    const discountRow =
+        document.getElementById(
+            "discountRow"
+        );
+
+
+    if (discountRow) {
+
+        discountRow.hidden =
+            discount === 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   COUPON
+========================================================= */
+
+function applyCoupon() {
+
+    const input =
+        document.getElementById(
+            "couponInput"
+        );
+
+    if (!input) return;
+
+
+    const code =
+        input.value
+            .trim()
+            .toUpperCase();
+
+
+    if (code === "WELCOME10") {
+
+        couponDiscount = 0.10;
+
+        showToast(
+            "10% discount applied 🎉"
+        );
+
+    } else {
+
+        couponDiscount = 0;
+
+        showToast(
+            "Invalid coupon code ❌"
+        );
+
+    }
+
+
+    renderCart();
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(id) {
+
+    const index =
+        wishlist.indexOf(id);
+
+
+    if (index >= 0) {
+
+        wishlist.splice(
+            index,
+            1
+        );
+
+        showToast(
+            "Removed from wishlist"
+        );
+
+    } else {
+
+        wishlist.push(id);
+
+        showToast(
+            "Added to wishlist ❤️"
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "lavkart_wishlist",
+        JSON.stringify(wishlist)
+    );
+
+
+    updateWishlistCount();
+
+    renderProducts();
+
+}
+
+
+function updateWishlistCount() {
+
+    const element =
+        document.getElementById(
+            "wishlistCount"
+        );
+
+    if (!element) return;
+
+    element.textContent =
+        wishlist.length;
+
+}
+
+
+function openWishlist() {
+
+    const modal =
+        document.getElementById(
+            "wishlistModal"
+        );
+
+    const container =
+        document.getElementById(
+            "wishlistItems"
+        );
+
+    if (!modal || !container) {
+        return;
+    }
+
+
+    const items =
+        products.filter(
+            product =>
+                wishlist.includes(
+                    product.id
+                )
+        );
+
+
+    if (!items.length) {
+
+        container.innerHTML = `
+
+            <div class="empty-products">
+
+                <div>❤️</div>
+
+                <h3>
+                    Your wishlist is empty
+                </h3>
+
+                <p>
+                    Save products you love here.
+                </p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        container.innerHTML =
+            items
+                .map(createProductCard)
+                .join("");
+
+    }
+
+
+    modal.classList.add(
+        "show"
+    );
+
+}
+
+
+function closeWishlist() {
+
+    document
+        .getElementById(
+            "wishlistModal"
+        )
+        ?.classList.remove(
+            "show"
+        );
+
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+========================================================= */
+
+function openProduct(id) {
+
+    const product =
+        products.find(
+            p => p.id === id
+        );
+
+    if (!product) return;
+
+
+    const modal =
+        document.getElementById(
+            "productModal"
+        );
+
+    const details =
+        document.getElementById(
+            "productDetails"
+        );
+
+    if (!modal || !details) {
+        return;
+    }
+
+
+    details.innerHTML = `
+
+        <div class="product-detail-grid">
+
+            <div>
+
+                <img
+                    class="product-detail-image"
+                    src="${product.image}"
+                    alt="${escapeHTML(product.name)}"
                 >
-                💵 Cash on Delivery
-            </label>
+
+            </div>
 
 
-            <label class="payment-option">
-                <input
-                    type="radio"
-                    name="payment"
-                    value="online"
+            <div class="product-detail-content">
+
+                <span class="product-badge">
+                    ${product.badge}
+                </span>
+
+
+                <p class="product-category">
+                    ${product.gender}
+                    ·
+                    ${product.category}
+                </p>
+
+
+                <h2>
+                    ${escapeHTML(product.name)}
+                </h2>
+
+
+                <div class="rating">
+                    ⭐ ${product.rating}
+                    (${product.reviews} reviews)
+                </div>
+
+
+                <div class="detail-price">
+
+                    ₹${product.price.toLocaleString("en-IN")}
+
+                    <del>
+                        ₹${product.oldPrice.toLocaleString("en-IN")}
+                    </del>
+
+                </div>
+
+
+                <p>
+                    Premium quality product from LavKart.
+                    Carefully selected for comfort,
+                    style, quality and everyday use.
+                </p>
+
+
+                <div class="detail-features">
+
+                    ✓ Quality checked<br>
+                    ✓ Fast delivery<br>
+                    ✓ Easy 7-day returns<br>
+                    ✓ Secure checkout<br>
+                    ✓ Multiple payment options
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-button large"
+                    onclick="addToCart(${product.id}); closeProductModal();"
                 >
-                💳 Online Payment
-            </label>
+                    🛒 Add to Cart
+                </button>
 
+            </div>
 
-            <button
-                class="place-order-button"
-                type="submit"
-            >
-                Place Order
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- ================= LOGIN ================= -->
-
-<div
-    id="authModal"
-    class="modal"
->
-
-    <div class="modal-box auth-box">
-
-        <button
-            class="modal-close"
-            onclick="closeLogin()"
-        >
-            ✕
-        </button>
-
-        <div class="auth-logo">
-            Lav<span>Kart</span>
         </div>
 
-        <h2 id="authTitle">
-            Welcome Back
-        </h2>
-
-        <p class="muted">
-            Login or create your account.
-        </p>
+    `;
 
 
-        <form onsubmit="handleAuth(event)">
+    modal.classList.add(
+        "show"
+    );
 
-            <div
-                id="nameGroup"
-                class="form-group"
-                hidden
-            >
+}
 
-                <label>Name</label>
-                <input id="authName">
+
+function closeProductModal() {
+
+    document
+        .getElementById(
+            "productModal"
+        )
+        ?.classList.remove(
+            "show"
+        );
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function openCheckout() {
+
+    if (!cart.length) {
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    closeCart();
+
+
+    const modal =
+        document.getElementById(
+            "checkoutModal"
+        );
+
+
+    if (modal) {
+
+        modal.classList.add(
+            "show"
+        );
+
+    }
+
+}
+
+
+function closeCheckout() {
+
+    document
+        .getElementById(
+            "checkoutModal"
+        )
+        ?.classList.remove(
+            "show"
+        );
+
+}
+
+
+function placeOrder(event) {
+
+    event.preventDefault();
+
+
+    if (!cart.length) {
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    const payment =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        );
+
+
+    const order = {
+
+        id:
+            "LK" +
+            Date.now()
+                .toString()
+                .slice(-8),
+
+        date:
+            new Date()
+                .toLocaleString(
+                    "en-IN"
+                ),
+
+        customer: {
+
+            firstName:
+                document.getElementById(
+                    "firstName"
+                ).value,
+
+            lastName:
+                document.getElementById(
+                    "lastName"
+                ).value,
+
+            email:
+                document.getElementById(
+                    "checkoutEmail"
+                ).value,
+
+            phone:
+                document.getElementById(
+                    "phone"
+                ).value,
+
+            address:
+                document.getElementById(
+                    "address"
+                ).value,
+
+            city:
+                document.getElementById(
+                    "city"
+                ).value,
+
+            pincode:
+                document.getElementById(
+                    "pincode"
+                ).value
+
+        },
+
+        payment:
+            payment
+                ? payment.value
+                : "cod",
+
+        items:
+            JSON.parse(
+                JSON.stringify(cart)
+            ),
+
+        status:
+            "Order Confirmed"
+
+    };
+
+
+    orders.unshift(order);
+
+
+    localStorage.setItem(
+        "lavkart_orders",
+        JSON.stringify(orders)
+    );
+
+
+    cart = [];
+
+    couponDiscount = 0;
+
+
+    saveCart();
+
+    updateCartCount();
+
+
+    document
+        .getElementById(
+            "checkoutForm"
+        )
+        ?.reset();
+
+
+    closeCheckout();
+
+
+    showToast(
+        `Order ${order.id} placed successfully 🎉`
+    );
+
+}
+
+
+/* =========================================================
+   ORDERS
+========================================================= */
+
+function openOrders() {
+
+    const modal =
+        document.getElementById(
+            "ordersModal"
+        );
+
+    const container =
+        document.getElementById(
+            "ordersList"
+        );
+
+    if (!modal || !container) {
+        return;
+    }
+
+
+    if (!orders.length) {
+
+        container.innerHTML = `
+
+            <div class="empty-products">
+
+                <div>📦</div>
+
+                <h3>
+                    No orders yet
+                </h3>
+
+                <p>
+                    Your orders will appear here.
+                </p>
 
             </div>
 
+        `;
 
-            <div class="form-group">
+    } else {
 
-                <label>Email</label>
+        container.innerHTML =
+            orders.map(
+                order => {
 
-                <input
-                    id="authEmail"
-                    type="email"
-                    required
-                >
+                    const total =
+                        order.items.reduce(
+                            (sum, item) => {
 
-            </div>
+                                const product =
+                                    products.find(
+                                        p =>
+                                            p.id ===
+                                            item.id
+                                    );
 
+                                if (!product) {
+                                    return sum;
+                                }
 
-            <div class="form-group">
+                                return (
+                                    sum +
+                                    product.price *
+                                    item.quantity
+                                );
 
-                <label>Password</label>
-
-                <input
-                    id="authPassword"
-                    type="password"
-                    minlength="6"
-                    required
-                >
-
-            </div>
-
-
-            <button
-                class="place-order-button"
-                id="authSubmit"
-                type="submit"
-            >
-                Login
-            </button>
-
-        </form>
+                            },
+                            0
+                        );
 
 
-        <button
-            class="switch-auth"
-            onclick="toggleAuthMode()"
-            id="switchAuth"
-        >
-            Create an account
-        </button>
+                    return `
 
-    </div>
+                        <div class="order-card">
 
-</div>
+                            <div>
 
+                                <strong>
+                                    ${order.id}
+                                </strong>
 
-<!-- ================= WISHLIST ================= -->
+                                <span>
+                                    ${order.date}
+                                </span>
 
-<div
-    id="wishlistModal"
-    class="modal"
->
-
-    <div class="modal-box wide">
-
-        <button
-            class="modal-close"
-            onclick="closeWishlist()"
-        >
-            ✕
-        </button>
-
-        <h2>My Wishlist ❤️</h2>
-
-        <div
-            id="wishlistItems"
-            class="product-grid"
-        ></div>
-
-    </div>
-
-</div>
+                            </div>
 
 
-<!-- ================= ORDERS ================= -->
+                            <div>
 
-<div
-    id="ordersModal"
-    class="modal"
->
+                                <strong>
+                                    ₹${total.toLocaleString("en-IN")}
+                                </strong>
 
-    <div class="modal-box wide">
+                                <span class="order-status">
+                                    ${order.status}
+                                </span>
 
-        <button
-            class="modal-close"
-            onclick="closeOrders()"
-        >
-            ✕
-        </button>
+                            </div>
 
-        <h2>My Orders</h2>
+                        </div>
 
-        <div id="ordersList"></div>
+                    `;
 
-    </div>
+                }
+            ).join("");
 
-</div>
+    }
 
 
-<div id="toast" class="toast"></div>
+    modal.classList.add(
+        "show"
+    );
+
+}
 
 
-<script src="script.js"></script>
+function closeOrders() {
 
-</body>
-</html>
+    document
+        .getElementById(
+            "ordersModal"
+        )
+        ?.classList.remove(
+            "show"
+        );
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function openLogin() {
+
+    document
+        .getElementById(
+            "authModal"
+        )
+        ?.classList.add(
+            "show"
+        );
+
+}
+
+
+function closeLogin() {
+
+    document
+        .getElementById(
+            "authModal"
+        )
+        ?.classList.remove(
+            "show"
+        );
+
+}
+
+
+function toggleAuthMode() {
+
+    registerMode =
+        !registerMode;
+
+
+    const title =
+        document.getElementById(
+            "authTitle"
+        );
+
+    const nameGroup =
+        document.getElementById(
+            "nameGroup"
+        );
+
+    const submit =
+        document.getElementById(
+            "authSubmit"
+        );
+
+    const switchButton =
+        document.getElementById(
+            "switchAuth"
+        );
+
+
+    if (
+        !title ||
+        !nameGroup ||
+        !submit ||
+        !switchButton
+    ) {
+        return;
+    }
+
+
+    if (registerMode) {
+
+        title.textContent =
+            "Create Your Account";
+
+        nameGroup.hidden =
+            false;
+
+        submit.textContent =
+            "Create Account";
+
+        switchButton.textContent =
+            "Already have an account? Login";
+
+    } else {
+
+        title.textContent =
+            "Welcome Back";
+
+        nameGroup.hidden =
+            true;
+
+        submit.textContent =
+            "Login";
+
+        switchButton.textContent =
+            "Create an account";
+
+    }
+
+}
+
+
+function handleAuth(event) {
+
+    event.preventDefault();
+
+
+    const emailElement =
+        document.getElementById(
+            "authEmail"
+        );
+
+    if (!emailElement) {
+        return;
+    }
+
+
+    const email =
+        emailElement.value
+            .trim();
+
+
+    if (!email) return;
+
+
+    localStorage.setItem(
+        "lavkart_user",
+        email
+    );
+
+
+    closeLogin();
+
+    restoreLogin();
+
+
+    showToast(
+        registerMode
+            ? "Account created successfully 🎉"
+            : "Welcome back 👋"
+    );
+
+}
+
+
+function restoreLogin() {
+
+    const user =
+        localStorage.getItem(
+            "lavkart_user"
+        );
+
+
+    const button =
+        document.getElementById(
+            "loginButton"
+        );
+
+
+    if (
+        button &&
+        user
+    ) {
+
+        button.textContent =
+            "✓ Logged In";
+
+    }
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleDarkMode() {
+
+    const enabled =
+        document.body.classList.toggle(
+            "dark"
+        );
+
+
+    localStorage.setItem(
+        "lavkart_dark",
+        enabled
+    );
+
+}
+
+
+function restoreDarkMode() {
+
+    if (
+        localStorage.getItem(
+            "lavkart_dark"
+        ) === "true"
+    ) {
+
+        document.body.classList.add(
+            "dark"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMobileMenu() {
+
+    const navbar =
+        document.getElementById(
+            "navbar"
+        );
+
+
+    if (!navbar) return;
+
+
+    navbar.classList.toggle(
+        "mobile-open"
+    );
+
+}
+
+
+/* Close mobile menu after clicking a nav link */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const target =
+            event.target;
+
+
+        if (
+            target.matches(
+                ".navbar a"
+            )
+        ) {
+
+            document
+                .getElementById(
+                    "navbar"
+                )
+                ?.classList.remove(
+                    "mobile-open"
+                );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE EVERYTHING
+========================================================= */
+
+function closeAll() {
+
+    closeCart();
+
+    closeProductModal();
+
+    closeCheckout();
+
+    closeLogin();
+
+    closeWishlist();
+
+    closeOrders();
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    if (!toast) return;
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            function() {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2500
+        );
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
