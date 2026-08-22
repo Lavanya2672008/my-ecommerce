@@ -3,1394 +3,426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrangeCart - Online Shopping</title>
 
-    <title>LavKart - Everything You Need</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #fffaf5;
-            color: #222;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            background: #ffffff;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-        }
-
-        .navbar {
-            max-width: 1250px;
-            margin: auto;
-            height: 75px;
-            padding: 0 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: #f97316;
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: #222;
-        }
-
-        nav {
-            display: flex;
-            gap: 28px;
-            align-items: center;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        nav a:hover {
-            color: #f97316;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .icon-btn {
-            border: none;
-            background: #fff7ed;
-            color: #333;
-            padding: 10px 13px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            position: relative;
-        }
-
-        .icon-btn:hover {
-            background: #ffedd5;
-        }
-
-        .count {
-            background: #f97316;
-            color: white;
-            font-size: 11px;
-            border-radius: 50%;
-            padding: 3px 6px;
-            position: absolute;
-            top: -5px;
-            right: -5px;
-        }
-
-        .login-btn {
-            border: none;
-            background: #f97316;
-            color: white;
-            padding: 11px 20px;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .login-btn:hover {
-            background: #ea580c;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            max-width: 1250px;
-            margin: 30px auto;
-            padding: 70px 55px;
-            border-radius: 25px;
-            background:
-                radial-gradient(circle at 90% 20%, rgba(249,115,22,.25), transparent 35%),
-                linear-gradient(135deg, #fff7ed, #ffedd5);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 650px;
-        }
-
-        .hero-tag {
-            color: #ea580c;
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            line-height: 1.1;
-            margin-bottom: 22px;
-            color: #171717;
-        }
-
-        .hero h1 span {
-            color: #f97316;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .primary-btn {
-            background: #f97316;
-            color: white;
-            padding: 14px 25px;
-            border-radius: 9px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-        }
-
-        .primary-btn:hover {
-            background: #ea580c;
-            transform: translateY(-1px);
-        }
-
-        .secondary-btn {
-            background: white;
-            color: #ea580c;
-            padding: 14px 25px;
-            border-radius: 9px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #fed7aa;
-        }
-
-        .secondary-btn:hover {
-            background: #fff7ed;
-        }
-
-        .hero-emoji {
-            font-size: 180px;
-            opacity: .9;
-        }
-
-        /* =========================
-           BENEFITS
-        ========================= */
-
-        .benefits {
-            max-width: 1250px;
-            margin: 20px auto 60px;
-            padding: 0 25px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .benefit {
-            background: white;
-            border: 1px solid #eee;
-            padding: 22px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .benefit-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            background: #fff7ed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-        }
-
-        .benefit h3 {
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
-
-        .benefit p {
-            font-size: 12px;
-            color: #777;
-        }
-
-        /* =========================
-           SECTION
-        ========================= */
-
-        .section {
-            max-width: 1250px;
-            margin: 0 auto 70px;
-            padding: 0 25px;
-        }
-
-        .section-label {
-            color: #f97316;
-            font-weight: 800;
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .section-title {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            color: #777;
-            margin-bottom: 28px;
-        }
-
-        /* =========================
-           CATEGORY CARDS
-        ========================= */
-
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
-        }
-
-        .category {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 15px;
-            padding: 25px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: .25s;
-        }
-
-        .category:hover {
-            transform: translateY(-5px);
-            border-color: #fdba74;
-            box-shadow: 0 10px 25px rgba(249,115,22,.12);
-        }
-
-        .category-icon {
-            font-size: 35px;
-            margin-bottom: 15px;
-        }
-
-        .category h3 {
-            margin-bottom: 8px;
-        }
-
-        .category p {
-            color: #888;
-            font-size: 13px;
-        }
-
-        /* =========================
-           PRODUCTS
-        ========================= */
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-        }
-
-        .product {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid #eee;
-            transition: .25s;
-        }
-
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,.08);
-        }
-
-        .product-image {
-            height: 220px;
-            background: #fff7ed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 85px;
-            position: relative;
-        }
-
-        .sale {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #f97316;
-            color: white;
-            padding: 5px 9px;
-            border-radius: 5px;
-            font-size: 11px;
-            font-weight: 700;
-        }
-
-        .product-info {
-            padding: 18px;
-        }
-
-        .product-category {
-            color: #999;
-            font-size: 12px;
-            margin-bottom: 7px;
-        }
-
-        .product h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .rating {
-            color: #f59e0b;
-            font-size: 13px;
-            margin-bottom: 12px;
-        }
-
-        .price-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .price {
-            font-size: 20px;
-            font-weight: 800;
-            color: #111;
-        }
-
-        .add-btn {
-            background: #f97316;
-            border: none;
-            color: white;
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 20px;
-        }
-
-        .add-btn:hover {
-            background: #ea580c;
-        }
-
-        /* =========================
-           DEAL BANNER
-        ========================= */
-
-        .deal {
-            max-width: 1250px;
-            margin: 0 auto 70px;
-            padding: 40px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #f97316, #fb923c);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .deal h2 {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .deal p {
-            opacity: .9;
-        }
-
-        .deal .primary-btn {
-            background: white;
-            color: #ea580c;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #171717;
-            color: white;
-            padding: 50px 25px 25px;
-        }
-
-        .footer-content {
-            max-width: 1250px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-logo {
-            font-size: 27px;
-            font-weight: 800;
-            color: #fb923c;
-            margin-bottom: 15px;
-        }
-
-        .footer-about {
-            color: #aaa;
-            line-height: 1.7;
-            max-width: 350px;
-        }
-
-        footer h3 {
-            margin-bottom: 15px;
-        }
-
-        footer a {
-            color: #aaa;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        footer a:hover {
-            color: #fb923c;
-        }
-
-        .copyright {
-            max-width: 1250px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #777;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        /* =========================
-           CART
-        ========================= */
-
-        .cart-panel {
-            position: fixed;
-            right: -400px;
-            top: 0;
-            width: 380px;
-            max-width: 90%;
-            height: 100vh;
-            background: white;
-            z-index: 2000;
-            box-shadow: -5px 0 25px rgba(0,0,0,.15);
-            transition: .3s;
-            padding: 25px;
-            overflow-y: auto;
-        }
-
-        .cart-panel.open {
-            right: 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .close-cart {
-            border: none;
-            background: #f5f5f5;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-item-icon {
-            width: 55px;
-            height: 55px;
-            background: #fff7ed;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-info h4 {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .cart-item-info p {
-            font-size: 13px;
-            color: #f97316;
-            font-weight: bold;
-        }
-
-        .remove-item {
-            border: none;
-            background: transparent;
-            color: #ef4444;
-            cursor: pointer;
-        }
-
-        .cart-total {
-            margin-top: 25px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            margin-top: 20px;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: #f97316;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,.4);
-            z-index: 1500;
-            display: none;
-        }
-
-        .overlay.show {
-            display: block;
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            nav {
-                display: none;
-            }
-
-            .hero {
-                margin: 15px;
-                padding: 45px 25px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .hero-emoji {
-                display: none;
-            }
-
-            .benefits {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .products {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            .navbar {
-                padding: 0 15px;
-            }
-
-            .logo {
-                font-size: 23px;
-            }
-
-            .header-actions .icon-btn {
-                padding: 8px;
-            }
-
-            .login-btn {
-                padding: 9px 13px;
-            }
-
-            .hero {
-                margin: 10px;
-                padding: 35px 20px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .hero-buttons a {
-                text-align: center;
-            }
-
-            .benefits {
-                grid-template-columns: 1fr;
-                padding: 0 15px;
-            }
-
-            .section {
-                padding: 0 15px;
-            }
-
-            .categories {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-
-            .category {
-                padding: 18px 10px;
-            }
-
-            .products {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-
-            .product-image {
-                height: 160px;
-                font-size: 60px;
-            }
-
-            .product-info {
-                padding: 12px;
-            }
-
-            .product h3 {
-                font-size: 14px;
-            }
-
-            .price {
-                font-size: 16px;
-            }
-
-            .deal {
-                margin: 0 15px 50px;
-                padding: 30px 20px;
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .deal h2 {
-                font-size: 25px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
-
-<header>
-    <div class="navbar">
-
-        <a href="#" class="logo">
-            Lav<span>Kart</span>
-        </a>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#products">Products</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="header-actions">
-
-            <button class="icon-btn" title="Wishlist">
-                ❤️
-                <span class="count" id="wishlistCount">0</span>
-            </button>
-
-            <button class="icon-btn" onclick="openCart()" title="Shopping Cart">
-                🛒
-                <span class="count" id="cartCount">0</span>
-            </button>
-
-            <button class="login-btn" onclick="login()">
-                Login
-            </button>
-
-        </div>
-
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div>🔥 Big Sale is Live — Up to 70% OFF</div>
+    <div class="top-links">
+        <span>Track Order</span>
+        <span>Help</span>
+        <span>Contact</span>
     </div>
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="hero-tag">
-            WELCOME TO LAVKART
-        </div>
-
-        <h1>
-            Everything You Need.
-            <span>All In One Place.</span>
-        </h1>
-
-        <p>
-            Discover fashion, electronics, shoes, accessories
-            and more at amazing prices.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#products" class="primary-btn">
-                Shop Now →
-            </a>
-
-            <a href="#categories" class="secondary-btn">
-                Explore Categories
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="hero-emoji">
-        🛍️
-    </div>
-
-</section>
-
-
-<!-- =========================
-     BENEFITS
-========================= -->
-
-<div class="benefits">
-
-    <div class="benefit">
-        <div class="benefit-icon">🚚</div>
-        <div>
-            <h3>Free Shipping</h3>
-            <p>On orders above ₹999</p>
-        </div>
-    </div>
-
-    <div class="benefit">
-        <div class="benefit-icon">🔒</div>
-        <div>
-            <h3>Secure Shopping</h3>
-            <p>100% secure payments</p>
-        </div>
-    </div>
-
-    <div class="benefit">
-        <div class="benefit-icon">↩️</div>
-        <div>
-            <h3>Easy Returns</h3>
-            <p>7-day easy returns</p>
-        </div>
-    </div>
-
-    <div class="benefit">
-        <div class="benefit-icon">⭐</div>
-        <div>
-            <h3>Top Rated</h3>
-            <p>Trusted by customers</p>
-        </div>
-    </div>
-
 </div>
 
-
-<!-- =========================
-     CATEGORIES
-========================= -->
-
-<section class="section" id="categories">
-
-    <div class="section-label">
-        SHOP BY CATEGORY
-    </div>
-
-    <h2 class="section-title">
-        Popular Categories
-    </h2>
-
-    <p class="section-subtitle">
-        Find exactly what you're looking for.
-    </p>
-
-    <div class="categories">
-
-        <div class="category">
-            <div class="category-icon">🛍️</div>
-            <h3>All Products</h3>
-            <p>View everything</p>
-        </div>
-
-        <div class="category">
-            <div class="category-icon">👕</div>
-            <h3>Fashion</h3>
-            <p>Clothing & style</p>
-        </div>
-
-        <div class="category">
-            <div class="category-icon">📱</div>
-            <h3>Electronics</h3>
-            <p>Latest gadgets</p>
-        </div>
-
-        <div class="category">
-            <div class="category-icon">👟</div>
-            <h3>Shoes</h3>
-            <p>Walk in style</p>
-        </div>
-
-        <div class="category">
-            <div class="category-icon">⌚</div>
-            <h3>Accessories</h3>
-            <p>Complete your look</p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PRODUCTS
-========================= -->
-
-<section class="section" id="products">
-
-    <div class="section-label">
-        TRENDING NOW
-    </div>
-
-    <h2 class="section-title">
-        Featured Products
-    </h2>
-
-    <p class="section-subtitle">
-        Check out our most popular products.
-    </p>
-
-    <div class="products">
-
-        <div class="product">
-
-            <div class="product-image">
-                <span class="sale">SALE</span>
-                👕
-            </div>
-
-            <div class="product-info">
-                <div class="product-category">Fashion</div>
-
-                <h3>Premium Cotton T-Shirt</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐ (128)
-                </div>
-
-                <div class="price-row">
-                    <div class="price">₹699</div>
-
-                    <button class="add-btn"
-                            onclick="addToCart('Premium Cotton T-Shirt', 699, '👕')">
-                        +
-                    </button>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="product">
-
-            <div class="product-image">
-                <span class="sale">SALE</span>
-                🎧
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-category">
-                    Electronics
-                </div>
-
-                <h3>Wireless Headphones</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐ (96)
-                </div>
-
-                <div class="price-row">
-
-                    <div class="price">
-                        ₹1,499
-                    </div>
-
-                    <button class="add-btn"
-                            onclick="addToCart('Wireless Headphones', 1499, '🎧')">
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="product">
-
-            <div class="product-image">
-                👟
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-category">
-                    Shoes
-                </div>
-
-                <h3>Comfort Running Shoes</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐ (214)
-                </div>
-
-                <div class="price-row">
-
-                    <div class="price">
-                        ₹2,199
-                    </div>
-
-                    <button class="add-btn"
-                            onclick="addToCart('Comfort Running Shoes', 2199, '👟')">
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="product">
-
-            <div class="product-image">
-                <span class="sale">SALE</span>
-                ⌚
-            </div>
-
-            <div class="product-info">
-
-                <div class="product-category">
-                    Accessories
-                </div>
-
-                <h3>Smart Fitness Watch</h3>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐ (175)
-                </div>
-
-                <div class="price-row">
-
-                    <div class="price">
-                        ₹2,999
-                    </div>
-
-                    <button class="add-btn"
-                            onclick="addToCart('Smart Fitness Watch', 2999, '⌚')">
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     DEAL
-========================= -->
-
-<div class="deal">
-
-    <div>
-        <h2>🔥 Big Deals Are Here!</h2>
-        <p>Save up to 50% on selected products.</p>
-    </div>
-
-    <a href="#products" class="primary-btn">
-        Shop Deals
-    </a>
-
-</div>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="section" id="about">
-
-    <div class="section-label">
-        ABOUT LAVKART
-    </div>
-
-    <h2 class="section-title">
-        Shopping Made Simple
-    </h2>
-
-    <p class="section-subtitle">
-        LavKart brings fashion, electronics, shoes and accessories
-        together in one convenient place.
-    </p>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer id="contact">
-
-    <div class="footer-content">
-
+<!-- HEADER -->
+<header class="header">
+
+    <div class="logo">
+        <div class="logo-icon">🛒</div>
         <div>
-
-            <div class="footer-logo">
-                LavKart
-            </div>
-
-            <p class="footer-about">
-                Everything you need, all in one place.
-                Shop quality products at amazing prices.
-            </p>
-
+            <strong>Orange<span>Cart</span></strong>
+            <small>Shop Smart. Live Better.</small>
         </div>
-
-        <div>
-
-            <h3>Shop</h3>
-
-            <a href="#products">All Products</a>
-            <a href="#categories">Fashion</a>
-            <a href="#categories">Electronics</a>
-            <a href="#categories">Shoes</a>
-
-        </div>
-
-        <div>
-
-            <h3>Help</h3>
-
-            <a href="#">Customer Support</a>
-            <a href="#">Shipping</a>
-            <a href="#">Returns</a>
-            <a href="#">FAQs</a>
-
-        </div>
-
-        <div>
-
-            <h3>Contact</h3>
-
-            <a href="mailto:support@lavkart.com">
-                support@lavkart.com
-            </a>
-
-            <a href="#">
-                📍 India
-            </a>
-
-        </div>
-
     </div>
 
-    <div class="copyright">
-        © 2026 LavKart. All rights reserved.
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for products, brands and more..."
+        >
+        <button onclick="searchProducts()">🔍</button>
     </div>
 
-</footer>
+    <div class="header-actions">
 
+        <button class="header-btn">
+            👤
+            <span>Account</span>
+        </button>
 
-<!-- =========================
-     CART
-========================= -->
+        <button class="header-btn">
+            ❤️
+            <span>Wishlist</span>
+        </button>
 
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-
-<div class="cart-panel" id="cartPanel">
-
-    <div class="cart-header">
-
-        <h2>
-            🛒 Your Cart
-        </h2>
-
-        <button class="close-cart" onclick="closeCart()">
-            ✕
+        <button class="cart-button" onclick="openCart()">
+            🛒
+            <span>Cart</span>
+            <b id="cartCount">0</b>
         </button>
 
     </div>
 
-    <div id="cartItems">
+</header>
 
-        <p style="color:#777;">
-            Your cart is empty.
-        </p>
+<!-- NAVIGATION -->
+<nav class="navigation">
+
+    <div class="nav-inner">
+
+        <button onclick="filterProducts('all')" class="nav-item active">
+            🏠 All
+        </button>
+
+        <button onclick="filterProducts('electronics')" class="nav-item">
+            📱 Electronics
+        </button>
+
+        <button onclick="filterProducts('fashion')" class="nav-item">
+            👕 Fashion
+        </button>
+
+        <button onclick="filterProducts('shoes')" class="nav-item">
+            👟 Shoes
+        </button>
+
+        <button onclick="filterProducts('home')" class="nav-item">
+            🏠 Home
+        </button>
+
+        <button onclick="filterProducts('beauty')" class="nav-item">
+            💄 Beauty
+        </button>
+
+        <button onclick="filterProducts('gaming')" class="nav-item">
+            🎮 Gaming
+        </button>
+
+        <button onclick="filterProducts('accessories')" class="nav-item">
+            🎒 Accessories
+        </button>
+
+        <button onclick="filterProducts('deals')" class="nav-item deal-nav">
+            🔥 Today's Deals
+        </button>
 
     </div>
 
-    <div class="cart-total">
+</nav>
 
-        <span>Total</span>
+<!-- HERO -->
+<section class="hero">
 
-        <span id="cartTotal">
-            ₹0
-        </span>
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <span class="hero-badge">🔥 MEGA SHOPPING FESTIVAL</span>
+
+            <h1>
+                Everything You Love.
+                <span>All in One Place.</span>
+            </h1>
+
+            <p>
+                Discover amazing products, unbeatable prices and
+                exclusive deals delivered right to your doorstep.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" onclick="scrollToProducts()">
+                    Shop Now →
+                </button>
+
+                <button class="secondary-btn" onclick="filterProducts('deals')">
+                    🔥 View Deals
+                </button>
+            </div>
+
+            <div class="hero-features">
+
+                <div>
+                    <strong>🚚 Free Delivery</strong>
+                    <small>On orders over ₹499</small>
+                </div>
+
+                <div>
+                    <strong>🔄 Easy Returns</strong>
+                    <small>7-day return policy</small>
+                </div>
+
+                <div>
+                    <strong>🔒 Secure Payment</strong>
+                    <small>100% secure checkout</small>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="hero-circle"></div>
+
+            <img
+                src="https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=900&q=85"
+                alt="Shopping"
+            >
+
+            <div class="floating-offer">
+                <strong>70%</strong>
+                <span>OFF</span>
+            </div>
+
+        </div>
 
     </div>
 
-    <button class="checkout-btn" onclick="checkout()">
-        Proceed to Checkout
+</section>
+
+<!-- CATEGORY CARDS -->
+<section class="categories-section">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-label">EXPLORE</span>
+            <h2>Shop by Category</h2>
+        </div>
+
+        <button onclick="filterProducts('all')" class="view-all">
+            View All →
+        </button>
+
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card" onclick="filterProducts('electronics')">
+            <div class="category-icon orange">📱</div>
+            <h3>Electronics</h3>
+            <p>120+ Products</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('fashion')">
+            <div class="category-icon purple">👕</div>
+            <h3>Fashion</h3>
+            <p>250+ Products</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('shoes')">
+            <div class="category-icon blue">👟</div>
+            <h3>Footwear</h3>
+            <p>180+ Products</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('home')">
+            <div class="category-icon green">🏠</div>
+            <h3>Home & Living</h3>
+            <p>300+ Products</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('beauty')">
+            <div class="category-icon pink">💄</div>
+            <h3>Beauty</h3>
+            <p>150+ Products</p>
+        </div>
+
+        <div class="category-card" onclick="filterProducts('gaming')">
+            <div class="category-icon dark">🎮</div>
+            <h3>Gaming</h3>
+            <p>90+ Products</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DEAL BANNER -->
+<section class="deal-banner">
+
+    <div>
+        <span>LIMITED TIME OFFER</span>
+        <h2>🔥 Mega Deals Are Here!</h2>
+        <p>Save big on your favourite products today.</p>
+    </div>
+
+    <div class="deal-discount">
+        <strong>UP TO</strong>
+        <b>70%</b>
+        <span>OFF</span>
+    </div>
+
+    <button onclick="filterProducts('deals')">
+        Shop Deals →
     </button>
+
+</section>
+
+<!-- PRODUCTS -->
+<main class="products-section" id="products">
+
+    <div class="section-heading">
+
+        <div>
+            <span class="section-label">OUR COLLECTION</span>
+            <h2 id="productHeading">Trending Products</h2>
+        </div>
+
+        <div class="sort-box">
+            <select id="sortSelect" onchange="sortProducts()">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div id="productGrid" class="product-grid"></div>
+
+</main>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+
+    <div>
+        <span>STAY UPDATED</span>
+        <h2>Get the Best Deals in Your Inbox</h2>
+        <p>Subscribe and receive exclusive offers and discounts.</p>
+    </div>
+
+    <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address">
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-main">
+
+        <div class="footer-about">
+
+            <div class="footer-logo">
+                🛒 <strong>Orange<span>Cart</span></strong>
+            </div>
+
+            <p>
+                Your one-stop destination for electronics,
+                fashion, home essentials and much more.
+            </p>
+
+            <div class="socials">
+                <span>f</span>
+                <span>𝕏</span>
+                <span>◎</span>
+                <span>▶</span>
+            </div>
+
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+        </div>
+
+        <div>
+            <h3>Customer Service</h3>
+            <a href="#">Help Center</a>
+            <a href="#">Track Order</a>
+            <a href="#">Returns</a>
+            <a href="#">Shipping Info</a>
+        </div>
+
+        <div>
+            <h3>Policies</h3>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Security</a>
+        </div>
+
+        <div>
+            <h3>Contact Us</h3>
+            <p>📍 India</p>
+            <p>📞 +91 98765 43210</p>
+            <p>✉️ support@orangecart.com</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 OrangeCart. All Rights Reserved.
+    </div>
+
+</footer>
+
+<!-- CART OVERLAY -->
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+<!-- CART -->
+<aside id="cartPanel" class="cart-panel">
+
+    <div class="cart-header">
+
+        <h2>🛒 Your Cart</h2>
+
+        <button onclick="closeCart()">✕</button>
+
+    </div>
+
+    <div id="cartItems" class="cart-items">
+
+        <div class="empty-cart">
+            <div>🛒</div>
+            <h3>Your cart is empty</h3>
+            <p>Add some amazing products!</p>
+        </div>
+
+    </div>
+
+    <div class="cart-footer">
+
+        <div class="subtotal">
+            <span>Subtotal</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <button class="checkout-btn" onclick="checkout()">
+            Proceed to Checkout →
+        </button>
+
+    </div>
+
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="modal-close" onclick="closeProductModal()">✕</button>
+
+        <div id="modalProduct"></div>
+
+    </div>
 
 </div>
 
+<!-- TOAST -->
+<div id="toast" class="toast">
+    Product added to cart 🛒
+</div>
 
-<script>
-
-    let cart = [];
-
-    function addToCart(name, price, icon) {
-
-        cart.push({
-            name: name,
-            price: price,
-            icon: icon
-        });
-
-        updateCart();
-
-        alert(name + " added to cart!");
-    }
-
-
-    function updateCart() {
-
-        const cartCount =
-            document.getElementById("cartCount");
-
-        const cartItems =
-            document.getElementById("cartItems");
-
-        const cartTotal =
-            document.getElementById("cartTotal");
-
-
-        cartCount.textContent = cart.length;
-
-
-        if (cart.length === 0) {
-
-            cartItems.innerHTML =
-                '<p style="color:#777;">Your cart is empty.</p>';
-
-            cartTotal.textContent = "₹0";
-
-            return;
-        }
-
-
-        let total = 0;
-
-
-        cartItems.innerHTML = cart.map((item, index) => {
-
-            total += item.price;
-
-            return `
-                <div class="cart-item">
-
-                    <div class="cart-item-icon">
-                        ${item.icon}
-                    </div>
-
-                    <div class="cart-item-info">
-
-                        <h4>
-                            ${item.name}
-                        </h4>
-
-                        <p>
-                            ₹${item.price.toLocaleString("en-IN")}
-                        </p>
-
-                    </div>
-
-                    <button
-                        class="remove-item"
-                        onclick="removeFromCart(${index})">
-                        ✕
-                    </button>
-
-                </div>
-            `;
-
-        }).join("");
-
-
-        cartTotal.textContent =
-            "₹" + total.toLocaleString("en-IN");
-    }
-
-
-    function removeFromCart(index) {
-
-        cart.splice(index, 1);
-
-        updateCart();
-    }
-
-
-    function openCart() {
-
-        document
-            .getElementById("cartPanel")
-            .classList.add("open");
-
-        document
-            .getElementById("overlay")
-            .classList.add("show");
-    }
-
-
-    function closeCart() {
-
-        document
-            .getElementById("cartPanel")
-            .classList.remove("open");
-
-        document
-            .getElementById("overlay")
-            .classList.remove("show");
-    }
-
-
-    function checkout() {
-
-        if (cart.length === 0) {
-
-            alert("Your cart is empty.");
-
-            return;
-        }
-
-        alert(
-            "Checkout feature will be connected next!"
-        );
-    }
-
-
-    function login() {
-
-        alert(
-            "Login feature will be connected next!"
-        );
-    }
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
